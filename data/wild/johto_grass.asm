@@ -1597,20 +1597,20 @@
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_38
-	db 13 percent, 13 percent, 13 percent ; encounter rates: morn/day/nite
+	db 14 percent, 14 percent, 14 percent ; encounter rates: morn/day/nite
 	; morn
 	wildmon 29, RATTATA
 	wildmon 30, RATICATE
 	wildmon 29, MAGNEMITE
-	wildmon 30, PIDGEOTTO
+	wildmon 31, PIDGEOTTO
 	wildmon 29, TAUROS
-	wildmon 31, MILTANK
-	wildmon 30, MILTANK
+	wildmon 29, MILTANK
+	wildmon 29, MILTANK
 	; day
 	wildmon 29, RATTATA
 	wildmon 30, RATICATE
 	wildmon 29, MAGNEMITE
-	wildmon 30, PIDGEOTTO
+	wildmon 31, PIDGEOTTO
 	wildmon 29, TAUROS
 	wildmon 30, MILTANK
 	wildmon 30, MILTANK
