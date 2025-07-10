@@ -3,15 +3,15 @@
 
 	db WATER, WATER ; type
 	db 255 ; catch rate
-	db 20 ; base exp
+	db 50 ; base exp
 	db NO_ITEM, NO_ITEM ; held items
-	dn GENDER_F50, HATCH_FASTEST ; gender ratio, step cycles to hatch
+	dn GENDER_F25, HATCH_FASTEST ; gender ratio, step cycles to hatch
 
 	abilities_for MAGIKARP, SWIFT_SWIM, SWIFT_SWIM, RATTLED
 	db GROWTH_SLOW ; growth rate
 	dn EGG_WATER_2, EGG_DRAGON ; egg groups
 
-	ev_yield 1 Spe
+	ev_yield 2 spe 
 
 	; tm/hm learnset
 	tmhm
