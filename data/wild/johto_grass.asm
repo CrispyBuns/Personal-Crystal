@@ -2220,7 +2220,7 @@
 	wildmon 32, GRAVELER
 	wildmon 32, SKARMORY
 	wildmon 29, SKARMORY
-	wildmon 30 GROWLITHE, HISUIAN_FORM
+	wildmon 30, GROWLITHE, HISUIAN_FORM
 	wildmon 30, GROWLITHE, HISUIAN_FORM
 	; day
 	wildmon 31, GEODUDE
@@ -2228,7 +2228,7 @@
 	wildmon 32, GRAVELER
 	wildmon 32, SKARMORY
 	wildmon 29, SKARMORY
-	wildmon 30 GROWLITHE, HISUIAN_FORM
+	wildmon 30, GROWLITHE, HISUIAN_FORM
 	wildmon 30, GROWLITHE, HISUIAN_FORM
 	; nite
 	wildmon 31, GEODUDE
