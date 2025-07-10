@@ -2213,7 +2213,7 @@
 	end_grass_wildmons
 
 	def_grass_wildmons RUGGED_ROAD_SOUTH
-	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	db 13 percent, 13 percent, 13 percent ; encounter rates: morn/day/nite
 	; morn
 	wildmon 31, GEODUDE
 	wildmon 30, GROWLITHE, HISUIAN_FORM
