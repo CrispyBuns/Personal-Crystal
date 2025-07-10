@@ -184,9 +184,9 @@
 
 	def_water_wildmons ROUTE_41
 	db 3 percent ; encounter rate
-	wildmon 20, TENTACOOL
-	wildmon 20, MANTINE
-	wildmon 20, REMORAID
+	wildmon 20, MAGIKARP
+	wildmon 20, MAGIKARP
+	wildmon 20, MAGIKARP
 	end_water_wildmons
 
 	def_water_wildmons ROUTE_42
