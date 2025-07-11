@@ -47,7 +47,7 @@ Pokémon Polished Crystal would never have been finished without the help of man
 
 
 ## Graphics
-
+* "Rookie Hacker Nala" from the Polished Crystal Discord for making the custom title graphics.
 * Blue Emerald, solo993, Chamber, Lake, Neslug, and Pikachu25 for many sprites and icons.
 * ShadowOne333, Mia, and Quichless for Paldean Pokémon sprites and animations.
 * metalflygon08 for the many Pokémon and trainer sprites.

@@ -731,29 +731,29 @@
 	def_grass_wildmons MOUNT_MORTAR_1F_INSIDE
 	db 4 percent, 4 percent, 4 percent ; encounter rates: morn/day/nite
 	; morn
-	wildmon 21, GEODUDE
-	wildmon 23, MACHOP
-	wildmon 23, ZUBAT
-	wildmon 22, RATICATE
-	wildmon 20, CUBONE
-	wildmon 25, GOLBAT
-	wildmon 25, GOLBAT
+	wildmon 29, GEODUDE
+	wildmon 28, MACHOP
+	wildmon 29, ZUBAT
+	wildmon 31, RATICATE
+	wildmon 29, CUBONE
+	wildmon 30, GOLBAT
+	wildmon 30, GOLBAT
 	; day
-	wildmon 21, GEODUDE
-	wildmon 23, MACHOP
-	wildmon 23, ZUBAT
-	wildmon 22, RATICATE
-	wildmon 20, CUBONE
-	wildmon 25, GOLBAT
-	wildmon 25, GOLBAT
+	wildmon 29, GEODUDE
+        wildmon 28, MACHOP
+        wildmon 29, ZUBAT
+        wildmon 31, RATICATE
+        wildmon 29, CUBONE
+        wildmon 30, GOLBAT
+        wildmon 30, GOLBAT
 	; nite
-	wildmon 21, GEODUDE
-	wildmon 23, MARILL
-	wildmon 22, ZUBAT
-	wildmon 23, RATICATE
-	wildmon 20, CUBONE
-	wildmon 25, GOLBAT
-	wildmon 25, GOLBAT
+	wildmon 29, GEODUDE
+	wildmon 28, MARILL
+	wildmon 29, ZUBAT
+	wildmon 31, RATICATE
+	wildmon 29, CUBONE
+	wildmon 30, GOLBAT
+	wildmon 30, GOLBAT
 	end_grass_wildmons
 
 	def_grass_wildmons MOUNT_MORTAR_2F_INSIDE
@@ -1655,29 +1655,29 @@
 	def_grass_wildmons ROUTE_42
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	wildmon 20, EKANS, ARBOK_JOHTO_FORM
-	wildmon 22, MANKEY
-	wildmon 22, RATTATA
-	wildmon 23, RATICATE
-	wildmon 21, SPEAROW
-	wildmon 24, ARBOK, ARBOK_JOHTO_FORM
-	wildmon 24, PRIMEAPE
+	wildmon 30, EKANS, ARBOK_JOHTO_FORM
+	wildmon 28, MANKEY
+	wildmon 29, RATTATA
+	wildmon 32, RATICATE
+	wildmon 29, SPEAROW
+	wildmon 31, ARBOK, ARBOK_JOHTO_FORM
+	wildmon 30, PRIMEAPE
 	; day
-	wildmon 20, EKANS, ARBOK_JOHTO_FORM
-	wildmon 22, MANKEY
-	wildmon 22, RATTATA
-	wildmon 23, RATICATE
-	wildmon 21, SPEAROW
-	wildmon 24, ARBOK, ARBOK_JOHTO_FORM
-	wildmon 24, PRIMEAPE
+	wildmon 30, EKANS, ARBOK_JOHTO_FORM
+	wildmon 28, MANKEY
+	wildmon 29, RATTATA
+	wildmon 32, RATICATE
+	wildmon 29, SPEAROW
+	wildmon 31, ARBOK, ARBOK_JOHTO_FORM
+	wildmon 30, PRIMEAPE
 	; nite
-	wildmon 20, RATTATA
-	wildmon 22, ZUBAT
-	wildmon 22, RATICATE
-	wildmon 23, GOLBAT
-	wildmon 21, MARILL
-	wildmon 24, GLIGAR
-	wildmon 24, GLIGAR
+	wildmon 29, RATTATA
+	wildmon 29, ZUBAT
+	wildmon 31, RATICATE
+	wildmon 31, GOLBAT
+	wildmon 29, MARILL
+	wildmon 30, GLIGAR
+	wildmon 30, GLIGAR
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_43
@@ -2241,31 +2241,31 @@
 	end_grass_wildmons
 
 	def_grass_wildmons SNOWTOP_MOUNTAIN_INSIDE
-	db 8 percent, 8 percent, 8 percent ; encounter rates: morn/day/nite
+	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	wildmon LEVEL_FROM_BADGES - 2, SWINUB
-	wildmon LEVEL_FROM_BADGES + 1, SWINUB
-	wildmon LEVEL_FROM_BADGES - 1, MR__MIME, GALARIAN_FORM
-	wildmon LEVEL_FROM_BADGES - 1, DELIBIRD
-	wildmon LEVEL_FROM_BADGES + 0, STANTLER
-	wildmon LEVEL_FROM_BADGES + 1, SNEASEL, HISUIAN_FORM
-	wildmon LEVEL_FROM_BADGES + 3, SNEASEL, HISUIAN_FORM
+	wildmon 29, SWINUB
+	wildmon 29, SWINUB
+	wildmon 28, MR__MIME, GALARIAN_FORM
+	wildmon 28, DELIBIRD
+	wildmon 30, STANTLER
+	wildmon 29, SNEASEL, HISUIAN_FORM
+	wildmon 29, SNEASEL, HISUIAN_FORM
 	; day
-	wildmon LEVEL_FROM_BADGES - 2, SWINUB
-	wildmon LEVEL_FROM_BADGES + 1, SWINUB
-	wildmon LEVEL_FROM_BADGES - 1, MR__MIME, GALARIAN_FORM
-	wildmon LEVEL_FROM_BADGES - 1, DELIBIRD
-	wildmon LEVEL_FROM_BADGES + 0, STANTLER
-	wildmon LEVEL_FROM_BADGES + 1, SNEASEL, HISUIAN_FORM
-	wildmon LEVEL_FROM_BADGES + 3, SNEASEL, HISUIAN_FORM
+	wildmon 30, SWINUB
+	wildmon 30, SWINUB
+	wildmon 29, MR__MIME, GALARIAN_FORM
+	wildmon 30, DELIBIRD
+	wildmon 29, STANTLER
+	wildmon 30, SNEASEL, HISUIAN_FORM
+	wildmon 30, SNEASEL, HISUIAN_FORM
 	; nite
-	wildmon LEVEL_FROM_BADGES - 2, SWINUB
-	wildmon LEVEL_FROM_BADGES + 1, SWINUB
-	wildmon LEVEL_FROM_BADGES - 1, MR__MIME, GALARIAN_FORM
-	wildmon LEVEL_FROM_BADGES - 1, DELIBIRD
-	wildmon LEVEL_FROM_BADGES + 0, STANTLER
-	wildmon LEVEL_FROM_BADGES + 1, SNEASEL, HISUIAN_FORM
-	wildmon LEVEL_FROM_BADGES + 3, SNEASEL, HISUIAN_FORM
+	wildmon 30, SWINUB
+	wildmon 30, SWINUB
+	wildmon 29, MR__MIME, GALARIAN_FORM
+	wildmon 30, DELIBIRD
+	wildmon 29, STANTLER
+	wildmon 30, SNEASEL, HISUIAN_FORM
+	wildmon 30, SNEASEL, HISUIAN_FORM
 	end_grass_wildmons
 
 	db -1 ; end
