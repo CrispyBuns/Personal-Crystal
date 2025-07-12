@@ -191,8 +191,8 @@
 
 	def_water_wildmons ROUTE_42
 	db 4 percent ; encounter rate
-	wildmon 20, GOLDEEN
-	wildmon 20, GOLDEEN
+	wildmon 31, DRAGONAIR
+	wildmon 31, DRAGONAIR
 	wildmon 20, SEAKING
 	end_water_wildmons
 
