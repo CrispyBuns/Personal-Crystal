@@ -120,6 +120,7 @@ bsp: $(ROM_NAME).bsp
 huffman: crystal
 
 
+
 rgbdscheck.o: rgbdscheck.asm
 	$Q$(RGBDS)rgbasm -o $@ $<
 
