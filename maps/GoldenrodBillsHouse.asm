@@ -45,9 +45,9 @@ BillsGrandpa:
 	iftrue .ShowedStaryu
 	checkevent EVENT_SHOWED_BELLSPROUT_TO_BILLS_GRANDPA
 	iftrue .ShowedBellsprout
-	checkevent EVENT_SHOWED_SNUBBULL_TO_BILLS_GRANDPA
+	checkevent EVENT_SHOWED_QUILAVA_TO_BILLS_GRANDPA
 	iftrue .ShowedSnubbull
-	writetext BillsGrandpaSnubbullText
+	writetext BillsGrandpaQuilavaText
 	promptbutton
 	writetext BillsGrandpaAskToSeeMonText
 	yesorno
@@ -384,13 +384,13 @@ BillsGrandpaShownAllThePokemonText:
 	line "long life."
 	done
 
-BillsGrandpaSnubbullText:
+BillsGrandpaQuilavaText:
 	text "My grandson Bill"
 	line "told me about a"
 
-	para "short, pink canine"
-	line "#mon with blue"
-	cont "polka dots."
+	para "cool looking,"
+	line "#mon with a"
+    para "fiery mohawk"
 	done
 
 BillsGrandpaTogepiText:
