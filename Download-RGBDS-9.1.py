@@ -27,4 +27,11 @@ with zipfile.ZipFile(zip_filename, 'r') as zip_ref:
             extracted_path = zip_ref.extract(file_info, extract_folder)
             print(f"Extracted: {file_info.filename} -> {extracted_path}")
 
+# Step 3: Delete the ZIP file
+try:
+    os.remove(zip_filename)
+    print(f"Deleted ZIP file: {zip_filename}")
+except OSError as e:
+    print(f"Error deleting ZIP file: {e}")
+
 print(f"Done. .exe files extracted to ./{extract_folder}")
