@@ -1348,58 +1348,58 @@
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	wildmon 2, PIDGEY
-	wildmon 2, PIDGEY
+	wildmon 2, SENTRET
 	wildmon 3, PIDGEY
 	wildmon 3, SENTRET
-	wildmon 2, PIDGEY
+	wildmon 2, RATTATA
 	wildmon 3, HOPPIP
-	wildmon 3, PIDGEY
+	wildmon 3, HOPPIP
 	; day
 	wildmon 2, PIDGEY
-	wildmon 2, PIDGEY
+	wildmon 2, SENTRET
 	wildmon 3, PIDGEY
 	wildmon 3, SENTRET
 	wildmon 2, RATTATA
 	wildmon 3, HOPPIP
-	wildmon 3, PIDGEY
+	wildmon 3, HOPPIP
 	; nite
-	wildmon 2, PIDGEY
+	wildmon 2, HOOTHOOT
 	wildmon 2, RATTATA
-	wildmon 3, PIDGEY
+	wildmon 3, HOOTHOOT
 	wildmon 3, RATTATA
 	wildmon 2, RATTATA
-	wildmon 3, PIDGEY
-	wildmon 3, PIDGEY
+	wildmon 3, HOOTHOOT
+	wildmon 3, HOOTHOOT
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_30
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
-		; morn
-	wildmon 2, PIDGEY
-	wildmon 2, PIDGEY
-	wildmon 3, PIDGEY
-	wildmon 3, SENTRET
-	wildmon 2, PIDGEY
-	wildmon 3, HOPPIP
-	wildmon 3, PIDGEY
+	; morn
+	wildmon 3, LEDYBA
+	wildmon 3, CATERPIE
+	wildmon 4, CATERPIE
+	wildmon 4, PIDGEY
+	wildmon 3, WEEDLE
+	wildmon 4, HOPPIP
+	wildmon 4, HOPPIP
 	; day
-	wildmon 2, PIDGEY
-	wildmon 2, PIDGEY
 	wildmon 3, PIDGEY
-	wildmon 3, SENTRET
-	wildmon 2, RATTATA
-	wildmon 3, HOPPIP
-	wildmon 3, PIDGEY
+	wildmon 3, CATERPIE
+	wildmon 4, CATERPIE
+	wildmon 4, PIDGEY
+	wildmon 3, WEEDLE
+	wildmon 4, HOPPIP
+	wildmon 4, HOPPIP
 	; nite
-	wildmon 2, PIDGEY
-	wildmon 2, RATTATA
-	wildmon 3, PIDGEY
-	wildmon 3, RATTATA
-	wildmon 2, RATTATA
-	wildmon 3, PIDGEY
-	wildmon 3, PIDGEY
+	wildmon 3, SPINARAK
+	wildmon 3, HOOTHOOT
+	wildmon 4, POLIWAG
+	wildmon 4, HOOTHOOT
+	wildmon 3, ZUBAT
+	wildmon 4, HOOTHOOT
+	wildmon 4, HOOTHOOT
 	end_grass_wildmons
-	
+
 	def_grass_wildmons ROUTE_31
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
