@@ -388,11 +388,11 @@ BillsGrandpaQuilavaText:
 	text "My grandson Bill"
 	line "told me about a"
 
-	para "cool looking,"
-	line "#mon with a"
-    para "fiery mohawk"
+	para "short, pink canine"
+	line "#mon with blue"
+	cont "polka dots."
 	done
-	
+
 BillsGrandpaTogepiText:
 	text "Do you know of a"
 	line "#mon that has a"
