@@ -8,7 +8,7 @@
 	dn GENDER_F25, HATCH_SLOW ; gender ratio, step cycles to hatch
 
 	abilities_for MAGIKARP, SWIFT_SWIM, SWIFT_SWIM, RATTLED
-	db GROWTH_MEDIUM_FAST ; growth rate
+	db GROWTH_FAST ; growth rate
 	dn EGG_WATER_2, EGG_DRAGON ; egg groups
 
 	ev_yield 2 Spe, 3 SAt 
