@@ -7,7 +7,7 @@ else
 endc
 
 	db NORMAL, NORMAL ; type
-	db 35 ; catch rate
+	db 255 ; catch rate
 	db 61 ; base exp
 	db QUICK_POWDER, METAL_POWDER ; held items
 	dn GENDER_UNKNOWN, HATCH_MEDIUM_FAST ; gender ratio, step cycles to hatch
