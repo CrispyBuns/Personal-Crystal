@@ -1490,24 +1490,24 @@
 	wildmon 12, SNUBBULL
 	wildmon 12, RATTATA, ALOLAN_FORM
 	wildmon 13, PIDGEY
-	wildmon 10, ABRA
+	wildmon 10, DITTO
 	wildmon 13, JIGGLYPUFF
 	wildmon 10, DITTO
 	wildmon 10, DITTO
 	; day
-	wildmon 12, SNUBBULL
+	wildmon 12, DITTO
 	wildmon 12, RATTATA, ALOLAN_FORM
 	wildmon 13, PIDGEY
 	wildmon 10, ABRA
-	wildmon 13, JIGGLYPUFF
+	wildmon 10, DITTO
 	wildmon 10, DITTO
 	wildmon 10, DITTO
 	; nite
 	wildmon 12, DROWZEE
 	wildmon 12, RATTATA, ALOLAN_FORM
 	wildmon 13, HOOTHOOT
-	wildmon 10, ABRA
-	wildmon 13, JIGGLYPUFF
+	wildmon 10, DITTO
+	wildmon 10, DITTO
 	wildmon 10, DITTO
 	wildmon 10, DITTO
 	end_grass_wildmons
