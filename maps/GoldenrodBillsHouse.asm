@@ -69,7 +69,7 @@ BillsGrandpa:
 	scall .ExcitedToSee
 	special Special_BillsGrandfather
 	iffalse_jumpopenedtext BillsGrandpaYouDontHaveItTextText
-	ifnotequal BELLSPROUT, .WrongPokemon
+	ifnotequal SCYTHER, .WrongPokemon
 	scall .CorrectPokemon
 	setevent EVENT_SHOWED_BELLSPROUT_TO_BILLS_GRANDPA
 	sjumpfwd .ShowedBellsprout
@@ -186,7 +186,7 @@ BillsGrandpa:
 	checkevent EVENT_GOT_LEAF_STONE_FROM_BILLS_GRANDPA
 	iftrue .GotLeafStone
 	scall .ReceiveItem
-	verbosegiveitem LEAF_STONE
+	verbosegiveitem METAL_COAT
 	iffalse_endtext
 	setevent EVENT_GOT_LEAF_STONE_FROM_BILLS_GRANDPA
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
