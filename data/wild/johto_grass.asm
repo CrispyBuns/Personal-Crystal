@@ -372,24 +372,24 @@
 	wildmon 14, LEDYBA
 	wildmon 14, PIDGEY
 	wildmon 10, CATERPIE
-	wildmon 12, WEEDLE
-	wildmon 12, WEEDLE
+	wildmon 12, SCYTHER
+	wildmon 12, SCYTHER
 	; day
 	wildmon 12, NIDORAN_F
 	wildmon 13, NIDORAN_M
 	wildmon 14, SUNKERN
 	wildmon 14, PIDGEY
 	wildmon 10, CATERPIE
-	wildmon 12, WEEDLE
-	wildmon 12, WEEDLE
+	wildmon 12, SCYTHER
+	wildmon 12, SCYTHER
 	; nite
 	wildmon 12, PSYDUCK
 	wildmon 13, HOOTHOOT
 	wildmon 14, SPINARAK
 	wildmon 14, HOOTHOOT
 	wildmon 10, VENONAT
-	wildmon 12, VENONAT
-	wildmon 12, VENONAT
+	wildmon 12, SCYTHER
+        wildmon 12, SCYTHER
 	end_grass_wildmons
 
 	def_grass_wildmons RUINS_OF_ALPH_OUTSIDE
