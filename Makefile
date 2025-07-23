@@ -5,10 +5,10 @@ ROM_NAME = $(NAME)
 EXTENSION := gbc
 
 TITLE := PKPERSONAL
-MCODE := PKPR
+MCODE := PKPC
 ROMVERSION := 0x30
 
-FILLER := 0xff
+FILLER := 0x00
 
 ifneq ($(wildcard rgbds/.*),)
 RGBDS := rgbds/
