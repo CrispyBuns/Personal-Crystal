@@ -7,7 +7,7 @@
 	db BLACK_SLUDGE, NUGGET ; held items
 	dn GENDER_F50, HATCH_MEDIUM_FAST ; gender ratio, step cycles to hatch
 
-	abilities_for MUK_ALOLAN, POISON_TOUCH, GLUTTONY, CORROSION
+	abilities_for MUK_ALOLAN, GLUTTONY, GLUTTONY, CORROSION
 	db GROWTH_SLOW ; growth rate
 	dn EGG_INDETERMINATE, EGG_INDETERMINATE ; egg groups
 
