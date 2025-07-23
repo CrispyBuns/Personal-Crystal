@@ -1,7 +1,7 @@
 .PHONY: all clean
 
 CC := gcc
-CFLAGS = -mavx2 -O2  -march=native -flto -std=c17 -Wall -Wextra -pedantic \
+CFLAGS =  -O2  -march=native -flto -std=c17 -Wall -Wextra -pedantic \
          -Walloc-zero \
          -Wcast-align \
          -Wcast-qual \
