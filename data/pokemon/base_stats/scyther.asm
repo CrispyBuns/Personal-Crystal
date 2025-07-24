@@ -5,9 +5,9 @@
 	db 75 ; catch rate
 	db 187 ; base exp
 	db NO_ITEM, NO_ITEM ; held items
-	dn GENDER_F50, HATCH_MEDIUM_SLOW ; gender ratio, step cycles to hatch
+	dn GENDER_F50, HATCH_FAST ; gender ratio, step cycles to hatch
 
-	abilities_for SCYTHER, SWARM, STEADFAST, STEADFAST
+	abilities_for SCYTHER, TECHNICIAN, STEADFAST, STEADFAST
 	db GROWTH_MEDIUM_FAST ; growth rate
 	dn EGG_BUG, EGG_BUG ; egg groups
 
