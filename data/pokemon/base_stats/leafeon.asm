@@ -8,9 +8,9 @@
 	dn GENDER_F12_5, HATCH_SLOWER ; gender ratio, step cycles to hatch
 
 if DEF(FAITHFUL)
-	abilities_for LEAFEON, LEAF_GUARD, CHLOROPHYLL, CHLOROPHYLL
+	abilities_for LEAFEON, CHLOROPHYLL, CHLOROPHYLL, CHLOROPHYLL
 else
-	abilities_for LEAFEON, LEAF_GUARD, NATURAL_CURE, CHLOROPHYLL
+	abilities_for LEAFEON, CHLOROPHYLL, CHLOROPHYLL, CHLOROPHYLL
 endc
 	db GROWTH_SLOW ; growth rate
 	dn EGG_GROUND, EGG_GROUND ; egg groups
