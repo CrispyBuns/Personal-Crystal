@@ -8,7 +8,7 @@
 	dn GENDER_F50, HATCH_MEDIUM_SLOW ; gender ratio, step cycles to hatch
 
 	abilities_for SCIZOR, LIGHT_METAL, TECHNICIAN, LIGHT_METAL
-	db GROWTH_MEDIUM_SLOW ; growth rate
+	db GROWTH_MEDIUM_FAST ; growth rate
 	dn EGG_BUG, EGG_BUG ; egg groups
 
 	ev_yield 2 Atk, 2 SAt
