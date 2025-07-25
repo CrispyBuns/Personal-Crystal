@@ -12,7 +12,7 @@ if DEF(FAITHFUL)
 else
 	abilities_for TYPHLOSION_HISUIAN, BLAZE, FLAME_BODY, FLASH_FIRE
 endc
-	db GROWTH_MEDIUM_SLOW ; growth rate
+	db GROWTH_MEDIUM_FAST ; growth rate
 	dn EGG_NONE, EGG_NONE ; egg groups
 
 	ev_yield 3 SAt
