@@ -97,7 +97,7 @@ BillsGrandpa:
 	scall .ExcitedToSee
 	special Special_BillsGrandfather
 	iffalse_jumpopenedtext BillsGrandpaYouDontHaveItTextText
-	ifnotequal EEVEE, .WrongPokemon
+	ifnotequal TOGEKISS, .WrongPokemon
 	scall .CorrectPokemon
 	setevent EVENT_SHOWED_GROWLITHE_TO_BILLS_GRANDPA
 	sjumpfwd .ShowedGrowlithe
@@ -206,7 +206,7 @@ BillsGrandpa:
 	checkevent EVENT_GOT_FIRE_STONE_FROM_BILLS_GRANDPA
 	iftrue .GotFireStone
 	scall .ReceiveItem
-	verbosegiveitem LEAF_STONE
+	verbosegiveitem QUICK_BALL
 	iffalse_endtext
 	setevent EVENT_GOT_FIRE_STONE_FROM_BILLS_GRANDPA
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
@@ -216,7 +216,7 @@ BillsGrandpa:
 	checkevent EVENT_GOT_THUNDERSTONE_FROM_BILLS_GRANDPA
 	iftrue .GotThunderstone
 	scall .ReceiveItem
-	verbosegiveitem THUNDERSTONE
+	verbosegiveitem LEAF_STONE
 	iffalse_endtext
 	setevent EVENT_GOT_THUNDERSTONE_FROM_BILLS_GRANDPA
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
