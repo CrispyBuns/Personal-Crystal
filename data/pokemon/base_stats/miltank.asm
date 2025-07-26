@@ -2,8 +2,8 @@
 	;   hp  atk  def  spe  sat  sdf
 
 	db NORMAL, NORMAL ; type
-	db 68 ; catch rate
-	db 215 ; base exp
+	db 45 ; catch rate
+	db 200 ; base exp
 	db NO_ITEM, MOOMOO_MILK ; held items
 	dn GENDER_F100, HATCH_MEDIUM_FAST ; gender ratio, step cycles to hatch
 
