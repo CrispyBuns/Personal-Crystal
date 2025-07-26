@@ -367,16 +367,16 @@
 	def_grass_wildmons NATIONAL_PARK
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	wildmon 12, NIDORAN_M
-	wildmon 13, NIDORAN_F
+	wildmon 12, EEVEE
+	wildmon 13, EEVEE
 	wildmon 14, LEDYBA
 	wildmon 14, PIDGEY
 	wildmon 10, CATERPIE
 	wildmon 12, WEEDLE
 	wildmon 12, WEEDLE
 	; day
-	wildmon 12, NIDORAN_F
-	wildmon 13, NIDORAN_M
+	wildmon 12, EEVEE
+	wildmon 13, EEVEE
 	wildmon 14, SUNKERN
 	wildmon 14, PIDGEY
 	wildmon 10, CATERPIE
