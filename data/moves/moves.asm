@@ -315,7 +315,7 @@ endc
 	move AQUA_JET,        EFFECT_PRIORITY_HIT,       40, WATER,     100, 20,   0, PHYSICAL
 	move RAIN_DANCE,      EFFECT_RAIN_DANCE,          0, WATER,      -1,  5,   0, STATUS
 	move SUNNY_DAY,       EFFECT_SUNNY_DAY,           0, FIRE,       -1,  5,   0, STATUS
-	move CRUNCH,          EFFECT_DEFENSE_DOWN_HIT,   80, DARK,      100, 15,  20, PHYSICAL
+	move CRUNCH,          EFFECT_FLINCH_HIT,   80, DARK,      100, 15,  20, PHYSICAL
 	move MIRROR_COAT,     EFFECT_COUNTER,             1, PSYCHIC,    -1, 20,   0, SPECIAL
 	move NASTY_PLOT,      EFFECT_SP_ATK_UP_2,         0, DARK,       -1, 20,   0, STATUS
 	move EXTREMESPEED,    EFFECT_PRIORITY_HIT,       80, NORMAL,    100,  5,   0, PHYSICAL
