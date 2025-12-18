@@ -55,7 +55,7 @@ BillsGrandpa:
 	scall .ExcitedToSee
 	special Special_BillsGrandfather
 	iffalse_jumpopenedtext BillsGrandpaYouDontHaveItTextText
-	ifnotequal SNUBBULL, .WrongPokemon
+	ifnotequal QUILAVA, .WrongPokemon
 	scall .CorrectPokemon
 	setevent EVENT_SHOWED_SNUBBULL_TO_BILLS_GRANDPA
 	sjumpfwd .ShowedSnubbull
@@ -176,7 +176,7 @@ BillsGrandpa:
 	checkevent EVENT_GOT_EVERSTONE_FROM_BILLS_GRANDPA
 	iftrue .GotEverstone
 	scall .ReceiveItem
-	verbosegiveitem EVERSTONE
+	verbosegiveitem DUSK_STONE
 	iffalse_endtext
 	setevent EVENT_GOT_EVERSTONE_FROM_BILLS_GRANDPA
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
@@ -385,13 +385,17 @@ BillsGrandpaShownAllThePokemonText:
 	done
 
 BillsGrandpaSnubbullText:
-	text "My grandson Bill"
-	line "told me about a"
+		text "My grandson Bill"
+        line "told me about a"
 
-	para "short, pink canine"
-	line "#mon with blue"
-	cont "polka dots."
-	done
+        para "fierce #mon" ;14 characters long
+        line "that is found" ;13 characters long
+        cont "digging in graves," ; 18 characters long
+
+        para "I've seen shapes"; 16 characters long
+        line "of this #mon"; 14 characters long
+        cont "in the dark!" ; 12 characters long
+        done
 
 BillsGrandpaTogepiText:
 	text "Do you know of a"

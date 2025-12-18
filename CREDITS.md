@@ -1,5 +1,5 @@
 # Credits
-
+Personal Build by CrispTheBunz
 Pokémon Polished Crystal would never have been finished without the help of many more people than just me. Please let me know if I've failed to credit anyone or if you don't want your work being used.
 
 > **Morimoto:** Actually, at that time we had very few programmers. That wasn't just the case for Gold and Silver but for Red and Green as well. There were only about four programmers.

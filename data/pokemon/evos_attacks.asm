@@ -3380,6 +3380,7 @@ endc
 
 	evos_attacks Quilava
 	evo_data EVOLVE_LEVEL, 36, TYPHLOSION
+	evo_data EVOLVE_ITEM, DUSK_STONE, TYPHLOSION, HISUIAN_FORM
 	learnset 1, TACKLE
 	learnset 1, LEER
 	learnset 6, SMOKESCREEN
@@ -3427,7 +3428,7 @@ endc
 	learnset 20, DEFENSE_CURL ; Flame Wheel → Defense Curl
 	learnset 24, FLAME_CHARGE ; Defense Curl → Flame Charge
 	learnset 31, SWIFT
-	learnset 35, HEX
+	learnset 35, CURSE
 	learnset 43, WILL_O_WISP ; Lava Plume → TM move
 	learnset 48, FLAMETHROWER
 	learnset 56, SHADOW_BALL

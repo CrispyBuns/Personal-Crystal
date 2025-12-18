@@ -1,7 +1,7 @@
 .PHONY: all clean
 
 CC := gcc
-CFLAGS = -O3 -flto -std=c17 -Wall -Wextra -pedantic \
+CFLAGS = -O2 -flto -std=c17 -Wall -Wextra -pedantic \
          -Walloc-zero \
          -Wcast-align \
          -Wcast-qual \
