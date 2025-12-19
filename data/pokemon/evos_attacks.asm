@@ -475,7 +475,7 @@ endc
 	learnset 63, GUNK_SHOT
 
 	evos_attacks Pikachu
-	evo_data EVOLVE_LEVEL, 35, RAICHU, PLAIN_FORM
+	evo_data EVOLVE_LEVEL, 30, RAICHU, PLAIN_FORM
 	evo_data EVOLVE_ITEM, ODD_SOUVENIR, RAICHU, ALOLAN_FORM
 	learnset 1, THUNDERSHOCK
 	learnset 1, LEER ; Tail Whip → similar move
