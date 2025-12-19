@@ -1,25 +1,17 @@
 .PHONY: all clean
 
-# -------------------------------------------------
-# Compiler
-# -------------------------------------------------
 CC ?= cc
 
-# -------------------------------------------------
-# Detect compiler
-# -------------------------------------------------
-CC_VERSION := $(shell $(CC) --version 2>/dev/null | head -n 1)
-IS_CLANG := $(findstring clang,$(CC_VERSION))
+# Detect Clang (cc may be gcc or clang)
+IS_CLANG := $(shell $(CC) --version 2>/dev/null | grep -qi clang && echo 1)
 
-# -------------------------------------------------
-# Base flags (always safe)
-# -------------------------------------------------
-BASE_CFLAGS := -O2 -std=c17 -Wall -Wextra -pedantic
+# Base flags
+CFLAGS_BASE = -O3 -flto -std=c17 -Wall -Wextra -pedantic
 
-# -------------------------------------------------
-# GCC-only warnings
-# -------------------------------------------------
-GCC_WARNINGS := \
+# ======================
+# GCC warning set (original)
+# ======================
+CFLAGS_GCC = $(CFLAGS_BASE) \
 	-Walloc-zero \
 	-Wcast-align \
 	-Wcast-qual \
@@ -32,125 +24,46 @@ GCC_WARNINGS := \
 	-Winline \
 	-Wlogical-op \
 	-Wnested-externs \
+	-Wno-sign-compare \
 	-Wnull-dereference \
 	-Wold-style-definition \
+	-Wshadow \
 	-Wshift-overflow=2 \
 	-Wstrict-overflow=2 \
+	-Wstrict-prototypes \
 	-Wstringop-overflow=4 \
 	-Wundef \
 	-Wuninitialized \
+	-Wunused \
 	-Wwrite-strings
 
-# -------------------------------------------------
-# Clang warnings
-# -------------------------------------------------
-CLANG_WARNINGS := \
+# ======================
+# Clang warning set (equivalent intent)
+# ======================
+CFLAGS_CLANG = $(CFLAGS_BASE) \
 	-Wcast-align \
 	-Wcast-qual \
 	-Wfloat-equal \
 	-Wformat=2 \
+	-Winline \
 	-Wshadow \
 	-Wstrict-prototypes \
 	-Wundef \
+	-Wuninitialized \
+	-Wunused \
 	-Wwrite-strings \
-	-Wnewline-eof
+	-Wcomma \
+	-Wconditional-uninitialized \
+	-Wextra-semi \
+	-Wmissing-prototypes
 
-COMMON_NOWARN := -Wno-sign-compare
-
-# -------------------------------------------------
-# CPU feature detection
-# -------------------------------------------------
-ARCH := $(shell uname -m)
-
-SSE2_SUPPORTED := $(shell echo 'int main(void){return 0;}' | \
-	$(CC) -msse2 -x c - -o /dev/null >/dev/null 2>&1 && echo yes)
-
-SSE42_SUPPORTED := $(shell echo 'int main(void){return 0;}' | \
-	$(CC) -msse4.2 -x c - -o /dev/null >/dev/null 2>&1 && echo yes)
-
-AVX2_SUPPORTED := $(shell echo 'int main(void){return 0;}' | \
-	$(CC) -mavx2 -x c - -o /dev/null >/dev/null 2>&1 && echo yes)
-
-NEON_SUPPORTED := $(shell echo 'int main(void){return 0;}' | \
-	$(CC) -mfpu=neon -x c - -o /dev/null >/dev/null 2>&1 && echo yes)
-
-# -------------------------------------------------
-# Feature tests (LTO + linker)
-# -------------------------------------------------
-LTO_SUPPORTED := $(shell echo 'int main(void){return 0;}' | \
-	$(CC) -flto -x c - -o /dev/null >/dev/null 2>&1 && echo yes)
-
-LLD_SUPPORTED := $(shell echo 'int main(void){return 0;}' | \
-	$(CC) -fuse-ld=lld -x c - -o /dev/null >/dev/null 2>&1 && echo yes)
-
-GOLD_SUPPORTED := $(shell echo 'int main(void){return 0;}' | \
-	$(CC) -fuse-ld=gold -x c - -o /dev/null >/dev/null 2>&1 && echo yes)
-
-# -------------------------------------------------
-# Select warnings
-# -------------------------------------------------
-ifeq ($(IS_CLANG),clang)
-CWARNINGS := $(CLANG_WARNINGS)
-$(info using Clang)
+# Select flags
+ifeq ($(IS_CLANG),1)
+  CFLAGS := $(CFLAGS_CLANG)
 else
-CWARNINGS := $(GCC_WARNINGS)
-$(info using GCC)
+  CFLAGS := $(CFLAGS_GCC)
 endif
 
-# -------------------------------------------------
-# CPU flags
-# -------------------------------------------------
-CPU_CFLAGS :=
-
-ifneq (,$(findstring x86,$(ARCH)))
-ifeq ($(AVX2_SUPPORTED),yes)
-CPU_CFLAGS += -mavx2
-$(info using AVX2)
-else ifeq ($(SSE42_SUPPORTED),yes)
-CPU_CFLAGS += -msse4.2
-$(info using SSE4.2)
-else ifeq ($(SSE2_SUPPORTED),yes)
-CPU_CFLAGS += -msse2
-$(info using SSE2)
-endif
-endif
-
-ifneq (,$(findstring arm,$(ARCH)))
-ifeq ($(NEON_SUPPORTED),yes)
-CPU_CFLAGS += -mfpu=neon
-$(info using NEON)
-endif
-endif
-
-# -------------------------------------------------
-# Linker selection
-# -------------------------------------------------
-LDFLAGS :=
-
-ifeq ($(LLD_SUPPORTED),yes)
-LDFLAGS += -fuse-ld=lld
-$(info using lld)
-else ifeq ($(GOLD_SUPPORTED),yes)
-LDFLAGS += -fuse-ld=gold
-$(info using gold)
-else
-$(info using default linker)
-endif
-
-# -------------------------------------------------
-# Final CFLAGS
-# -------------------------------------------------
-ifeq ($(LTO_SUPPORTED),yes)
-CFLAGS := $(BASE_CFLAGS) $(CWARNINGS) $(COMMON_NOWARN) $(CPU_CFLAGS) -flto
-$(info LTO enabled)
-else
-CFLAGS := $(BASE_CFLAGS) $(CWARNINGS) $(COMMON_NOWARN) $(CPU_CFLAGS)
-$(info LTO disabled)
-endif
-
-# -------------------------------------------------
-# Tools (original)
-# -------------------------------------------------
 tools := \
 	bankends \
 	bpp2png \
@@ -170,9 +83,6 @@ all: $(tools)
 clean:
 	$(RM) $(tools) *.o *.h.gch *.pyc
 
-# -------------------------------------------------
-# Header deps
-# -------------------------------------------------
 gfx: common.h
 png_dimensions: common.h
 pokemon_animation: common.h
@@ -180,24 +90,21 @@ pokemon_animation_graphics: common.h
 scan_includes: common.h
 vwf: common.h
 
-# -------------------------------------------------
-# Build rules
-# -------------------------------------------------
 bpp2png: bpp2png.c lodepng/lodepng.c common.h lodepng/lodepng.h
-	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ bpp2png.c lodepng/lodepng.c
+	$(CC) $(CFLAGS) -o $@ bpp2png.c lodepng/lodepng.c
 
 lzcomp: CFLAGS += -Wno-strict-overflow -Wno-sign-compare
 lzcomp: $(wildcard lz/*.c) $(wildcard lz/*.h)
-	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ lz/*.c
+	$(CC) $(CFLAGS) -o $@ lz/*.c
 
 bspcomp: bsp/bspcomp.c
-	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^
+	$(CC) $(CFLAGS) -o $@ $^
 
 bankends: bankends.c parsemap.o
-	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^
+	$(CC) $(CFLAGS) -o $@ $^
 
 parsemap.o: parsemap.c parsemap.h
 	$(CC) $(CFLAGS) -c $^
 
 %: %.c
-	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $<
+	$(CC) $(CFLAGS) -o $@ $<
