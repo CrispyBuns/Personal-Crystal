@@ -45,7 +45,7 @@ BillsGrandpa:
 	iftrue .ShowedStaryu
 	checkevent EVENT_SHOWED_BELLSPROUT_TO_BILLS_GRANDPA
 	iftrue .ShowedBellsprout
-	checkevent EVENT_SHOWED_QUILAVA_TO_BILLS_GRANDPA
+	checkevent EVENT_SHOWED_SNUBBULL_TO_BILLS_GRANDPA
 	iftrue .ShowedQuilava
 	writetext BillsGrandpaQuilavaText
 	promptbutton
@@ -57,7 +57,7 @@ BillsGrandpa:
 	iffalse_jumpopenedtext BillsGrandpaYouDontHaveItTextText
 	ifnotequal QUILAVA, .WrongPokemon
 	scall .CorrectPokemon
-	setevent EVENT_SHOWED_QUILAVA_TO_BILLS_GRANDPA
+	setevent EVENT_SHOWED_SNUBBULL_TO_BILLS_GRANDPA
 	sjumpfwd .ShowedQuilava
 
 .GotDuskStone1:
@@ -173,12 +173,12 @@ BillsGrandpa:
 	sjumpfwd .ShowedTogepi
 
 .ShowedQuilava:
-	checkevent EVENT_GOT_DUSKSTONE_1_FROM_BILLS_GRANDPA
+	checkevent EVENT_GOT_EVERSTONE_FROM_BILLS_GRANDPA
 	iftrue .GotDuskStone1
 	scall .ReceiveItem
 	verbosegiveitem DUSK_STONE
 	iffalse_endtext
-	setevent EVENT_GOT_DUSKSTONE_1_FROM_BILLS_GRANDPA
+	setevent EVENT_GOT_EVERSTONE_FROM_BILLS_GRANDPA
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	endtext
 
