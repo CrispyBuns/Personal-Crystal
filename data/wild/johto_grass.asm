@@ -18,20 +18,14 @@
 	wildmon 3, BELLSPROUT
 	wildmon 6, BELLSPROUT
 	wildmon 5, BELLSPROUT
-	wildmon 6, BELLSPROUT
 	wildmon 5, RATTATA
 	; nite
-	wildmon 3, RATTATA, ALOLAN_FORM
 	wildmon 4, RATTATA, ALOLAN_FORM
-<<<<<<< HEAD
-	wildmon 4, RATTATA, ALOLAN_FORM
-=======
-	wildmon 5, GASTLY
->>>>>>> 24a6ebf86 (fix fucked up issues)
+	wildmon 5, BELLSPROUT
 	wildmon 3, BELLSPROUT
 	wildmon 6, RATTATA, ALOLAN_FORM
 	wildmon 5, BELLSPROUT
-	wildmon 6, BELLSPROUT
+    wildmon 4, RATTATA, ALOLAN_FORM
 	end_grass_wildmons
 
 	def_grass_wildmons SPROUT_TOWER_3F
@@ -55,15 +49,11 @@
 	; nite
 	wildmon 4, RATTATA, ALOLAN_FORM
 	wildmon 5, RATTATA, ALOLAN_FORM
-<<<<<<< HEAD
 	wildmon 5, RATTATA, ALOLAN_FORM
-=======
-	wildmon 6, GASTLY
->>>>>>> 24a6ebf86 (fix fucked up issues)
-	wildmon 4, BELLSPROUT
-	wildmon 5, RATTATA, ALOLAN_FORM
-	wildmon 6, BELLSPROUT
-	wildmon 7, BELLSPROUT
+	wildmon 4, RATTATA, ALOLAN_FORM
+	wildmon 5, BELLSPROUT
+	wildmon 5, BELLSPROUT
+	wildmon 5, BELLSPROUT
 	end_grass_wildmons
 
 	def_grass_wildmons TIN_TOWER_2F
