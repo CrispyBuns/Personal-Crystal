@@ -6,7 +6,7 @@ CC ?= cc
 IS_CLANG := $(shell $(CC) --version 2>/dev/null | grep -qi clang && echo 1)
 
 # Base flags
-CFLAGS_BASE = -O2 -flto -std=c17 -Wall -Wextra -pedantic
+CFLAGS_BASE = -O2 -flto -std=c17  -pedantic
 
 # ======================
 # GCC warning set (original)
