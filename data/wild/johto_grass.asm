@@ -23,7 +23,11 @@
 	; nite
 	wildmon 3, RATTATA, ALOLAN_FORM
 	wildmon 4, RATTATA, ALOLAN_FORM
+<<<<<<< HEAD
 	wildmon 4, RATTATA, ALOLAN_FORM
+=======
+	wildmon 5, GASTLY
+>>>>>>> 24a6ebf86 (fix fucked up issues)
 	wildmon 3, BELLSPROUT
 	wildmon 6, RATTATA, ALOLAN_FORM
 	wildmon 5, BELLSPROUT
@@ -45,13 +49,17 @@
 	wildmon 5, RATTATA
 	wildmon 6, RATTATA
 	wildmon 4, BELLSPROUT
-	wildmon 7, RATTATA
+	wildmon 7, BELLSPROUT
 	wildmon 6, BELLSPROUT
 	wildmon 7, BELLSPROUT
 	; nite
 	wildmon 4, RATTATA, ALOLAN_FORM
 	wildmon 5, RATTATA, ALOLAN_FORM
+<<<<<<< HEAD
 	wildmon 5, RATTATA, ALOLAN_FORM
+=======
+	wildmon 6, GASTLY
+>>>>>>> 24a6ebf86 (fix fucked up issues)
 	wildmon 4, BELLSPROUT
 	wildmon 5, RATTATA, ALOLAN_FORM
 	wildmon 6, BELLSPROUT
