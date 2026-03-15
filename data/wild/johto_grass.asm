@@ -3,27 +3,29 @@
 	def_grass_wildmons SPROUT_TOWER_2F
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	wildmon 3, RATTATA
+    wildmon 3, RATTATA
 	wildmon 4, RATTATA
 	wildmon 5, RATTATA
 	wildmon 3, BELLSPROUT
-	wildmon 6, RATTATA
+	wildmon 6, BELLSPROUT
 	wildmon 5, BELLSPROUT
 	wildmon 6, BELLSPROUT
+	wildmon 5, RATTATA
 	; day
 	wildmon 3, RATTATA
 	wildmon 4, RATTATA
 	wildmon 5, RATTATA
 	wildmon 3, BELLSPROUT
-	wildmon 6, RATTATA
+	wildmon 6, BELLSPROUT
 	wildmon 5, BELLSPROUT
 	wildmon 6, BELLSPROUT
+	wildmon 5, RATTATA
 	; nite
 	wildmon 3, RATTATA, ALOLAN_FORM
 	wildmon 4, RATTATA, ALOLAN_FORM
-	wildmon 5, GASTLY
+	wildmon 4, RATTATA, ALOLAN_FORM
 	wildmon 3, BELLSPROUT
-	wildmon 6, GASTLY
+	wildmon 6, RATTATA, ALOLAN_FORM
 	wildmon 5, BELLSPROUT
 	wildmon 6, BELLSPROUT
 	end_grass_wildmons
@@ -49,9 +51,9 @@
 	; nite
 	wildmon 4, RATTATA, ALOLAN_FORM
 	wildmon 5, RATTATA, ALOLAN_FORM
-	wildmon 6, GASTLY
+	wildmon 5, RATTATA, ALOLAN_FORM
 	wildmon 4, BELLSPROUT
-	wildmon 7, GASTLY
+	wildmon 5, RATTATA, ALOLAN_FORM
 	wildmon 6, BELLSPROUT
 	wildmon 7, BELLSPROUT
 	end_grass_wildmons
@@ -1409,7 +1411,7 @@
 	wildmon 5, PIDGEY
 	wildmon 4, WEEDLE
 	wildmon 5, HOPPIP
-	wildmon 5, HOPPIP
+	wildmon 5, BELLSPROUT
 	; day
 	wildmon 4, PIDGEY
 	wildmon 4, CATERPIE
@@ -1417,7 +1419,7 @@
 	wildmon 5, PIDGEY
 	wildmon 4, WEEDLE
 	wildmon 5, HOPPIP
-	wildmon 5, HOPPIP
+	wildmon 5, BELLSPROUT
 	; nite
 	wildmon 4, SPINARAK
 	wildmon 4, POLIWAG
