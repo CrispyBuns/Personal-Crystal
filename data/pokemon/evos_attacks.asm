@@ -5155,7 +5155,7 @@ endc
 	learnset 68, CLOSE_COMBAT ; new move
 
 	evos_attacks Pupitar
-	evo_data EVOLVE_LEVEL, 55, TYRANITAR
+	evo_data EVOLVE_LEVEL, 45, TYRANITAR
 	learnset 1, DEFENSE_CURL ; evolution move
 	learnset 1, TACKLE ; Sw/Sh move
 	learnset 1, BITE
