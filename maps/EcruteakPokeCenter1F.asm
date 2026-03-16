@@ -68,7 +68,8 @@ EcruteakPokeCenter1FBillScript:
 	waitsfx
 	readvar VAR_PARTYCOUNT
 	ifequalfwd PARTY_LENGTH, .NoRoom
-	givepoke EEVEE, PLAIN_FORM, 5, NO_ITEM, GREAT_BALL
+	promptbutton
+	givepoke EEVEE, PLAIN_FORM, 12, EXPERT_BELT, LUXURY_BALL, DRAINING_KISS
 	givepokemail .GiftEeveeMail
 	callasm .SetEeveeMailOT
 	setevent EVENT_GOT_EEVEE
