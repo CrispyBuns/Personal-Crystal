@@ -5,7 +5,7 @@
 	db 45 ; catch rate
 	db 92 ; base exp
 	db NO_ITEM, NO_ITEM ; held items
-	dn GENDER_F75, HATCH_SLOWER ; gender ratio, step cycles to hatch
+	dn GENDER_F100, HATCH_SLOWER ; gender ratio, step cycles to hatch
 
 	abilities_for EEVEE, RUN_AWAY, ADAPTABILITY, ANTICIPATION
 	db GROWTH_MEDIUM_FAST ; growth rate

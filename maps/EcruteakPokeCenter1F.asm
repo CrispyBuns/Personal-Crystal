@@ -69,7 +69,7 @@ EcruteakPokeCenter1FBillScript:
 	readvar VAR_PARTYCOUNT
 	ifequalfwd PARTY_LENGTH, .NoRoom
 	promptbutton
-	givepoke EEVEE, PLAIN_FORM, 12, EXPERT_BELT, LUXURY_BALL, DRAINING_KISS
+	givepoke EEVEE, PLAIN_FORM, 12, EXPERT_BELT, LUXURY_BALL, DRAINING_KISS, "Princess@@", "Bill@@@@", 30228
 	givepokemail .GiftEeveeMail
 	callasm .SetEeveeMailOT
 	setevent EVENT_GOT_EEVEE
