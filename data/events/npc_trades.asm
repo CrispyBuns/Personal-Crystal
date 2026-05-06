@@ -12,7 +12,7 @@ NPCTrades:
 	db TRADE_DIALOGSET_COLLECTOR
 	dp BELLSPROUT, NO_FORM ; wants
 	dp LARVITAR, MALE    ; gives
-	rawchar "Mimic@@@@@@"
+	rawchar "Keith@@@@@@"
 	db $FF, $FF, $FF, HIDDEN_ABILITY | NAT_SPE_UP_SATK_DOWN,   LUXURY_BALL, LUCKY_EGG
 	dw 48926
 	rawchar "Jeff@@@@", $00
