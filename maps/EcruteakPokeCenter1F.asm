@@ -69,7 +69,7 @@ EcruteakPokeCenter1FBillScript:
 	readvar VAR_PARTYCOUNT
 	ifequalfwd PARTY_LENGTH, .NoRoom
 	promptbutton
-	givepoke PICHU, PLAIN_FORM, SOITHE_BELL, LUXURY_BALL
+	givepoke PICHU, PLAIN_FORM, SOOTHE_BELL, LUXURY_BALL
 	givepokemail .GiftEeveeMail
 	callasm .SetEeveeMailOT
 	setevent EVENT_GOT_EEVEE
