@@ -14,5 +14,5 @@
 	ev_yield 1 Spe
 
 	; tm/hm learnset
-	tmhm
+	tmhm ROOST
 	; end
