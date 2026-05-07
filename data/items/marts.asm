@@ -77,6 +77,7 @@ VioletMart:
 	db X_DEFEND
 	db X_SPEED
 	db FLOWER_MAIL
+	db SOOTHE_BELL
 	db -1
 
 AzaleaMart:
