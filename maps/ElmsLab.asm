@@ -159,7 +159,7 @@ ElmCheckOddSouvenir:
 	jumptext ElmThoughtEggHatchedText
 
 ElmEggHatchedScript:
-	setmonval TOGEPI
+	setmonval EEVEE
 	special Special_FindThatSpeciesYourTrainerID
 	iftrue ShowElmTogepiScript
 	setmonval TOGETIC
