@@ -81,7 +81,7 @@ VioletMart:
 	db -1
 
 AzaleaMart:
-	db 10 ; # items
+	db 11 ; # items
 	db CHARCOAL
 	db POKE_BALL
 	db NET_BALL
@@ -92,6 +92,7 @@ AzaleaMart:
 	db ANTIDOTE
 	db PARALYZEHEAL
 	db FLOWER_MAIL
+        db LUCKY_EGG
 	db -1
 
 Goldenrod2FMart1:
