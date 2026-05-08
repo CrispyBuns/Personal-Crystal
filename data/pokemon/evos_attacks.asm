@@ -3388,7 +3388,7 @@ endc
 	learnset 10, EMBER
 	learnset 13, QUICK_ATTACK
 	learnset 20, DEFENSE_CURL ; Flame Wheel → Defense Curl
-	learnset 24, FLAME_CHARGE ; Defense Curl → Flame Charge
+	learnset 19, FLAME_CHARGE ; Defense Curl → Flame Charge
 	learnset 31, SWIFT
 	learnset 35, DIG ; Flame Charge → TM move
 	learnset 42, REVERSAL ; Lava Plume → egg move
