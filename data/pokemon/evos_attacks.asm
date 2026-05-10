@@ -3429,7 +3429,7 @@ endc
 	learnset 20, DEFENSE_CURL ; Flame Wheel → Defense Curl
 	learnset 24, FLAME_CHARGE ; Defense Curl → Flame Charge
 	learnset 31, SWIFT
-	learnset 35, CURSE
+	learnset 27, CURSE
 	learnset 43, WILL_O_WISP ; Lava Plume → TM move
 	learnset 48, FLAMETHROWER
 	learnset 56, SHADOW_BALL
