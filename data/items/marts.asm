@@ -194,7 +194,7 @@ EcruteakMart:
 	db 11 ; # items
 	db POKE_BALL
 	db GREAT_BALL
-	db THUNDER_STONE
+	db THUNDERSTONE
 	db POTION
 	db SUPER_POTION
 	db ANTIDOTE
