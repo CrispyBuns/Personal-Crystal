@@ -87,14 +87,14 @@ rom_obj := \
 	gfx/items.o \
 	gfx/misc.o
 
-crystal_obj    := $(rom_obj:.o=.o)
+crystal_obj    := $(rom_obj)
 crystal_vc_obj := $(rom_obj:.o=_vc.o)
 
 .SUFFIXES:
 .PHONY: clean tidy crystal faithful pocket debug monochrome freespace tools bsp huffman vc
 .PRECIOUS: %.2bpp %.1bpp
 .SECONDARY:
-.DEFAULT_GOAL: crystal
+.DEFAULT_GOAL := crystal
 
 crystal: $$(ROM_NAME).$$(EXTENSION)
 faithful: crystal
@@ -132,7 +132,9 @@ rgbdscheck.o: rgbdscheck.asm
 	$Q$(RGBASM) -o $@ $<
 
 ifeq (,$(filter clean tidy tools,$(MAKECMDGOALS)))
-$(info $(shell $(MAKE) -C tools))
+.PHONY: build_tools
+build_tools:
+	$(MAKE) -C tools
 endif
 
 preinclude_deps := includes.asm $(shell tools/scan_includes includes.asm)
@@ -155,8 +157,7 @@ endif
 $(ROM_NAME).patch: $(ROM_NAME)_vc.gbc $(ROM_NAME).$(EXTENSION) vc.patch.template
 	tools/make_patch $(ROM_NAME)_vc.sym $^ $@
 
-.$(EXTENSION): tools/bankends
-$(ROM_NAME).$(EXTENSION): $(crystal_obj) layout.link
+$(ROM_NAME).$(EXTENSION): $(crystal_obj) layout.link | build_tools
 	$Q$(RGBLINK) $(RGBLINKFLAGS) -l layout.link -o $@ $(filter %.o,$^)
 	$Q$(RGBFIX) $(RGBFIXFLAGS) $@
 	$Qtools/bankends -q $(ROM_NAME).map >&2
@@ -166,8 +167,7 @@ $(ROM_NAME)_vc.gbc: $(crystal_vc_obj) layout.link
 	$Q$(RGBFIX) $(RGBFIXFLAGS) $@
 	$Qtools/bankends -q $(ROM_NAME)_vc.map >&2
 
-.bsp: tools/bspcomp
-%.bsp: $(wildcard bsp/*.txt)
+%.bsp: $(wildcard bsp/*.txt) | build_tools
 	$Qcd bsp; ../tools/bspcomp patch.txt ../$@; cd ..
 
 gfx/battle/lyra_back.2bpp: RGBGFXFLAGS += -Z
@@ -283,7 +283,7 @@ gfx/pokemon/%/frames.asm: gfx/pokemon/%/front.animated.tilemap gfx/pokemon/%/fro
 		$Qtools/gfx $(tools/gfx) -o $@ $@)
 
 %.1bpp: %.png
-	$(RGBGFX) -c dmg $(RGBGFXFLAGS) -d1 -o $@ $<
+	$Q$(RGBGFX) -c dmg $(RGBGFXFLAGS) -d1 -o $@ $<
 	$(if $(tools/gfx),\
 		$Qtools/gfx $(tools/gfx) -d1 -o $@ $@)
 
