@@ -9,7 +9,7 @@ TITLE := PKCUSTOM
 MCODE := PKPC
 ROMVERSION := 0x33
 
-FILLER := 0xff
+FILLER := 0x00
 
 ifneq ($(wildcard rgbds/.*),)
 RGBDS ?= rgbds/
