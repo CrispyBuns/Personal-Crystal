@@ -5660,7 +5660,7 @@ endc
 	learnset 20, DRAINING_KISS
 	learnset 25, SKILL_SWAP ; Misty Terrain → HGSS tutor move
 	learnset 33, LIGHT_SCREEN
-	learnset 30, MOONBLAST
+	learnset 35, MOONBLAST
 	learnset 41, DOUBLE_EDGE ; Last Resort → tutor move
 	learnset 45, PLAY_ROUGH ; Psych Up → new move
 
