@@ -194,7 +194,7 @@ EcruteakMart:
 	db 11 ; # items
 	db POKE_BALL
 	db GREAT_BALL
-	db THUNDERSTONE
+	db LUCKY_EGG
 	db POTION
 	db SUPER_POTION
 	db SOOTHE_BELL
