@@ -11,15 +11,15 @@ ROMVERSION := 0x33
 
 FILLER := 0x00
 
-ifneq ($(wildcard rgbds/.*),)
-RGBDS ?= rgbds/
-else
 RGBDS ?=
-endif
 RGBASM  ?= $(RGBDS)rgbasm
 RGBFIX  ?= $(RGBDS)rgbfix
 RGBGFX  ?= $(RGBDS)rgbgfx
 RGBLINK ?= $(RGBDS)rgblink
+ifeq ($(wildcard rgbds/.*),)
+else
+RGBDS := rgbds/
+endif
 
 Q :=
 
@@ -27,33 +27,22 @@ Q :=
 
 POCKET_LOGO = gfx/logo/pocket.bin
 
-RGBASMFLAGS    = -Weverything -Wtruncation=1 -E -Q8 -P includes.asm
-RGBASMVCFLAGS  = $(RGBASMFLAGS) -DVIRTUAL_CONSOLE
-RGBLINKFLAGS   = -Weverything -Wtruncation=1 -M -n $(ROM_NAME).sym -m $(ROM_NAME).map -p $(FILLER)
-RGBLINKVCFLAGS = -Weverything -M -n $(ROM_NAME)_vc.sym -m $(ROM_NAME)_vc.map -p $(FILLER)
-RGBFIXFLAGS    = -Weverything -csjv -t $(TITLE) -i $(MCODE) -n $(ROMVERSION) -p $(FILLER) -k 01 -l 0x33 -m MBC3+TIMER+RAM+BATTERY -r 3
-RGBGFXFLAGS    = -Weverything
+# Common flags
 
-ifeq ($(filter faithful,$(MAKECMDGOALS)),faithful)
-MODIFIERS := $(MODIFIERS)-faithful
-RGBASMFLAGS += -DFAITHFUL
-endif
-ifeq ($(filter monochrome,$(MAKECMDGOALS)),monochrome)
-MODIFIERS := $(MODIFIERS)-monochrome
-RGBASMFLAGS += -DMONOCHROME
-endif
-ifeq ($(filter noir,$(MAKECMDGOALS)),noir)
-MODIFIERS := $(MODIFIERS)-noir
-RGBASMFLAGS += -DNOIR
-endif
-ifeq ($(filter hgss,$(MAKECMDGOALS)),hgss)
-MODIFIERS := $(MODIFIERS)-hgss
-RGBASMFLAGS += -DHGSS
-endif
-ifeq ($(filter debug,$(MAKECMDGOALS)),debug)
-MODIFIERS := $(MODIFIERS)-debug
-RGBASMFLAGS += -DDEBUG
-endif
+RGBASMFLAGS    = $(COMMON_FLAGS) -E -Q8 -P includes.asm -Weverything -Wtruncation=1
+RGBASMVCFLAGS  = -DVIRTUAL_CONSOLE
+RGBLINKFLAGS   = $(COMMON_FLAGS) -M -n $(ROM_NAME).sym -m $(ROM_NAME).map -p $(FILLER)
+RGBLINKVCFLAGS = -Weverything -M -n $(ROM_NAME)_vc.sym -m $(ROM_NAME)_vc.map -p $(FILLER)
+RGBFIXFLAGS    = $(COMMON_FLAGS) -csjv -t $(TITLE) -i $(MCODE) -n $(ROMVERSION) -p $(FILLER) -k 01 -l 0x33 -m MBC3+TIMER+RAM+BATTERY -r 3
+RGBGFXFLAGS    = $(COMMON_FLAGS)
+
+# Modifier handling with a single loop
+MODIFIER_VARS := faithful monochrome noir hgss debug
+$(foreach m,$(MODIFIER_VARS),\
+	$(if $(filter $m,$(MAKECMDGOALS)),\
+		$(eval MODIFIERS := $(MODIFIERS)-$m)\
+		$(eval RGBASMFLAGS += -D$(shell echo $m | tr a-z A-Z))))
+
 ifeq ($(filter pocket,$(MAKECMDGOALS)),pocket)
 MODIFIERS :=
 NAME := pkpc
@@ -129,7 +118,7 @@ huffman: crystal
 
 
 rgbdscheck.o: rgbdscheck.asm
-	$Q$(RGBASM) -o $@ $<
+	$(Q)$(RGBASM) -o $@ $<
 
 ifeq (,$(filter clean tidy tools,$(MAKECMDGOALS)))
 .PHONY: build_tools
@@ -141,12 +130,12 @@ preinclude_deps := includes.asm $(shell tools/scan_includes includes.asm)
 
 define DEP
 $1: $2 $$(shell tools/scan_includes $2) $(preinclude_deps) | rgbdscheck.o
-	$Q$$(RGBASM) $$(RGBASMFLAGS) -o $$@ $$<
+	$(Q)$$(RGBASM) $$(RGBASMFLAGS) -o $$@ $$<
 endef
 
 define VCDEP
 $1: $2 $$(shell tools/scan_includes $2) $(preinclude_deps) | rgbdscheck.o
-	$Q$$(RGBASM) $$(RGBASMVCFLAGS) -o $$@ $$<
+	$(Q)$$(RGBASM) $$(RGBASMVCFLAGS) -o $$@ $$<
 endef
 
 ifeq (,$(filter clean tidy tools,$(MAKECMDGOALS)))
@@ -155,24 +144,25 @@ $(foreach obj, $(crystal_vc_obj), $(eval $(call VCDEP,$(obj),$(obj:_vc.o=.asm)))
 endif
 
 $(ROM_NAME).patch: $(ROM_NAME)_vc.gbc $(ROM_NAME).$(EXTENSION) vc.patch.template
-	tools/make_patch $(ROM_NAME)_vc.sym $^ $@
+	@tools/make_patch $(ROM_NAME)_vc.sym $^ $@
 
 $(ROM_NAME).$(EXTENSION): $(crystal_obj) layout.link | build_tools
-	$Q$(RGBLINK) $(RGBLINKFLAGS) -l layout.link -o $@ $(filter %.o,$^)
-	$Q$(RGBFIX) $(RGBFIXFLAGS) $@
-	$Qtools/bankends -q $(ROM_NAME).map >&2
+	$(Q)$(RGBLINK) $(RGBLINKFLAGS) -l layout.link -o $@ $(filter %.o,$^)
+	$(Q)$(RGBFIX) $(RGBFIXFLAGS) $@
+	$(Q)tools/bankends -q $(ROM_NAME).map >&2
 
 $(ROM_NAME)_vc.gbc: $(crystal_vc_obj) layout.link
-	$Q$(RGBLINK) $(RGBLINKVCFLAGS) -l layout.link -o $@ $(filter %.o,$^)
-	$Q$(RGBFIX) $(RGBFIXFLAGS) $@
-	$Qtools/bankends -q $(ROM_NAME)_vc.map >&2
+	$(Q)$(RGBLINK) $(RGBLINKVCFLAGS) -l layout.link -o $@ $(filter %.o,$^)
+	$(Q)$(RGBFIX) $(RGBFIXFLAGS) $@
+	$(Q)tools/bankends -q $(ROM_NAME)_vc.map >&2
 
 %.bsp: $(wildcard bsp/*.txt) | build_tools
-	$Qcd bsp; ../tools/bspcomp patch.txt ../$@; cd ..
+	$(Q)cd bsp; ../tools/bspcomp patch.txt ../$@; cd ..
 
-gfx/battle/lyra_back.2bpp: RGBGFXFLAGS += -Z
-gfx/battle/substitute-back.2bpp: RGBGFXFLAGS += -Z
-gfx/battle/substitute-front.2bpp: RGBGFXFLAGS += -Z
+# Apply -Z flag to battle sprites
+gfx/battle/lyra_back.2bpp \
+gfx/battle/substitute-back.2bpp \
+gfx/battle/substitute-front.2bpp \
 gfx/battle/ghost.2bpp: RGBGFXFLAGS += -Z
 
 gfx/battle_anims/angels.2bpp: tools/gfx += --trim-whitespace
@@ -205,24 +195,26 @@ gfx/mail/litebluemail_border.1bpp: tools/gfx += --remove-whitespace
 gfx/mail/surf_mail_border.1bpp: tools/gfx += --remove-whitespace
 
 gfx/music_player/bg.2bpp: tools/gfx += --trim-whitespace
-gfx/music_player/music_player.2bpp: gfx/music_player/bg.2bpp gfx/music_player/ob.2bpp ; $Qcat $^ > $@
+gfx/music_player/music_player.2bpp: gfx/music_player/bg.2bpp gfx/music_player/ob.2bpp ; $(Q)cat $^ > $@
 
-gfx/new_game/shrink1.2bpp: RGBGFXFLAGS += -Z
+# Apply -Z flag to shrink sprites
+gfx/new_game/shrink1.2bpp \
 gfx/new_game/shrink2.2bpp: RGBGFXFLAGS += -Z
 
-gfx/overworld/overworld.2bpp: gfx/overworld/puddle_splash.2bpp gfx/overworld/cut_grass.2bpp gfx/overworld/cut_tree.2bpp gfx/overworld/heal_machine.2bpp gfx/overworld/fishing_rod.2bpp gfx/overworld/shadow.2bpp gfx/overworld/shaking_grass.2bpp gfx/overworld/boulder_dust.2bpp ; $Qcat $^ > $@
+gfx/overworld/overworld.2bpp: gfx/overworld/puddle_splash.2bpp gfx/overworld/cut_grass.2bpp gfx/overworld/cut_tree.2bpp gfx/overworld/heal_machine.2bpp gfx/overworld/fishing_rod.2bpp gfx/overworld/shadow.2bpp gfx/overworld/shaking_grass.2bpp gfx/overworld/boulder_dust.2bpp ; $(Q)cat $^ > $@
 
 gfx/pack/pack_left.2bpp: tools/gfx += --trim-whitespace
-gfx/pack/pack_top_left.2bpp: gfx/pack/pack_top.2bpp gfx/pack/pack_left.2bpp ; $Qcat $^ > $@
+gfx/pack/pack_top_left.2bpp: gfx/pack/pack_top.2bpp gfx/pack/pack_left.2bpp ; $(Q)cat $^ > $@
 
 gfx/paintings/%.2bpp: RGBGFXFLAGS += -Z
 
-gfx/player/chris_back.2bpp: RGBGFXFLAGS += -Z
-gfx/player/kris_back.2bpp: RGBGFXFLAGS += -Z
+# Apply -Z flag to player back sprites
+gfx/player/chris_back.2bpp \
+gfx/player/kris_back.2bpp \
 gfx/player/crys_back.2bpp: RGBGFXFLAGS += -Z
 
-gfx/pokedex/%.bin: gfx/pokedex/%.tilemap gfx/pokedex/%.attrmap ; $Qcat $^ > $@
-gfx/pokedex/pokedex.2bpp: gfx/pokedex/pokedex0.2bpp gfx/pokedex/pokedex1.2bpp gfx/pokedex/area.2bpp ; $Qcat $^ > $@
+gfx/pokedex/%.bin: gfx/pokedex/%.tilemap gfx/pokedex/%.attrmap ; $(Q)cat $^ > $@
+gfx/pokedex/pokedex.2bpp: gfx/pokedex/pokedex0.2bpp gfx/pokedex/pokedex1.2bpp gfx/pokedex/area.2bpp ; $(Q)cat $^ > $@
 gfx/pokedex/question_mark.2bpp: RGBGFXFLAGS += -Z
 
 gfx/pokegear/pokegear.2bpp: tools/gfx += --trim-whitespace
@@ -230,7 +222,7 @@ gfx/pokegear/pokegear_sprites.2bpp: tools/gfx += --trim-whitespace
 
 gfx/pokemon/%/back.2bpp: RGBGFXFLAGS += -Z
 
-gfx/pc/obj.2bpp: gfx/pc/modes.2bpp gfx/pc/bags.2bpp ; $Qcat $^ > $@
+gfx/pc/obj.2bpp: gfx/pc/modes.2bpp gfx/pc/bags.2bpp ; $(Q)cat $^ > $@
 
 gfx/slots/slots_1.2bpp: tools/gfx += --trim-whitespace
 gfx/slots/slots_2.2bpp: tools/gfx += --interleave --png=$<
@@ -239,80 +231,81 @@ gfx/slots/slots_3.2bpp: tools/gfx += --interleave --png=$< --remove-duplicates -
 gfx/stats/judge.2bpp: tools/gfx += --trim-whitespace
 
 gfx/title/crystal.2bpp: tools/gfx += --interleave --png=$<
-gfx/title/logo_version.2bpp: gfx/title/logo.2bpp gfx/title/version.2bpp ; $Qcat $^ > $@
+gfx/title/logo_version.2bpp: gfx/title/logo.2bpp gfx/title/version.2bpp ; $(Q)cat $^ > $@
 
 gfx/town_map/town_map.2bpp: tools/gfx += --trim-whitespace
 
 gfx/trade/ball.2bpp: tools/gfx += --remove-whitespace
 gfx/trade/game_boy.2bpp: tools/gfx += --remove-duplicates
 gfx/trade/link_cable.2bpp: tools/gfx += --remove-duplicates
-gfx/trade/ball_poof_cable.2bpp: gfx/trade/ball.2bpp gfx/trade/poof.2bpp gfx/trade/cable.2bpp ; $Qcat $^ > $@
-gfx/trade/game_boy_cable.2bpp: gfx/trade/game_boy.2bpp gfx/trade/link_cable.2bpp ; $Qcat $^ > $@
-gfx/trade/trade_screen.2bpp: gfx/trade/border.2bpp gfx/trade/textbox.2bpp ; $Qcat $^ > $@
+gfx/trade/ball_poof_cable.2bpp: gfx/trade/ball.2bpp gfx/trade/poof.2bpp gfx/trade/cable.2bpp ; $(Q)cat $^ > $@
+gfx/trade/game_boy_cable.2bpp: gfx/trade/game_boy.2bpp gfx/trade/link_cable.2bpp ; $(Q)cat $^ > $@
+gfx/trade/trade_screen.2bpp: gfx/trade/border.2bpp gfx/trade/textbox.2bpp ; $(Q)cat $^ > $@
 
-gfx/trainer_card/chris_card.2bpp: RGBGFXFLAGS += -Z
-gfx/trainer_card/kris_card.2bpp: RGBGFXFLAGS += -Z
+# Apply -Z flag to trainer card sprites
+gfx/trainer_card/chris_card.2bpp \
+gfx/trainer_card/kris_card.2bpp \
 gfx/trainer_card/crys_card.2bpp: RGBGFXFLAGS += -Z
 
 gfx/trainers/%.2bpp: RGBGFXFLAGS += -Z
 
 gfx/type_chart/bg.2bpp: tools/gfx += --remove-duplicates --remove-xflip --remove-yflip
-gfx/type_chart/bg0.2bpp: gfx/type_chart/bg.2bpp.vram1p gfx/type_chart/bg.2bpp.vram0p ; $Qcat $^ > $@
+gfx/type_chart/bg0.2bpp: gfx/type_chart/bg.2bpp.vram1p gfx/type_chart/bg.2bpp.vram0p ; $(Q)cat $^ > $@
 gfx/type_chart/ob.2bpp: tools/gfx += --interleave --png=$<
 
 
 gfx/pokemon/%/front.animated.2bpp: gfx/pokemon/%/front.2bpp gfx/pokemon/%/front.dimensions
-	$Qtools/pokemon_animation_graphics -o $@ $^
+	$(Q)tools/pokemon_animation_graphics -o $@ $^
 gfx/pokemon/%/front.animated.tilemap: gfx/pokemon/%/front.2bpp gfx/pokemon/%/front.dimensions
-	$Qtools/pokemon_animation_graphics -t $@ $^
+	$(Q)tools/pokemon_animation_graphics -t $@ $^
 gfx/pokemon/%/bitmask.asm: gfx/pokemon/%/front.animated.tilemap gfx/pokemon/%/front.dimensions
-	$Qtools/pokemon_animation -b $^ > $@
+	$(Q)tools/pokemon_animation -b $^ > $@
 gfx/pokemon/%/frames.asm: gfx/pokemon/%/front.animated.tilemap gfx/pokemon/%/front.dimensions
-	$Qtools/pokemon_animation -f $^ > $@
+	$(Q)tools/pokemon_animation -f $^ > $@
 
 
 %.lz: %
-	$Qtools/lzcomp -- $< $@
+	$(Q)tools/lzcomp -- $< $@
 
 #%.4bpp: %.png
-#	$Qsuperfamiconv tiles -R -i $@ -d $<
+#	$(Q)superfamiconv tiles -R -i $@ -d $<
 
 %.2bpp: %.png
-	$Q$(RGBGFX) -c dmg $(RGBGFXFLAGS) -o $@ $<
+	$(Q)$(RGBGFX) -c dmg $(RGBGFXFLAGS) -o $@ $<
 	$(if $(tools/gfx),\
-		$Qtools/gfx $(tools/gfx) -o $@ $@)
+		$(Q)tools/gfx $(tools/gfx) -o $@ $@)
 
 %.1bpp: %.png
-	$Q$(RGBGFX) -c dmg $(RGBGFXFLAGS) -d1 -o $@ $<
+	$(Q)$(RGBGFX) -c dmg $(RGBGFXFLAGS) -d1 -o $@ $<
 	$(if $(tools/gfx),\
-		$Qtools/gfx $(tools/gfx) -d1 -o $@ $@)
+		$(Q)tools/gfx $(tools/gfx) -d1 -o $@ $@)
 
 %.2bpp.vram0: %.2bpp
-	$Qtools/sub_2bpp.sh $< 128 > $@
+	$(Q)tools/sub_2bpp.sh $< 128 > $@
 
 %.2bpp.vram1: %.2bpp
-	$Qtools/sub_2bpp.sh $< 128 128 > $@
+	$(Q)tools/sub_2bpp.sh $< 128 128 > $@
 
 %.2bpp.vram2: %.2bpp
-	$Qtools/sub_2bpp.sh $< 256 128 > $@
+	$(Q)tools/sub_2bpp.sh $< 256 128 > $@
 
 %.2bpp.vram0p: %.2bpp
-	$Qtools/sub_2bpp.sh $< 127 > $@
+	$(Q)tools/sub_2bpp.sh $< 127 > $@
 
 %.2bpp.vram1p: %.2bpp
-	$Qtools/sub_2bpp.sh $< 127 128 > $@
+	$(Q)tools/sub_2bpp.sh $< 127 128 > $@
 
 %.2bpp.vram2p: %.2bpp
-	$Qtools/sub_2bpp.sh $< 255 128 > $@
+	$(Q)tools/sub_2bpp.sh $< 255 128 > $@
 
 %.vwf.1bpp: %.2bpp
-	$Qtools/vwf -o $@ $<
+	$(Q)tools/vwf -o $@ $<
 
 %.vwf.widths: %.2bpp
-	$Qtools/vwf -w $@ $<
+	$(Q)tools/vwf -w $@ $<
 
 %.dimensions: %.png
-	$Qtools/png_dimensions $< $@
+	$(Q)tools/png_dimensions $< $@
 
 data/tilesets/%_collision.bin: data/tilesets/%_collision.asm
-	$QRGBASM=$(RGBASM) RGBLINK=$(RGBLINK) tools/collision_asm2bin.sh $< $@
+	$(Q)RGBASM=$(RGBASM) RGBLINK=$(RGBLINK) tools/collision_asm2bin.sh $< $@
