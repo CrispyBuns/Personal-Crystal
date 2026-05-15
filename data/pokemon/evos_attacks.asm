@@ -5168,7 +5168,7 @@ endc
 	learnset 28, THRASH
 	learnset 34, DARK_PULSE
 	learnset 41, ANCIENTPOWER ; Payback → HGSS tutor move
-	learnset 47, CRUNCH
+	learnset 35, CRUNCH
 	learnset 54, EARTHQUAKE
 	learnset 60, STONE_EDGE
 	learnset 67, OUTRAGE ; Hyper Beam → HGSS tutor move
