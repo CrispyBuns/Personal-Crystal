@@ -2853,8 +2853,7 @@ endc
 	learnset 30, AQUA_TAIL
 	learnset 33, SCARY_FACE
 	learnset 36, DRAGONBREATH ; Dragon Rage → GSC TM move
-	learnset 39, CRUNCH
-	learnset 42, HYDRO_PUMP
+	learnset 40, HYDRO_PUMP
 	learnset 45, DRAGON_DANCE
 	learnset 48, HURRICANE
 	learnset 51, RAIN_DANCE
