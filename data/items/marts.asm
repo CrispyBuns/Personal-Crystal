@@ -57,7 +57,7 @@ CherrygroveMart:
 CherrygroveMartAfterDex:
 	db 6 ; # items
 	db POKE_BALL
-	db HEAL_BALL
+	db LUXURY_BALL
 	db POTION
 	db ANTIDOTE
 	db PARALYZEHEAL
