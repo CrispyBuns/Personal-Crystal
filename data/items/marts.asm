@@ -82,9 +82,9 @@ VioletMart:
 
 AzaleaMart:
 	db 11 ; # items
-	db CHARCOAL
+	db DUSK_STONE
 	db POKE_BALL
-	db NET_BALL
+	db GREAT_BALL
 	db POTION
 	db SUPER_POTION
 	db ESCAPE_ROPE
