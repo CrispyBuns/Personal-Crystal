@@ -33,7 +33,7 @@ RGBASMFLAGS    = $(COMMON_FLAGS) -E -Q8 -P includes.asm -Weverything -Wtruncatio
 RGBASMVCFLAGS  = -DVIRTUAL_CONSOLE
 RGBLINKFLAGS   = $(COMMON_FLAGS) -M -n $(ROM_NAME).sym -m $(ROM_NAME).map -p $(FILLER)
 RGBLINKVCFLAGS = -Weverything -M -n $(ROM_NAME)_vc.sym -m $(ROM_NAME)_vc.map -p $(FILLER)
-RGBFIXFLAGS    = $(COMMON_FLAGS) -csjv -t $(TITLE) -i $(MCODE) -n $(ROMVERSION) -p $(FILLER) -k 01 -l 0x33 -m MBC3+TIMER+RAM+BATTERY -r 3
+RGBFIXFLAGS    = $(COMMON_FLAGS) -csjv -t $(TITLE) -i $(MCODE) -n $(ROMVERSION) -p $(FILLER) -k 01 -l 0x33 -m MBC3+TIMER+RAM+BATTERY -r 4
 RGBGFXFLAGS    = $(COMMON_FLAGS)
 
 # Modifier handling with a single loop
