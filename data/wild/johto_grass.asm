@@ -1292,7 +1292,7 @@
 	db 4 percent, 4 percent, 4 percent ; encounter rates: morn/day/nite
 	; morn
 	wildmon 3, GEODUDE
-	wildmon 2, ZUBAT
+	wildmon 2, GEODUDE
 	wildmon 2, GEODUDE
 	wildmon 4, GEODUDE
 	wildmon 2, TEDDIURSA
@@ -1303,8 +1303,8 @@
 	wildmon 2, ZUBAT
 	wildmon 2, GEODUDE
 	wildmon 4, GEODUDE
-	wildmon 2, ZUBAT
-	wildmon 4, ZUBAT
+	wildmon 2, GEODUDE
+	wildmon 4, GEODUDE
 	wildmon 4, DUNSPARCE
 	; nite
 	wildmon 3, GEODUDE

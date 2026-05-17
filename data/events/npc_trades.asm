@@ -10,7 +10,7 @@ NPCTrades:
 	rawchar "Mike@@@@", $00
 ; NPC_TRADE_KYLE in Violet City
 	db TRADE_DIALOGSET_COLLECTOR
-	dp BELLSPROUT, NO_FORM ; wants
+	dp SENTRET, NO_FORM ; wants
 	dp LARVITAR, MALE    ; gives
 	rawchar "Jeff@@@@", $00
 	db $FF, $FF, $FF, HIDDEN_ABILITY | NAT_SPE_UP_SATK_DOWN,   LUXURY_BALL, LUCKY_EGG

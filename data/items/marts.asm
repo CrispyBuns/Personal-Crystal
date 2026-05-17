@@ -65,7 +65,7 @@ CherrygroveMartAfterDex:
 	db -1
 
 VioletMart:
-	db 11 ; # items
+	db 12 ; # items
 	db POKE_BALL
 	db REPEAT_BALL
 	db POTION
@@ -75,8 +75,8 @@ VioletMart:
 	db AWAKENING
 	db X_ATTACK
 	db X_DEFEND
-	db X_SPEED
-	db FLOWER_MAIL
+	db EXP_SHARE
+	db SOOTHE_BELL
 	db LUXURY_BALL
 	db -1
 
