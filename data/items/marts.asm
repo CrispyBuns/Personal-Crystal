@@ -82,8 +82,8 @@ VioletMart:
 
 AzaleaMart:
 	db 11 ; # items
-	db DUSK_STONE
-	db POKE_BALL
+	db SHINY_STONE
+	db SUN_STONE
 	db GREAT_BALL
 	db POTION
 	db SUPER_POTION
