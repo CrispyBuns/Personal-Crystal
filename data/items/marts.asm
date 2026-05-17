@@ -91,7 +91,7 @@ AzaleaMart:
 	db REPEL
 	db ANTIDOTE
 	db PARALYZEHEAL
-	db FLOWER_MAIL
+	db LUCKY_EGG
         db LUCKY_EGG
 	db -1
 
