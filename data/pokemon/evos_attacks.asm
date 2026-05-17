@@ -4158,7 +4158,7 @@ endc
 	learnset 9, DOUBLE_KICK ; Baby-Doll Eyes → LGPE move
 	learnset 13, QUICK_ATTACK
 	learnset 17, SWIFT
-	learnset 20, PSYBEAM
+	learnset 13, PSYBEAM
 	learnset 25, FUTURE_SIGHT
 	learnset 29, REFLECT ; Psych Up → event move
 	learnset 33, HEALINGLIGHT ; Morning Sun → similar move
