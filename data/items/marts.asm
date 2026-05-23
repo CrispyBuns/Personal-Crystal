@@ -65,7 +65,7 @@ CherrygroveMartAfterDex:
 	db -1
 
 VioletMart:
-	db 12 ; # items
+	db 11 ; # items
 	db POKE_BALL
 	db REPEAT_BALL
 	db POTION
@@ -75,15 +75,13 @@ VioletMart:
 	db AWAKENING
 	db X_ATTACK
 	db X_DEFEND
-	db EXP_SHARE
-	db SOOTHE_BELL
+	db SCOPE_LENS
 	db LUXURY_BALL
+	db SOOTHE_BELL
 	db -1
 
 AzaleaMart:
-	db 11 ; # items
-	db SHINY_STONE
-	db SUN_STONE
+	db 10 ; # items
 	db GREAT_BALL
 	db POTION
 	db SUPER_POTION
@@ -92,7 +90,7 @@ AzaleaMart:
 	db ANTIDOTE
 	db PARALYZEHEAL
 	db LUCKY_EGG
-        db LUCKY_EGG
+        db MAX_REVIVE
 	db -1
 
 Goldenrod2FMart1:
@@ -165,7 +163,7 @@ Goldenrod5FTMMart:
 	db 8 ; # items
 	dbw TM_PROTECT,       10000
 	dbw TM_REFLECT,       10000
-	dbw TM_LIGHT_SCREEN,  10000
+	dbw TM_LIGHT_SCREEN,  1000
 	dbw TM_SOLAR_BEAM,    25000
 	dbw TM_THUNDER,       30000
 	dbw TM_FIRE_BLAST,    30000

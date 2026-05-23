@@ -13,9 +13,9 @@ NPCTrades:
 	dp SENTRET, NO_FORM ; wants
 	dp LARVITAR, MALE    ; gives
 	rawchar "Jeff@@@@", $00
-	db $FF, $FF, $FF, HIDDEN_ABILITY | NAT_SPE_UP_SATK_DOWN,   LUXURY_BALL, LUCKY_EGG
+	db $FF, $FF, $FF, HIDDEN_ABILITY | NAT_SPE_UP_SATK_DOWN,   LUXURY_BALL, SCOPE_LENS
 	dw 48926
-	rawchar "Keith@@@@@", $00
+	rawchar "Keith@@@", $00
 ; NPC_TRADE_TIM in Olivine City
 	db TRADE_DIALOGSET_HAPPY
 	dp STEELIX, NO_FORM ; wants
