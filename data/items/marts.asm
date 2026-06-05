@@ -59,7 +59,7 @@ CherrygroveMartAfterDex:
 	db GREAT_BALL
 	db LUXURY_BALL
 	db POTION
-	db ANTIDOTE
+	db SOOTHE_BELL
 	db PARALYZEHEAL
 	db EXP_SHARE
 	db -1
