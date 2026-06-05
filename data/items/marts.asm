@@ -56,17 +56,17 @@ CherrygroveMart:
 
 CherrygroveMartAfterDex:
 	db 6 ; # items
-	db POKE_BALL
+	db GREAT_BALL
 	db LUXURY_BALL
 	db POTION
 	db ANTIDOTE
 	db PARALYZEHEAL
-	db AWAKENING
+	db EXP_SHARE
 	db -1
 
 VioletMart:
-	db 11 ; # items
-	db POKE_BALL
+	db 12 ; # items
+	db GREAT_BALL
 	db REPEAT_BALL
 	db POTION
 	db ESCAPE_ROPE
@@ -75,8 +75,8 @@ VioletMart:
 	db AWAKENING
 	db X_ATTACK
 	db X_DEFEND
-	db SCOPE_LENS
-	db LUXURY_BALL
+	db SUN_STONE
+	db DUSK_STONE
 	db SOOTHE_BELL
 	db -1
 

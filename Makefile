@@ -1,8 +1,8 @@
-NAME := polishedcrystal
+NAME := Pokemon-Personal-Crystal
 MODIFIERS :=
-VERSION := 3.2.3
 
-ROM_NAME = $(NAME)$(MODIFIERS)-$(VERSION)
+
+ROM_NAME = $(NAME)$(MODIFIERS)
 EXTENSION := gbc
 
 TITLE := PKCUSTOM
@@ -80,7 +80,7 @@ crystal_obj    := $(rom_obj)
 crystal_vc_obj := $(rom_obj:.o=_vc.o)
 
 .SUFFIXES:
-.PHONY: clean tidy crystal faithful pocket debug monochrome freespace tools bsp huffman vc
+.PHONY: clean tidy crystal faithful pocket debug monochrome freespace  bsp huffman vc
 .PRECIOUS: %.2bpp %.1bpp
 .SECONDARY:
 .DEFAULT_GOAL := crystal
@@ -94,16 +94,13 @@ debug: crystal
 pocket: crystal
 vc: $$(ROM_NAME).patch
 
-tools:
-	$(MAKE) -C tools/
-
 clean: tidy
 	find gfx maps data/tilesets -name '*.lz' -delete
 	find gfx \( -name '*.[12]bpp' -o -name '*.2bpp.vram[012]' -o -name '*.2bpp.vram[012]p' \) -delete
 	find gfx/pokemon -mindepth 1 \( -name 'bitmask.asm' -o -name 'frames.asm' \
 		-o -name 'front.animated.tilemap' -o -name 'front.dimensions' \) -delete
 	find data/tilesets -name '*_collision.bin' -delete
-	$(MAKE) clean -C tools/
+	
 
 tidy:
 	$(RM) $(crystal_obj) $(crystal_vc_obj) $(wildcard $(NAME)-*.gbc) $(wildcard $(NAME)-*.pocket) $(wildcard $(NAME)-*.bsp) \

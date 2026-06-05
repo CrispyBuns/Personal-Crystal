@@ -93,7 +93,7 @@ endif
 # -flto is already in CFLAGS; pass it here too so the linker
 # can drive LTO. Add -s to strip debug symbols in release.
 # ==============================================================
-LDFLAGS := -flto
+LDFLAGS := -flto -s
 
 # ==============================================================
 # Tools

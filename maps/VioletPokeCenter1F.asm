@@ -53,7 +53,7 @@ VioletPokeCenter1FElmsAideScript:
 .AskTakeEgg:
 	yesorno
 	iffalsefwd .RefusedEgg
-	giveegg EEVEE
+	giveegg EEVEE, SHINY_MASK | HIDDEN_ABILITY
 	iffalse_jumpopenedtext .PartyAndBoxFull
 	setevent EVENT_GOT_TOGEPI_EGG_FROM_ELMS_AIDE
 	clearevent EVENT_ELMS_AIDE_IN_LAB
