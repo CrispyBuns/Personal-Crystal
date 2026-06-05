@@ -212,7 +212,7 @@ CyndaquilPokeBallScript:
 	writetext ChoseStarterText
 	promptbutton
 	waitsfx
-	givepoke CYNDAQUIL, PLAIN_FORM, 5,SOOTHE_BELL, LUXURY_BALL, NO_MOVE, 
+	givepoke CYNDAQUIL, PLAIN_FORM, 5,ORAN_BERRY, LUXURY_BALL, EMBER
 	writetext LyraChoosesStarterText
 	waitbutton
 	closetext
