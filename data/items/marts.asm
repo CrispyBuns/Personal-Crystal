@@ -61,11 +61,11 @@ CherrygroveMartAfterDex:
 	db POTION
 	db SOOTHE_BELL
 	db PARALYZEHEAL
-	db EXP_SHARE
+	db LUCKY_EGG
 	db -1
 
 VioletMart:
-	db 12 ; # items
+	db 10 ; # items
 	db GREAT_BALL
 	db REPEAT_BALL
 	db POTION
@@ -76,20 +76,18 @@ VioletMart:
 	db X_ATTACK
 	db X_DEFEND
 	db SUN_STONE
-	db DUSK_STONE
-	db SOOTHE_BELL
 	db -1
 
 AzaleaMart:
-	db 10 ; # items
+	db 9 ; # items
 	db GREAT_BALL
 	db POTION
 	db SUPER_POTION
 	db ESCAPE_ROPE
 	db REPEL
-	db ANTIDOTE
+	db DUSK_STONE
 	db PARALYZEHEAL
-	db LUCKY_EGG
+	db SCOPE_LENS
         db MAX_REVIVE
 	db -1
 
@@ -97,13 +95,13 @@ Goldenrod2FMart1:
 	db 9 ; # items
 	db POTION
 	db SUPER_POTION
-	db ANTIDOTE
+	db SHINY_STONE
 	db PARALYZEHEAL
 	db AWAKENING
 	db BURN_HEAL
 	db ICE_HEAL
 	db FULL_HEAL
-	db REVIVE
+	db MAX_REVIVE
 	db -1
 
 Goldenrod2FMart2:
