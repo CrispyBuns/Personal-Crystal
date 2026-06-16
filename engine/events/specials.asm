@@ -526,3 +526,19 @@ BillBoxSwitchCheck:
 	ld a, b
 	ldh [hScriptVar], a
 	ret
+
+Special_ForceLastPartyMonHA:
+; Forces the last Pokémon in the party to have its Hidden Ability.
+; Clears ABILITY_1 and ABILITY_2 bits, then sets HIDDEN_ABILITY in the personality byte.
+	ld a, [wPartyCount]
+	and a
+	ret z                          ; safety: empty party, do nothing
+	dec a                          ; 0-indexed slot of last mon
+	ld bc, wPartyMon2 - wPartyMon1 ; size of one party mon struct
+	ld hl, wPartyMon1Personality
+	rst AddNTimes                  ; hl now points to last mon's personality byte
+	ld a, [hl]
+	and ~ABILITY_MASK              ; clear ability bits
+	or HIDDEN_ABILITY              ; set hidden ability
+	ld [hl], a
+	ret

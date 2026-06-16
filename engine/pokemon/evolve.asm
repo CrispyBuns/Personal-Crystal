@@ -497,8 +497,28 @@ TryToEvolve:
 
 	call LearnEvolutionMove
 	call LearnLevelMoves
+	call FixHisuianTyphlosionAbility
 
 	and a
+	ret
+
+FixHisuianTyphlosionAbility:
+; After evolving into Hisuian Typhlosion via Dusk Stone, force Frisk as the hidden ability.
+	ld a, [wCurSpecies]
+	cp TYPHLOSION
+	ret nz
+	ld a, [wCurForm]
+	cp HISUIAN_FORM
+	ret nz
+; It's Hisuian Typhlosion — patch the ability byte in the party slot.
+	ld a, [wCurPartyMon]
+	ld hl, wPartyMon1Personality
+	ld bc, wPartyMon2 - wPartyMon1
+	rst AddNTimes
+	ld a, [hl]
+	and ~ABILITY_MASK
+	or HIDDEN_ABILITY             ; FRISK is Hisuian Typhlosion's hidden ability slot
+	ld [hl], a
 	ret
 
 UpdateSpeciesNameIfNotNicknamed:
