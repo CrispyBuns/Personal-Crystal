@@ -880,7 +880,7 @@ VitaminEffect:
 	jmp c, ItemNotUsed_ExitMenu
 
 	call SetUpEVModifier
-	ld a, 10
+	ld a, 20
 	call CheckEVCap
 	jr nc, .ev_value_ok
 	and a
