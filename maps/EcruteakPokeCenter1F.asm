@@ -69,7 +69,7 @@ EcruteakPokeCenter1FBillScript:
 	readvar VAR_PARTYCOUNT
 	ifequalfwd PARTY_LENGTH, .NoRoom
 	promptbutton
-	givepoke PICHU, PLAIN_FORM, 20, SOOTHE_BELL, LUXURY_BALL
+	givepoke SCYTHER, PLAIN_FORM, 25, METAL_COAT, LUXURY_BALL
 	givepokemail .GiftEeveeMail
 	callasm .SetEeveeMailOT
 	setevent EVENT_GOT_EEVEE
@@ -112,7 +112,7 @@ EcruteakPokeCenter1FBillScript:
 	done
 
 .QuestionText:
-	text "Bill: This Pichu"
+	text "Bill: This Scyther"
 	line "came over just"
 
 	para "before the Time"
@@ -145,10 +145,10 @@ EcruteakPokeCenter1FBillScript:
 
 .GoodbyeText:
 	text "Bill: Prof.Elm"
-	line "claims Eevee may"
+	line "claims Scyther may"
 
-	para "evolve in new and"
-	line "unknown ways."
+	para "evolve in a"
+	line "and unknown way."
 
 	para "I have to hurry on"
 	line "back to Goldenrod"
