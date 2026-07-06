@@ -2,10 +2,10 @@ NPCTrades:
 	table_width NPCTRADE_STRUCT_LENGTH
 ; NPC_TRADE_MIKE in Goldenrod City
 	db TRADE_DIALOGSET_COLLECTOR
-	dp ABRA, NO_FORM  ; wants
-	dp MACHOP, FEMALE ; gives
+	dp DITTO, NO_FORM  ; wants
+	dp MACHOP, MALE ; gives
 	rawchar "Muscle@@@@@"
-	db $EE, $EE, $EE, HIDDEN_ABILITY | NAT_ATK_UP_SATK_DOWN,  LEVEL_BALL,   SITRUS_BERRY
+	db $FF, $FF, $FF, HIDDEN_ABILITY | NAT_ATK_UP_SATK_DOWN,  LUXURY_BALL,   SITRUS_BERRY
 	dw 37460
 	rawchar "Mike@@@@", $00
 ; NPC_TRADE_KYLE in Violet City
