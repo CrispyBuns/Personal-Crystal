@@ -3,9 +3,9 @@ NPCTrades:
 ; NPC_TRADE_MIKE in Goldenrod City
 	db TRADE_DIALOGSET_COLLECTOR
 	dp DITTO, NO_FORM  ; wants
-	dp MACHOP, MALE ; gives
-	rawchar "Tristian@@@"
-	db $FF, $FF, $FF, HIDDEN_ABILITY | NAT_ATK_UP_SATK_DOWN,  LUXURY_BALL,   SITRUS_BERRY
+	dp SCYTHER, MALE ; gives
+	rawchar "Scizzorman"
+	db $FF, $FF, $FF, HIDDEN_ABILITY | NAT_ATK_UP_SATK_DOWN,  LUXURY_BALL,   METAL_COAT
 	dw 37460
 	rawchar "Mike@@@@", $00
 ; NPC_TRADE_KYLE in Violet City
