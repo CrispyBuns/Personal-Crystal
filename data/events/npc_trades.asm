@@ -4,7 +4,7 @@ NPCTrades:
 	db TRADE_DIALOGSET_COLLECTOR
 	dp DITTO, NO_FORM  ; wants
 	dp SCYTHER, MALE ; gives
-	rawchar "Scizzorman"
+	rawchar "Scizzorman@"
 	db $FF, $FF, $FF, HIDDEN_ABILITY | NAT_ATK_UP_SATK_DOWN,  LUXURY_BALL,   METAL_COAT
 	dw 37460
 	rawchar "Mike@@@@", $00
