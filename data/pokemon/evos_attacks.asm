@@ -5144,9 +5144,9 @@ endc
 	learnset 19, ROCK_SLIDE
 	learnset 23, SCARY_FACE
 	learnset 28, THRASH
-	learnset 32, DARK_PULSE
+	learnset 30, CRUNCH
 	learnset 37, ANCIENTPOWER ; Payback → HGSS tutor move
-	learnset 41, CRUNCH
+	learnset 41, NASTY_PLOT
 	learnset 46, EARTHQUAKE
 	learnset 50, STONE_EDGE
 	learnset 55, OUTRAGE ; Hyper Beam → HGSS tutor move
