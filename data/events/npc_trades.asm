@@ -18,7 +18,7 @@ NPCTrades:
 	rawchar "Keith@@@", $00
 ; NPC_TRADE_TIM in Olivine City
 	db TRADE_DIALOGSET_HAPPY
-	dp PIDGEY, NO_FORM ; wants
+	dp PICHU, NO_FORM ; wants
 	dp SCYTHER, MALE ; gives
 	rawchar "Scizzorman", $00
 	db $FF, $FF, $FF, SHINY_MASK | HIDDEN_ABILITY | NAT_ATK_UP_SDEF_DOWN,   LUXURY_BALL,   METAL_COAT
