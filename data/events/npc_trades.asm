@@ -18,12 +18,12 @@ NPCTrades:
 	rawchar "Keith@@@", $00
 ; NPC_TRADE_TIM in Olivine City
 	db TRADE_DIALOGSET_HAPPY
-	dp DITTO, NO_FORM ; wants
+	dp PIDGEY, NO_FORM ; wants
 	dp MACHOKE, MALE ; gives
 	rawchar "Quadzilla@", $00
 	db $FF, $FF, $FF, SHINY_MASK | HIDDEN_ABILITY | NAT_ATK_UP_SDEF_DOWN,   LUXURY_BALL,   SCOPE_LENS
 	dw 30259
-	rawchar "Jake@@@@", $00
+	rawchar "Tristian", $00
 ; NPC_TRADE_EMY in Blackthorn City
 	db TRADE_DIALOGSET_GIRL
 	dp JYNX, NO_FORM    ; wants
