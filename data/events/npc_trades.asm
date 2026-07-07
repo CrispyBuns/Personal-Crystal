@@ -19,11 +19,11 @@ NPCTrades:
 ; NPC_TRADE_TIM in Olivine City
 	db TRADE_DIALOGSET_HAPPY
 	dp DITTO, NO_FORM ; wants
-	dp MACHOKE, MALE ; gives
+	dp MACHOP, MALE ; gives
 	rawchar "Tristian@@", $00
 	db $FF, $FF, $FF, HIDDEN_ABILITY | NAT_ATK_UP_SATK_DOWN,   LUXURY_BALL,   LINKING_CORD
-	dw 61521
-	rawchar "Tim@@@@@", $00
+	dw 30259
+	rawchar "Jake@@@@", $00
 ; NPC_TRADE_EMY in Blackthorn City
 	db TRADE_DIALOGSET_GIRL
 	dp JYNX, NO_FORM    ; wants
