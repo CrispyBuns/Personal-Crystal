@@ -17,7 +17,7 @@ ifndef ARCH_FLAGS
   UNAME_M := $(shell uname -m)
 
   ifeq ($(UNAME_M),x86_64)
-    ARCH_FLAGS := -march=native -mtune=native -mfpmath=sse -msse4.2
+    ARCH_FLAGS := -march=native -mtune=native -mfpmath=sse -msse4.2 -mavx2
   else ifeq ($(UNAME_M),aarch64)
     ARCH_FLAGS := -march=native -mtune=native
   else ifeq ($(UNAME_M),arm)
