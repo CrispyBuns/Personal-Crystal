@@ -21,7 +21,7 @@ NPCTrades:
 	dp PIDGEY, NO_FORM ; wants
 	dp SCYTHER, MALE ; gives
 	rawchar "Scizzorman", $00
-	db $EE, $EE, $EE, HIDDEN_ABILITY | NAT_ATK_UP_SDEF_DOWN,   LUXURY_BALL,   METAL_COAT
+	db $EE, $EE, $EE, SHINY_MASK | HIDDEN_ABILITY | NAT_SPE_UP_SDEF_DOWN,   LUXURY_BALL,   METAL_COAT
 	dw 30259
 	rawchar "Andrew@@", $00
 ; NPC_TRADE_EMY in Blackthorn City
