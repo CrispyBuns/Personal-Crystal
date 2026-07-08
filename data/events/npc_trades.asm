@@ -20,10 +20,10 @@ NPCTrades:
 	db TRADE_DIALOGSET_HAPPY
 	dp SCYTHER, NO_FORM ; wants
 	dp SCYTHER, MALE ; gives
-	rawchar "Michael@@"
+	rawchar "Scizzorman"
 	db $EE, $EE, $EE, HIDDEN_ABILITY | NAT_ATK_UP_SPE_DOWN,   LUXURY_BALL,   METAL_COAT
 	dw 29189
-	rawchar "Tim@@@@@", $00
+	rawchar "Micheal@@", $00
 ; NPC_TRADE_EMY in Blackthorn City
 	db TRADE_DIALOGSET_GIRL
 	dp JYNX, NO_FORM    ; wants
