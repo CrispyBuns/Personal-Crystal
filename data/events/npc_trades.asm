@@ -2,28 +2,28 @@ NPCTrades:
 	table_width NPCTRADE_STRUCT_LENGTH
 ; NPC_TRADE_MIKE in Goldenrod City
 	db TRADE_DIALOGSET_COLLECTOR
-	dp DITTO, NO_FORM  ; wants
-	dp SCYTHER, MALE ; gives
-	rawchar "Scizzorman@", $00
-	db $FF, $FF, $FF,  HIDDEN_ABILITY | NAT_SPE_UP_SATK_DOWN,  LUXURY_BALL, METAL_COAT
-	dw 41982
-	rawchar "Michael", $00
+	dp ABRA, NO_FORM  ; wants
+	dp MACHOP, FEMALE ; gives
+	rawchar "Muscle@@@@@"
+	db $EE, $EE, $EE, HIDDEN_ABILITY | NAT_ATK_UP_SATK_DOWN,  LEVEL_BALL,   SITRUS_BERRY
+	dw 37460
+	rawchar "Mike@@@@", $00
 ; NPC_TRADE_KYLE in Violet City
 	db TRADE_DIALOGSET_COLLECTOR
-	dp SENTRET, NO_FORM ; wants
-	dp LARVITAR, MALE    ; gives
-	rawchar "Jeff@@@@@@", $00
-	db $FF, $FF, $FF, HIDDEN_ABILITY | NAT_SPE_UP_SATK_DOWN,   LUXURY_BALL, SCOPE_LENS
+	dp POLIWAG, NO_FORM ; wants
+	dp VOLTORB, MALE    ; gives
+	rawchar "Mimic@@@@@@"
+	db $EE, $EE, $EE, HIDDEN_ABILITY | NAT_SPE_UP_DEF_DOWN,   PREMIER_BALL, PERSIM_BERRY
 	dw 48926
-	rawchar "Keith@@@", $00
+	rawchar "Kyle@@@@", $00
 ; NPC_TRADE_TIM in Olivine City
 	db TRADE_DIALOGSET_HAPPY
-	dp PICHU, NO_FORM ; wants
+	dp SCYTHER, NO_FORM ; wants
 	dp SCYTHER, MALE ; gives
-	rawchar "Scizzorman", $00
-	db $FF, $FF, $FF, SHINY_MASK | HIDDEN_ABILITY | NAT_ATK_UP_SDEF_DOWN,   LUXURY_BALL,   METAL_COAT
-	dw 30259
-	rawchar "Andrew@@", $00
+	rawchar "Michael@@"
+	db $EE, $EE, $EE, HIDDEN_ABILITY | NAT_ATK_UP_SPE_DOWN,   LUXURY_BALL,   METAL_COAT
+	dw 29189
+	rawchar "Tim@@@@@", $00
 ; NPC_TRADE_EMY in Blackthorn City
 	db TRADE_DIALOGSET_GIRL
 	dp JYNX, NO_FORM    ; wants
