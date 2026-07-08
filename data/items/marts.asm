@@ -203,7 +203,7 @@ EcruteakMart:
 
 OlivineMart:
 	db 10 ; # items
-	db GREAT_BALL
+	db LUXURY_BALL
 	db MAX_REVIVE
 	db SUPER_POTION
 	db HYPER_POTION
@@ -212,7 +212,7 @@ OlivineMart:
 	db AWAKENING
 	db ICE_HEAL
 	db SUPER_REPEL
-	db LINKING_CORD
+	db METAL_COAT
 	db -1
 
 CianwoodMart:

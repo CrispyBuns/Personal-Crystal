@@ -2,10 +2,10 @@
 	;   hp  atk  def  spe  sat  sdf
 
 	db BUG, FLYING ; type
-	db 45 ; catch rate
+	db 255 ; catch rate
 	db 187 ; base exp
 	db NO_ITEM, NO_ITEM ; held items
-	dn GENDER_F50, HATCH_MEDIUM_SLOW ; gender ratio, step cycles to hatch
+	dn GENDER_F25, HATCH_MEDIUM_SLOW ; gender ratio, step cycles to hatch
 
 	abilities_for SCYTHER, SWARM, TECHNICIAN, STEADFAST
 	db GROWTH_MEDIUM_FAST ; growth rate

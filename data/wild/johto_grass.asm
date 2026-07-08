@@ -1631,17 +1631,17 @@
 	wildmon 16, RATICATE
 	wildmon 16, MAGNEMITE
 	wildmon 16, PIDGEOTTO
-	wildmon 15, MILTANK
-	wildmon 15, TAUROS
-	wildmon 15, TAUROS
+	wildmon 15, SCYTHER
+	wildmon 15, SCYTHER
+	wildmon 15, SCYTHER
 	; day
 	wildmon 16, RATTATA
 	wildmon 16, RATICATE
 	wildmon 16, MAGNEMITE
-	wildmon 16, PIDGEOTTO
-	wildmon 15, MILTANK
-	wildmon 15, TAUROS
-	wildmon 15, TAUROS
+	wildmon 16, SCYTHER
+	wildmon 15, SCYTHER
+        wildmon 15, SCYTHER
+        wildmon 15, SCYTHER
 	; nite
 	wildmon 16, MEOWTH
 	wildmon 16, RATICATE
