@@ -5,8 +5,8 @@ NPCTrades:
 	dp DITTO, NO_FORM  ; wants
 	dp SCYTHER, MALE ; gives
 	rawchar "Scizzorman@", $00
-	db $FF, $FF, $FF, SHINY_MASK | HIDDEN_ABILITY | NAT_ATK_UP_SATK_DOWN,  LUXURY_BALL,   METAL_COAT
-	dw 92656
+	db $FF, $FF, $FF,  HIDDEN_ABILITY | NAT_SPE_UP_SATK_DOWN,  LUXURY_BALL, METAL_COAT
+	dw 41982
 	rawchar "Michael", $00
 ; NPC_TRADE_KYLE in Violet City
 	db TRADE_DIALOGSET_COLLECTOR
