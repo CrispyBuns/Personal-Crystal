@@ -74,7 +74,7 @@ VioletMart:
 	db PARALYZEHEAL
 	db AWAKENING
 	db X_ATTACK
-	db X_DEFEND
+	db LUCKY_EGG
 	db SUN_STONE
 	db -1
 
