@@ -26,7 +26,7 @@ ManiaScript:
 	writetext ManiaText_AskLookAfterShuckie
 	yesorno
 	iffalsefwd .refusetotakeshuckie
-	givepoke SHUCKLE, MALE | PLAIN_FORM, 25, BERRY_JUICE, NET_BALL, POISON_JAB, ShuckieName, ShuckieOTName, KIRK_SHUCKIE_ID
+        givepoke SCYTHER, MALE | PLAIN_FORM, 20, METAL_COAT, LUXURY_BALL, NO_MOVE, ShuckieName, ShuckieOTName, KIRK_SHUCKIE_ID
 	iffalse_jumpopenedtext ManiaText_PartyAndBoxFull
 	writetext ManiaText_TakeCareOfShuckie
 	promptbutton
@@ -91,10 +91,10 @@ ManiaScript:
 	jumpopenedtext ManiaText_HappinessSpeech
 
 ShuckieName:
-	rawchar "Shuckie@"
+	rawchar "Scizzorman"
 
 ShuckieOTName:
-	rawchar "Kirk@"
+	rawchar "Michael@@"
 
 ManiaText_AskLookAfterShuckie:
 	text "I, I'm in shock!"
