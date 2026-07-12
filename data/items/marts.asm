@@ -95,7 +95,7 @@ Goldenrod2FMart1:
 	db 9 ; # items
 	db POTION
 	db SUPER_POTION
-	db SHINY_STONE
+	db SOOTHE_BELL
 	db PARALYZEHEAL
 	db AWAKENING
 	db BURN_HEAL
