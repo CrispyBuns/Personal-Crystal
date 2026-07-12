@@ -91,10 +91,10 @@ ManiaScript:
 	jumpopenedtext ManiaText_HappinessSpeech
 
 ShuckieName:
-	rawchar "Scizzorman"
+	rawchar "Scizzor@@"
 
 ShuckieOTName:
-	rawchar "Michael@@"
+	rawchar "Michael@"
 
 ManiaText_AskLookAfterShuckie:
 	text "I, I'm in shock!"
