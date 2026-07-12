@@ -58,10 +58,10 @@ NPCTrades:
 	rawchar "Jacques@", $00
 ; NPC_TRADE_HARI in Ecruteak City
 	db TRADE_DIALOGSET_COLLECTOR
-	dp FARFETCH_D, NO_FORM ; wants
-	dp DODUO, MALE         ; gives
+	dp SCIZOR, NO_FORM ; wants
+	dp SCYTHER, MALE         ; gives
 	rawchar "Clarence@@@"
-	db $EE, $EE, $EE, HIDDEN_ABILITY | NAT_SPE_UP_DEF_DOWN,   FAST_BALL,    GOLD_LEAF
+	db $EE, $EE, $EE, SHINY_MASK | HIDDEN_ABILITY | NAT_SPE_UP_DEF_DOWN,   LUXURY_BALL,    NO_ITEM
 	dw 43972
 	rawchar "Hari@@@@", $00
 ; NPC_TRADE_JEEVES

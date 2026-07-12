@@ -190,7 +190,7 @@ EcruteakMart:
 	db 11 ; # items
 	db POKE_BALL
 	db GREAT_BALL
-	db LINKING_CORD
+	db METAL_COAT
 	db POTION
 	db SUPER_POTION
 	db MAX_REVIVE
