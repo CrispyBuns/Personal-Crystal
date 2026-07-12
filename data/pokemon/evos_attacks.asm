@@ -3833,9 +3833,9 @@ endc
 
 	evos_attacks Flaaffy
 if DEF(FAITHFUL)
-	evo_data EVOLVE_LEVEL, 30, AMPHAROS
+	evo_data EVOLVE_LEVEL, 35, AMPHAROS
 else
-	evo_data EVOLVE_LEVEL, 36, AMPHAROS
+	evo_data EVOLVE_LEVEL, 35, AMPHAROS
 endc
 	learnset 1, TACKLE
 	learnset 1, GROWL
