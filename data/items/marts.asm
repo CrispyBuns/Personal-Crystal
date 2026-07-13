@@ -203,9 +203,9 @@ EcruteakMart:
 
 OlivineMart:
 	db 10 ; # items
-	db LUXURY_BALL
+	db SCOPE_LENS
 	db MAX_REVIVE
-	db SUPER_POTION
+	db ULTRA_BALL
 	db HYPER_POTION
 	db ANTIDOTE
 	db PARALYZEHEAL
