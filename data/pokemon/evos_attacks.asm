@@ -5154,7 +5154,7 @@ endc
 	learnset 68, CLOSE_COMBAT ; new move
 
 	evos_attacks Pupitar
-	evo_data EVOLVE_LEVEL, 45, TYRANITAR
+	evo_data EVOLVE_LEVEL, 50, TYRANITAR
 	learnset 1, DEFENSE_CURL ; evolution move
 	learnset 1, TACKLE ; Sw/Sh move
 	learnset 1, BITE
@@ -5166,7 +5166,7 @@ endc
 	learnset 23, SCARY_FACE
 	learnset 28, THRASH
 	learnset 34, DARK_PULSE
-	learnset 41, ANCIENTPOWER ; Payback → HGSS tutor move
+	learnset 40, ANCIENTPOWER ; Payback → HGSS tutor move
 	learnset 35, CRUNCH
 	learnset 54, EARTHQUAKE
 	learnset 60, STONE_EDGE
