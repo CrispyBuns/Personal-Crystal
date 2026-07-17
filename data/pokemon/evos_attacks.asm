@@ -2855,7 +2855,7 @@ endc
 	learnset 36, DRAGONBREATH ; Dragon Rage → GSC TM move
 	learnset 40, HYDRO_PUMP
 	learnset 45, DRAGON_DANCE
-	learnset 48, WATTERFALL
+	learnset 48, SWORDS_DANCE
 	learnset 51, RAIN_DANCE
 	learnset 54, HYPER_BEAM
 	learnset 57, OUTRAGE ; HGSS tutor move
