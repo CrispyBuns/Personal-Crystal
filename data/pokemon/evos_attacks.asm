@@ -5154,7 +5154,7 @@ endc
 	learnset 68, CLOSE_COMBAT ; new move
 
 	evos_attacks Pupitar
-	evo_data EVOLVE_LEVEL, 42, TYRANITAR
+	evo_data EVOLVE_LEVEL, 45, TYRANITAR
 	learnset 1, DEFENSE_CURL ; evolution move
 	learnset 1, TACKLE ; Sw/Sh move
 	learnset 1, BITE
@@ -5170,7 +5170,7 @@ endc
 	learnset 35, CRUNCH
 	learnset 54, EARTHQUAKE
 	learnset 60, STONE_EDGE
-	learnset 67, OUTRAGE ; Hyper Beam → HGSS tutor move
+	learnset 40, SWORDS_DANCE ; Hyper Beam → HGSS tutor move
 	learnset 75, HYPER_BEAM
 	learnset 84, CLOSE_COMBAT ; new move
 
