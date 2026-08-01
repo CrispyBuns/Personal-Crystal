@@ -92,22 +92,56 @@ ok "Asset    : ${ASSET}"
 # ═════════════════════════════════════════════════════════════════════════════
 step "Checking dependencies"
 
+# ── sudo helper ────────────────────────────────────────────────────────────
+# Use sudo only if we're not already root AND sudo is actually installed
+# (many minimal containers/images have neither).
+SUDO=""
+if [[ "$(id -u)" -ne 0 ]]; then
+    if command -v sudo >/dev/null 2>&1; then
+        SUDO="sudo"
+    else
+        warn "Not running as root and 'sudo' is not installed; package installs may fail."
+        warn "Re-run as root, or install the required packages manually."
+    fi
+fi
+
+install_apt_libpng() {
+    # The apt package providing libpng's runtime .so varies by release
+    # (e.g. libpng16-16 vs. libpng16-16t64 after the Debian/Ubuntu time64
+    # transition), so there's no single name that works everywhere. Try
+    # known candidates in order; libpng-dev is a safe last resort since it
+    # pulls in whichever runtime package is current.
+    local candidate
+    for candidate in libpng16-16t64 libpng16-16 libpng-dev; do
+        if apt-cache show "${candidate}" >/dev/null 2>&1; then
+            ${SUDO} apt-get install -y "${candidate}" && return
+        fi
+    done
+    warn "Could not determine the correct libpng package name for this system; skipping."
+}
+
 install_linux_deps() {
-    local pkgs="libpng flex bison unzip"
+    local pkgs_no_png="flex bison unzip"
+    local pkgs="libpng ${pkgs_no_png}"
     if   command -v apt-get      >/dev/null 2>&1; then
-        info "Using apt-get…"; sudo apt-get install -y ${pkgs}
+        # apt's libpng runtime package name is version/release-dependent
+        # (see install_apt_libpng), so it's handled separately here.
+        info "Using apt-get…"
+        ${SUDO} apt-get update -qq || warn "apt-get update had errors (continuing with existing package lists)…"
+        install_apt_libpng
+        ${SUDO} apt-get install -y ${pkgs_no_png}
     elif command -v dnf          >/dev/null 2>&1; then
-        info "Using dnf…";     sudo dnf install -y ${pkgs}
+        info "Using dnf…";     ${SUDO} dnf install -y ${pkgs}
     elif command -v zypper       >/dev/null 2>&1; then
-        info "Using zypper…";  sudo zypper install -y ${pkgs}
+        info "Using zypper…";  ${SUDO} zypper install -y ${pkgs}
     elif command -v pacman       >/dev/null 2>&1; then
-        info "Using pacman…";  sudo pacman -Sy --noconfirm ${pkgs}
+        info "Using pacman…";  ${SUDO} pacman -Sy --noconfirm ${pkgs}
     elif command -v apk          >/dev/null 2>&1; then
-        info "Using apk…";     sudo apk add --no-cache libpng flex bison unzip
+        info "Using apk…";     ${SUDO} apk add --no-cache ${pkgs}
     elif command -v xbps-install >/dev/null 2>&1; then
-        info "Using xbps…";    sudo xbps-install -Sy libpng flex bison unzip
+        info "Using xbps…";    ${SUDO} xbps-install -Sy ${pkgs}
     elif command -v emerge       >/dev/null 2>&1; then
-        info "Using emerge…";  sudo emerge --ask=n media-libs/libpng sys-devel/flex sys-devel/bison app-arch/unzip
+        info "Using emerge…";  ${SUDO} emerge --ask=n media-libs/libpng sys-devel/flex sys-devel/bison app-arch/unzip
     elif command -v pkg          >/dev/null 2>&1; then
         info "Using pkg…";     pkg install -y ${pkgs}
     else
@@ -120,7 +154,7 @@ ensure_unzip() {
     info "unzip not found — attempting install…"
     if   command -v pacman  >/dev/null 2>&1; then pacman -S --noconfirm unzip  # MSYS2
     elif command -v brew    >/dev/null 2>&1; then brew install unzip            # macOS Homebrew
-    elif command -v apt-get >/dev/null 2>&1; then sudo apt-get install -y unzip
+    elif command -v apt-get >/dev/null 2>&1; then ${SUDO} apt-get install -y unzip
     else die "Could not install unzip automatically. Please install it and retry."
     fi
 }
@@ -129,10 +163,10 @@ ensure_downloader() {
     command -v curl >/dev/null 2>&1 && return
     command -v wget >/dev/null 2>&1 && return
     info "Neither curl nor wget found — attempting to install curl…"
-    if   command -v apt-get >/dev/null 2>&1; then sudo apt-get install -y curl
-    elif command -v dnf     >/dev/null 2>&1; then sudo dnf install -y curl
-    elif command -v pacman  >/dev/null 2>&1; then sudo pacman -Sy --noconfirm curl
-    elif command -v apk     >/dev/null 2>&1; then sudo apk add --no-cache curl
+    if   command -v apt-get >/dev/null 2>&1; then ${SUDO} apt-get install -y curl
+    elif command -v dnf     >/dev/null 2>&1; then ${SUDO} dnf install -y curl
+    elif command -v pacman  >/dev/null 2>&1; then ${SUDO} pacman -Sy --noconfirm curl
+    elif command -v apk     >/dev/null 2>&1; then ${SUDO} apk add --no-cache curl
     else die "No downloader available. Please install curl or wget and retry."
     fi
 }
