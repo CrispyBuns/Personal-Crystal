@@ -215,6 +215,17 @@ case "${ASSET}" in
     *)        die "Unknown archive format: ${ASSET}" ;;
 esac
 rm -f "${ASSET}"
+
+# As of RGBDS's newer Windows packaging, the win32/win64 archives use a
+# CMake-style install layout (binaries under bin/, docs under share/man/)
+# instead of the flat layout macOS and Linux still use. Flatten bin/ so the
+# binaries always end up directly in ${RGBDS_DIR}/, regardless of platform.
+if [[ -d bin ]]; then
+    mv bin/* .
+    rmdir bin
+fi
+
+cd - >/dev/null
 ok "Extracted to '${RGBDS_DIR}/'."
 
 # ═════════════════════════════════════════════════════════════════════════════
@@ -229,7 +240,7 @@ case "${OS}" in
         info "To verify:               ./${RGBDS_DIR}/rgbasm -V"
         ;;
     win*)
-        info "Copy the .exe and .dll files to a directory on your PATH (e.g. /usr/local/bin)."
+        info "Copy the .exe files to a directory on your PATH (e.g. /usr/local/bin), or add '${RGBDS_DIR}/' to your PATH directly."
         info "To verify:               ./${RGBDS_DIR}/rgbasm.exe -V"
         ;;
     linux)
