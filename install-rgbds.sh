@@ -8,7 +8,7 @@
 set -euo pipefail
 
 # ── Configuration ─────────────────────────────────────────────────────────────
-RGBDS_VERSION="1.0.1"
+RGBDS_VERSION="1.0.3"
 RGBDS_DIR="rgbds"
 BASE_URL="https://github.com/gbdev/rgbds/releases/download/v${RGBDS_VERSION}"
 
