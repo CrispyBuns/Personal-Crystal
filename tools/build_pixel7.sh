@@ -26,4 +26,4 @@ for tool in "${tools[@]}"; do
 	fi
 done
 
-make -j4 ARCH_FLAGS="$ARCH_FLAGS" "$@"
+make -j6 ARCH_FLAGS="$ARCH_FLAGS" "$@"
