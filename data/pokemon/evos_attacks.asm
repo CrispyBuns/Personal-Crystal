@@ -3874,7 +3874,7 @@ endc
 	learnset 62, THUNDER
 	learnset 65, DRAGON_PULSE
 	learnset 71, OUTRAGE ; HGSS tutor move
-        learnset 57, DOUBLE_TEAM
+        learnset 57, MEGA_DRAIN
 
 	evos_attacks Bellossom
 	learnset 1, MEGA_DRAIN
@@ -5664,6 +5664,7 @@ endc
 	learnset 41, DOUBLE_EDGE ; Last Resort → tutor move
 	learnset 45, PLAY_ROUGH ; Psych Up → new move
         learnset 55, DOUBLE_TEAM
+
 	evos_attacks Perrserker
 	learnset 1, IRON_HEAD ; evolution move
 	learnset 1, COUNTER ; Metal Burst → similar move
