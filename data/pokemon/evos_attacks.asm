@@ -4509,7 +4509,7 @@ endc
 	learnset 49, CLOSE_COMBAT ; Double Hit → SV TM move
 	learnset 50, IRON_HEAD
 	learnset 57, SWORDS_DANCE
-
+        learnset 60, DOUBLE_TEAM
 	evos_attacks Shuckle
 	learnset 1, MUD_SLAP ; Constrict → GSC TM move
 	learnset 1, DEFENSE_CURL ; Withdraw → similar move
@@ -5192,7 +5192,7 @@ endc
 	learnset 47, CRUNCH
 	learnset 54, EARTHQUAKE
 	learnset 63, STONE_EDGE
-	learnset 73, OUTRAGE ; Hyper Beam → HGSS tutor move
+	learnset 60, DOUBLE_TEAM ; Hyper Beam → HGSS tutor move
 	learnset 82, HYPER_BEAM
 	learnset 92, CLOSE_COMBAT ; new move
 
