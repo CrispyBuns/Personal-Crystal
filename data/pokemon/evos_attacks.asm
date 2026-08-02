@@ -5662,7 +5662,7 @@ endc
 	learnset 35, MOONBLAST
 	learnset 41, DOUBLE_EDGE ; Last Resort → tutor move
 	learnset 45, PLAY_ROUGH ; Psych Up → new move
-
+        learnset 55, DOUBLE_TEAM
 	evos_attacks Perrserker
 	learnset 1, IRON_HEAD ; evolution move
 	learnset 1, COUNTER ; Metal Burst → similar move
