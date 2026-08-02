@@ -5125,7 +5125,7 @@ endc
 	learnset 29, AURORA_BEAM
 	learnset 36, LIGHT_SCREEN ; Mist → new move
 	learnset 43, MIRROR_COAT
-	learnset 50, DOUBLE_TEAM ; Ice Fang → event move
+	learnset 55, DOUBLE_TEAM 
 	learnset 57, EXTREMESPEED ; Tailwind → event move
 	learnset 64, EXTRASENSORY
 	learnset 71, HYDRO_PUMP
