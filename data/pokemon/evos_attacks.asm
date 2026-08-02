@@ -3874,6 +3874,7 @@ endc
 	learnset 62, THUNDER
 	learnset 65, DRAGON_PULSE
 	learnset 71, OUTRAGE ; HGSS tutor move
+        learnset 57, DOUBLE_TEAM
 
 	evos_attacks Bellossom
 	learnset 1, MEGA_DRAIN
