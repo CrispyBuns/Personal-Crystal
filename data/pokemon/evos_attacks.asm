@@ -3873,9 +3873,8 @@ endc
 	learnset 57, LIGHT_SCREEN
 	learnset 62, THUNDER
 	learnset 65, DRAGON_PULSE
-	learnset 71, OUTRAGE ; HGSS tutor move
-        learnset 57, MEGA_DRAIN
-
+	learnset 57, OUTRAGE ; HGSS tutor move
+        
 	evos_attacks Bellossom
 	learnset 1, MEGA_DRAIN
 	learnset 1, HEAL_BELL ; new move
