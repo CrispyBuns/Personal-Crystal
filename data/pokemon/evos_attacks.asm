@@ -3435,7 +3435,8 @@ endc
 	learnset 61, ROLLOUT
 	learnset 69, DOUBLE_EDGE
 	learnset 74, DARK_PULSE ; Infernal Parade → new move
-	learnset 81, FLARE_BLITZ ; Eruption → egg move
+	learnset 50, FLAMETHROWER ; Eruption → egg move
+        learnset 55, CURSE
 
 	evos_attacks Totodile
 	evo_data EVOLVE_LEVEL, 18, CROCONAW
