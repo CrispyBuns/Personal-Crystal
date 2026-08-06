@@ -3436,7 +3436,7 @@ endc
 	learnset 69, DOUBLE_EDGE
 	learnset 74, DARK_PULSE ; Infernal Parade → new move
 	learnset 50, FLAMETHROWER ; Eruption → egg move
-        learnset 55, CURSE
+    learnset 55, CURSE
 
 	evos_attacks Totodile
 	evo_data EVOLVE_LEVEL, 18, CROCONAW
@@ -5193,7 +5193,7 @@ endc
 	learnset 47, CRUNCH
 	learnset 54, EARTHQUAKE
 	learnset 63, STONE_EDGE
-	learnset 60, DOUBLE_TEAM ; Hyper Beam → HGSS tutor move
+	learnset 60, MAGNITUDE ; Hyper Beam → HGSS tutor move
 	learnset 82, HYPER_BEAM
 	learnset 92, CLOSE_COMBAT ; new move
 
