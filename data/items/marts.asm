@@ -75,7 +75,7 @@ VioletMart:
 	db AWAKENING
 	db X_ATTACK
 	db LUCKY_EGG
-	db SUN_STONE
+	db FULL_RESTORE
 	db -1
 
 AzaleaMart:
