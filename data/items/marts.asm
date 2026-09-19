@@ -61,7 +61,7 @@ CherrygroveMartAfterDex:
 	db POTION
 	db SOOTHE_BELL
 	db PARALYZEHEAL
-	db LUCKY_EGG
+	db LEFTOVERS
 	db -1
 
 VioletMart:
