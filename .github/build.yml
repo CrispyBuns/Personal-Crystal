@@ -1,0 +1,58 @@
+name: Build Personal Crystal
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  RGBDS_VERSION: v1.0.3
+  ROM_FILE: Pokemon-Personal-Crystal.gbc
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # Plain git instead of actions/checkout (which is a Node.js action)
+      - name: Get source
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git init .
+          git remote add origin "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git fetch --depth 1 origin "${GITHUB_SHA}"
+          git checkout FETCH_HEAD
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential bison cmake libpng-dev pkg-config python3
+
+      - name: Build and install RGBDS ${{ env.RGBDS_VERSION }}
+        run: |
+          git clone --depth 1 --branch "${RGBDS_VERSION}" https://github.com/gbdev/rgbds.git "${RUNNER_TEMP}/rgbds"
+          cmake -S "${RUNNER_TEMP}/rgbds" -B "${RUNNER_TEMP}/rgbds/build" -DCMAKE_BUILD_TYPE=Release
+          cmake --build "${RUNNER_TEMP}/rgbds/build" -j"$(nproc)"
+          sudo cmake --install "${RUNNER_TEMP}/rgbds/build"
+          rgbasm --version
+
+      - name: Compile tools
+        run: make -C tools -j"$(nproc)"
+
+      - name: Build ROM
+        run: make -j"$(nproc)"
+
+      # gh CLI is preinstalled on GitHub-hosted Ubuntu runners
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          test -f "${ROM_FILE}"
+          gh release create "build-${GITHUB_RUN_NUMBER}" "${ROM_FILE}" \
+            --target "${GITHUB_SHA}" \
+            --title "Personal Crystal build ${GITHUB_RUN_NUMBER}" \
+            --notes "Built from ${GITHUB_SHA} with RGBDS ${RGBDS_VERSION}"
