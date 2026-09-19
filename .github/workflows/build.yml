@@ -29,14 +29,15 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y build-essential bison cmake libpng-dev pkg-config python3
+          sudo apt-get install -y build-essential libpng-dev pkg-config python3
 
-      - name: Build and install RGBDS ${{ env.RGBDS_VERSION }}
+      - name: Install RGBDS ${{ env.RGBDS_VERSION }} (pre-built Linux x86_64)
         run: |
-          git clone --depth 1 --branch "${RGBDS_VERSION}" https://github.com/gbdev/rgbds.git "${RUNNER_TEMP}/rgbds"
-          cmake -S "${RUNNER_TEMP}/rgbds" -B "${RUNNER_TEMP}/rgbds/build" -DCMAKE_BUILD_TYPE=Release
-          cmake --build "${RUNNER_TEMP}/rgbds/build" -j"$(nproc)"
-          sudo cmake --install "${RUNNER_TEMP}/rgbds/build"
+          curl -fsSL -o "${RUNNER_TEMP}/rgbds.tar.xz" \
+            "https://github.com/gbdev/rgbds/releases/download/${RGBDS_VERSION}/rgbds-linux-x86_64.tar.xz"
+          mkdir "${RUNNER_TEMP}/rgbds"
+          tar xf "${RUNNER_TEMP}/rgbds.tar.xz" -C "${RUNNER_TEMP}/rgbds"
+          (cd "${RUNNER_TEMP}/rgbds" && sudo ./install.sh)
           rgbasm --version
 
       - name: Compile tools
