@@ -91,9 +91,19 @@ endif
 # ==============================================================
 # Linker Flags
 # -flto is already in CFLAGS; pass it here too so the linker
-# can drive LTO. Add -s to strip debug symbols in release.
+# can drive LTO. Stripping is done as a post-build step (see
+# STRIP / STRIP_BINS below) rather than with -s.
 # ==============================================================
-LDFLAGS := -flto -s
+LDFLAGS := -flto
+
+# ==============================================================
+# Stripping
+# All built programs are stripped after compiling.
+#   make STRIP_BINS=0          keep symbols (e.g. for debugging)
+#   make STRIP=aarch64-linux-gnu-strip   use a cross toolchain's strip
+# ==============================================================
+STRIP ?= strip
+STRIP_BINS ?= 1
 
 # ==============================================================
 # Tools
@@ -112,7 +122,11 @@ tools := \
 	vwf
 
 all: $(tools)
+ifeq ($(STRIP_BINS),1)
+	$(STRIP) $(tools)
+else
 	@:
+endif
 
 clean:
 	$(RM) $(tools) *.o *.h.gch *.pyc
