@@ -6548,7 +6548,6 @@ GiveExperiencePoints:
 	ld a, [hl]
 	cp LUCKY_EGG
 	call z, BoostExp
-	call BoostExpSlightly ; +8% EXP for everyone
 
 	call .MaybeScaleExp
 
@@ -6648,7 +6647,7 @@ GiveExperiencePoints:
 	cp MAX_LEVEL
 	jmp nc, .next_mon
 	cp d
-	jmp nc, .next_mon ; skip if the calculated level isn't higher
+	jmp z, .next_mon
 ; <NICKNAME> grew to level ##!
 	ld [wTempLevel], a
 	ld a, [wCurPartyLevel]
@@ -7122,20 +7121,6 @@ GiveBattleEVs:
 BoostExp:
 	ln a, 3, 2 ; x1.5
 	jmp MultiplyAndDivide
-
-BoostExpSlightly:
-; x1.08 (27/25). ln/MultiplyAndDivide only handle nibbles (max 15),
-; so multiply and divide by hand, like .ScaleMod does.
-	push bc
-	ld a, 27
-	ldh [hMultiplier], a
-	call Multiply
-	ld a, 25
-	ldh [hDivisor], a
-	ld b, 4
-	call Divide
-	pop bc
-	ret
 
 Text_PkmnGainedExpPoint:
 	text_far Text_Gained
