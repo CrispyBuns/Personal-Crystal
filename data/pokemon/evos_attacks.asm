@@ -3871,8 +3871,8 @@ endc
 	learnset 40, THUNDERBOLT ; Discharge → TM move
 	learnset 46, SAFEGUARD ; Cotton Guard → egg move
 	learnset 51, DAZZLINGLEAM ; Signal Beam → new move
-	learnset 57, LIGHT_SCREEN
-	learnset 62, THUNDER
+	learnset 54, DOUBLE_TEAM
+	learnset 55, THUNDER
 	learnset 65, DRAGON_PULSE
 	learnset 57, OUTRAGE ; HGSS tutor move
         
