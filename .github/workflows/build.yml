@@ -11,6 +11,9 @@ permissions:
 env:
   RGBDS_VERSION: v1.0.3
   ROM_FILE: Pokemon-Personal-Crystal.gbc
+  # Release used as a build cache (actions/cache is a Node.js action, so we avoid it)
+  CACHE_TAG: rgbds-cache
+  DEBIAN_FRONTEND: noninteractive
 
 jobs:
   build:
@@ -26,19 +29,62 @@ jobs:
           git fetch --depth 1 origin "${GITHUB_SHA}"
           git checkout FETCH_HEAD
 
-      - name: Install dependencies
+      # Always pull the newest Ubuntu packages
+      - name: Update Ubuntu packages and install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y build-essential libpng-dev pkg-config python3
+          sudo apt-get -y upgrade
+          sudo apt-get install -y build-essential cmake ninja-build bison libpng-dev pkg-config python3
 
-      - name: Install RGBDS ${{ env.RGBDS_VERSION }} (pre-built Linux x86_64)
+      # RGBDS is built once (CMake + Ninja, Release, stripped) and stored as a
+      # release asset. It's only rebuilt when the RGBDS version or the Ubuntu
+      # packages it depends on change.
+      - name: Get RGBDS ${{ env.RGBDS_VERSION }} (cached build)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
         run: |
-          curl -fsSL -o "${RUNNER_TEMP}/rgbds.tar.xz" \
-            "https://github.com/gbdev/rgbds/releases/download/${RGBDS_VERSION}/rgbds-linux-x86_64.tar.xz"
-          mkdir "${RUNNER_TEMP}/rgbds"
-          tar xf "${RUNNER_TEMP}/rgbds.tar.xz" -C "${RUNNER_TEMP}/rgbds"
-          (cd "${RUNNER_TEMP}/rgbds" && sudo ./install.sh)
-          rgbasm --version
+          . /etc/os-release
+          PKG_HASH=$(dpkg-query -W -f='${Package}=${Version}\n' \
+              gcc g++ cmake ninja-build bison libpng-dev zlib1g-dev libc6 libstdc++6 \
+            | sort | sha256sum | cut -c1-12)
+          ASSET="rgbds-${RGBDS_VERSION}-ubuntu${VERSION_ID}-${PKG_HASH}.tar.xz"
+          RGBDS_DIR="${HOME}/rgbds"
+          mkdir -p "${RGBDS_DIR}"
+
+          if gh release download "${CACHE_TAG}" --pattern "${ASSET}" --dir "${RUNNER_TEMP}" 2>/dev/null; then
+            echo "Cache hit: ${ASSET}"
+            tar xf "${RUNNER_TEMP}/${ASSET}" -C "${RGBDS_DIR}"
+          else
+            echo "Cache miss: building RGBDS ${RGBDS_VERSION}"
+            git clone --depth 1 --branch "${RGBDS_VERSION}" \
+              https://github.com/gbdev/rgbds.git "${RUNNER_TEMP}/rgbds-src"
+
+            cmake -S "${RUNNER_TEMP}/rgbds-src" -B "${RUNNER_TEMP}/rgbds-build" \
+              -G Ninja -DCMAKE_BUILD_TYPE=Release
+            cmake --build "${RUNNER_TEMP}/rgbds-build" --config Release
+            cmake --install "${RUNNER_TEMP}/rgbds-build" --config Release --strip \
+              --prefix "${RGBDS_DIR}"
+
+            tar cJf "${RUNNER_TEMP}/${ASSET}" -C "${RGBDS_DIR}" .
+
+            # Upload to the cache release (create it on first use)
+            gh release view "${CACHE_TAG}" >/dev/null 2>&1 || \
+              gh release create "${CACHE_TAG}" \
+                --target "${GITHUB_SHA}" \
+                --prerelease --latest=false \
+                --title "RGBDS build cache" \
+                --notes "Automatically managed cache of stripped RGBDS builds. Do not delete."
+            gh release upload "${CACHE_TAG}" "${RUNNER_TEMP}/${ASSET}" --clobber
+
+            # Drop stale cache assets from older versions / package sets
+            gh release view "${CACHE_TAG}" --json assets --jq '.assets[].name' \
+              | grep -vxF "${ASSET}" \
+              | while read -r old; do gh release delete-asset "${CACHE_TAG}" "${old}" -y; done || true
+          fi
+
+          echo "${RGBDS_DIR}/bin" >> "${GITHUB_PATH}"
+          "${RGBDS_DIR}/bin/rgbasm" --version
 
       - name: Compile tools
         run: make -C tools -j"$(nproc)"
