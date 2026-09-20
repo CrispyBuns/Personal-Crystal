@@ -278,7 +278,8 @@ IndigoPlateauMart:
 	db FULL_RESTORE
 	db REVIVE
 	db FULL_HEAL
-	db EXP_SHARE
+	db LUCKY_EGG
+        db MAX_REVIVE
 	db -1
 
 ViridianMart:
