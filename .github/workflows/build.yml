@@ -9,15 +9,13 @@ permissions:
   contents: write
 
 env:
-  RGBDS_VERSION: v1.0.3
   ROM_FILE: Pokemon-Personal-Crystal.gbc
-  # Release used as a build cache (actions/cache is a Node.js action, so we avoid it)
-  CACHE_TAG: rgbds-cache
   DEBIAN_FRONTEND: noninteractive
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    # Ubuntu 26.04 is the first release whose repo has rgbds 1.0.x
+    runs-on: ubuntu-26.04
     steps:
       # Plain git instead of actions/checkout (which is a Node.js action)
       - name: Get source
@@ -29,62 +27,50 @@ jobs:
           git fetch --depth 1 origin "${GITHUB_SHA}"
           git checkout FETCH_HEAD
 
-      # Always pull the newest Ubuntu packages
+      # Always pull the newest Ubuntu packages.
+      # The apt pin is written first so that neither the upgrade nor the
+      # install below can ever move rgbds outside the 1.0.x series.
       - name: Update Ubuntu packages and install dependencies
         run: |
+          sudo tee /etc/apt/preferences.d/rgbds >/dev/null <<'EOF'
+          Package: rgbds
+          Pin: version 1.0.*
+          Pin-Priority: 1001
+
+          Package: rgbds
+          Pin: version *
+          Pin-Priority: -1
+          EOF
+
           sudo apt-get update
           sudo apt-get -y upgrade
-          sudo apt-get install -y build-essential cmake ninja-build bison libpng-dev pkg-config python3
+          sudo apt-get install -y build-essential libpng-dev pkg-config python3
 
-      # RGBDS is built once (CMake + Ninja, Release, stripped) and stored as a
-      # release asset. It's only rebuilt when the RGBDS version or the Ubuntu
-      # packages it depends on change.
-      - name: Get RGBDS ${{ env.RGBDS_VERSION }} (cached build)
-        env:
-          GH_TOKEN: ${{ github.token }}
-          GH_REPO: ${{ github.repository }}
+      # Runs every time: installs rgbds if missing, or upgrades it to the newest
+      # 1.0.x if already installed, then verifies it really is 1.0.x.
+      - name: Install RGBDS 1.0.x (Ubuntu package)
         run: |
-          . /etc/os-release
-          PKG_HASH=$(dpkg-query -W -f='${Package}=${Version}\n' \
-              gcc g++ cmake ninja-build bison libpng-dev zlib1g-dev libc6 libstdc++6 \
-            | sort | sha256sum | cut -c1-12)
-          ASSET="rgbds-${RGBDS_VERSION}-ubuntu${VERSION_ID}-${PKG_HASH}.tar.xz"
-          RGBDS_DIR="${HOME}/rgbds"
-          mkdir -p "${RGBDS_DIR}"
-
-          if gh release download "${CACHE_TAG}" --pattern "${ASSET}" --dir "${RUNNER_TEMP}" 2>/dev/null; then
-            echo "Cache hit: ${ASSET}"
-            tar xf "${RUNNER_TEMP}/${ASSET}" -C "${RGBDS_DIR}"
-          else
-            echo "Cache miss: building RGBDS ${RGBDS_VERSION}"
-            git clone --depth 1 --branch "${RGBDS_VERSION}" \
-              https://github.com/gbdev/rgbds.git "${RUNNER_TEMP}/rgbds-src"
-
-            cmake -S "${RUNNER_TEMP}/rgbds-src" -B "${RUNNER_TEMP}/rgbds-build" \
-              -G Ninja -DCMAKE_BUILD_TYPE=Release
-            cmake --build "${RUNNER_TEMP}/rgbds-build" --config Release
-            cmake --install "${RUNNER_TEMP}/rgbds-build" --config Release --strip \
-              --prefix "${RGBDS_DIR}"
-
-            tar cJf "${RUNNER_TEMP}/${ASSET}" -C "${RGBDS_DIR}" .
-
-            # Upload to the cache release (create it on first use)
-            gh release view "${CACHE_TAG}" >/dev/null 2>&1 || \
-              gh release create "${CACHE_TAG}" \
-                --target "${GITHUB_SHA}" \
-                --prerelease --latest=false \
-                --title "RGBDS build cache" \
-                --notes "Automatically managed cache of stripped RGBDS builds. Do not delete."
-            gh release upload "${CACHE_TAG}" "${RUNNER_TEMP}/${ASSET}" --clobber
-
-            # Drop stale cache assets from older versions / package sets
-            gh release view "${CACHE_TAG}" --json assets --jq '.assets[].name' \
-              | grep -vxF "${ASSET}" \
-              | while read -r old; do gh release delete-asset "${CACHE_TAG}" "${old}" -y; done || true
+          apt-cache policy rgbds
+          if ! apt-cache policy rgbds | grep -Eq 'Candidate: (.*:)?1\.0\.'; then
+            echo "::error::Ubuntu's repository has no rgbds 1.0.x for this release"
+            exit 1
           fi
 
-          echo "${RGBDS_DIR}/bin" >> "${GITHUB_PATH}"
-          "${RGBDS_DIR}/bin/rgbasm" --version
+          sudo apt-get install -y rgbds
+
+          pkg_ver=$(dpkg-query -W -f='${Version}' rgbds)
+          pkg_ver="${pkg_ver#*:}"   # strip epoch, if any
+          bin_ver=$(rgbasm --version)
+          echo "Installed package: ${pkg_ver}"
+          echo "Binary reports:    ${bin_ver}"
+
+          if [[ "${pkg_ver}" != 1.0.* || ! "${bin_ver}" =~ 1\.0\.[0-9]+ ]]; then
+            echo "::error::Expected rgbds 1.0.x but found ${pkg_ver} (${bin_ver})"
+            exit 1
+          fi
+
+          # Make the exact version available to later steps (release notes)
+          echo "RGBDS_VERSION=${pkg_ver%%-*}" >> "${GITHUB_ENV}"
 
       - name: Compile tools
         run: make -C tools -j"$(nproc)"
