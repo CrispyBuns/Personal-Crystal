@@ -143,7 +143,7 @@ endc
 	move RAGE,            EFFECT_RAGE,               20, NORMAL,    100, 20,   0, PHYSICAL
 	move TELEPORT,        EFFECT_TELEPORT,            0, PSYCHIC,    -1, 20,   0, STATUS
 	move NIGHT_SHADE,     EFFECT_LEVEL_DAMAGE,        1, GHOST,     100, 15,   0, SPECIAL
-	move DRAGON_PULSE,    EFFECT_NORMAL_HIT,         85, DRAGON,    100, 10,   0, SPECIAL
+	move DRAGON_PULSE,    EFFECT_LEVEL_DAMAGE,         110, DRAGON,    85, 20,   0, SPECIAL
 	move SCREECH,         EFFECT_DEFENSE_DOWN_2,      0, NORMAL,     85, 40,   0, STATUS
 	move DOUBLE_TEAM,     EFFECT_EVASION_UP,          0, NORMAL,     -1, 15,   0, STATUS
 	move RECOVER,         EFFECT_HEAL,                0, NORMAL,     -1, 5,    0, STATUS

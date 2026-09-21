@@ -3873,7 +3873,7 @@ endc
 	learnset 51, DAZZLINGLEAM ; Signal Beam → new move
 	learnset 54, DOUBLE_TEAM
 	learnset 55, THUNDER
-	learnset 65, DRAGON_PULSE
+	learnset 60, RECOVER
 	learnset 57, OUTRAGE ; HGSS tutor move
         
 	evos_attacks Bellossom
