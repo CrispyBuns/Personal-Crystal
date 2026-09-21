@@ -189,8 +189,7 @@ UndergroundMart:
 EcruteakMart:
 	db 11 ; # items
 	db POKE_BALL
-	db SOOTHE_BELL
-	db QUICK_CLAW
+	db LEFTOVERS
 	db POTION
 	db SUPER_POTION
 	db MAX_REVIVE
@@ -279,10 +278,6 @@ IndigoPlateauMart:
 	db LIFE_ORB
 	db FULL_HEAL
 	db LEFTOVERS
-        db MAX_REVIVE
-        db CHOICE_BAND
-        db LIFE_ORB
-        db MAX_ELIXIR
 	db -1
 
 ViridianMart:
