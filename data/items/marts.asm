@@ -271,12 +271,12 @@ BlackthornMart:
 
 IndigoPlateauMart:
 	db 8 ; # items
-	db ULTRA_BALL
+	db CHOICE_BAND
 	db MAX_REPEL
-	db HYPER_POTION
+	db MAX_ELIXIR
 	db MAX_POTION
 	db FULL_RESTORE
-	db REVIVE
+	db LIFE_ORB
 	db FULL_HEAL
 	db LEFTOVERS
         db MAX_REVIVE
