@@ -15,4 +15,10 @@ INCLUDE "audio/sfx.asm"
 SECTION "Cries", ROMX
 
 INCLUDE "audio/cries.asm"
+INCLUDE "audio/cries/ampharos.asm"
+INCLUDE "audio/cries/scizor.asm"
+INCLUDE "audio/cries/tyranitar.asm"
+INCLUDE "audio/cries/sylveon.asm"
+INCLUDE "audio/cries/typhlosion.asm"
+INCLUDE "audio/cries/suicune.asm"
 INCLUDE "data/pokemon/cries.asm"

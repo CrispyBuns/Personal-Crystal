@@ -70,4 +70,10 @@ Cries:
 	fardw Cry_Tyrogue
 	fardw Cry_Dunsparce
 	fardw Cry_Donphan
+	fardw Cry_Custom_Ampharos
+	fardw Cry_Custom_Scizor
+	fardw Cry_Custom_Tyranitar
+	fardw Cry_Custom_Sylveon
+	fardw Cry_Custom_Typhlosion
+	fardw Cry_Custom_Suicune
 	assert_table_length NUM_CRIES

@@ -162,7 +162,7 @@ PokemonCries::
 	mon_cry CRY_CHIKORITA,  -$0b7,  $200 ; Meganium
 	mon_cry CRY_CYNDAQUIL,   $347,  $080 ; Cyndaquil
 	mon_cry CRY_CYNDAQUIL,   $321,  $120 ; Quilava
-	mon_cry CRY_TYPHLOSION,  $f00,  $0d4 ; Typhlosion
+	mon_cry CRY_CUSTOM_TYPHLOSION, $000, $100 ; Typhlosion
 	mon_cry CRY_TOTODILE,    $46c,  $0e8 ; Totodile
 	mon_cry CRY_TOTODILE,    $440,  $110 ; Croconaw
 	mon_cry CRY_TOTODILE,    $3fc,  $180 ; Feraligatr
@@ -186,7 +186,7 @@ PokemonCries::
 	mon_cry CRY_NATU,       -$0a7,  $168 ; Xatu
 	mon_cry CRY_MAREEP,      $022,  $0d8 ; Mareep
 	mon_cry CRY_MAREEP,     -$007,  $180 ; Flaaffy
-	mon_cry CRY_AMPHAROS,   -$07c,  $0e8 ; Ampharos
+	mon_cry CRY_CUSTOM_AMPHAROS, $000, $100 ; Ampharos
 	mon_cry CRY_BELLOSSOM,   $084,  $150 ; Bellossom
 	mon_cry CRY_MARILL,      $11b,  $120 ; Marill
 	mon_cry CRY_MARILL,      $0b6,  $180 ; Azumarill
@@ -217,7 +217,7 @@ PokemonCries::
 	mon_cry CRY_DUNSPARCE,   $112,  $0e8 ; Snubbull
 	mon_cry CRY_DUNSPARCE,   $000,  $180 ; Granbull
 	mon_cry CRY_SLOWKING,    $160,  $0e0 ; Qwilfish
-	mon_cry CRY_AMPHAROS,    $000,  $160 ; Scizor
+	mon_cry CRY_CUSTOM_SCIZOR, $000, $100 ; Scizor
 	mon_cry CRY_DUNSPARCE,   $290,  $0a8 ; Shuckle
 	mon_cry CRY_AMPHAROS,    $035,  $0e0 ; Heracross
 	mon_cry CRY_WOOPER,      $053,  $0af ; Sneasel
@@ -250,10 +250,10 @@ PokemonCries::
 	mon_cry CRY_SLOWKING,    $293,  $140 ; Blissey
 	mon_cry CRY_RAIKOU,      $22e,  $120 ; Raikou
 	mon_cry CRY_ENTEI,       $000,  $1a0 ; Entei
-	mon_cry CRY_MAGCARGO,    $000,  $180 ; Suicune
+	mon_cry CRY_CUSTOM_SUICUNE, $000, $100 ; Suicune
 	mon_cry CRY_RAIKOU,      $05f,  $0d0 ; Larvitar
 	mon_cry CRY_SPINARAK,   -$1db,  $150 ; Pupitar
-	mon_cry CRY_RAIKOU,     -$100,  $180 ; Tyranitar
+	mon_cry CRY_CUSTOM_TYRANITAR, $000, $100 ; Tyranitar
 	mon_cry CRY_TYPHLOSION,  $000,  $100 ; Lugia
 	mon_cry CRY_TYROGUE,     $000,  $180 ; HoOh
 	mon_cry CRY_ENTEI,       $14a,  $111 ; Celebi
@@ -283,7 +283,7 @@ PokemonCries::
 	mon_cry CRY_GLIGAR,     -$102,  $100 ; Gliscor
 	mon_cry CRY_MAGCARGO,   -$109,  $100 ; Mamoswine
 	mon_cry CRY_GIRAFARIG,   $073,  $240 ; PorygonZ
-	mon_cry CRY_VENONAT,     $0b0,  $16f ; Sylveon
+	mon_cry CRY_CUSTOM_SYLVEON, $000, $100 ; Sylveon
 	mon_cry CRY_CLEFAIRY,    $077,  $090 ; Perrserker
 	mon_cry CRY_MAGCARGO,    $0a1,  $0e8 ; Cursola
 	mon_cry CRY_FARFETCH_D,  $0dd,  $081 ; SirfetchD
