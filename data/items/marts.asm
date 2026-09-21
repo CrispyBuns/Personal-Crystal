@@ -282,7 +282,7 @@ IndigoPlateauMart:
         db MAX_REVIVE
         db CHOICE_BAND
         db LIFE_ORB
-        db MAX_ELIXER
+        db MAX_ELIXIR
 	db -1
 
 ViridianMart:
