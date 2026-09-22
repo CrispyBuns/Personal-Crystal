@@ -198,6 +198,7 @@ EcruteakMart:
 	db BURN_HEAL
 	db ICE_HEAL
 	db REVIVE
+	db LIFE_ORB
 	db -1
 
 OlivineMart:
