@@ -107,3 +107,9 @@ Cries:
 	dba Cry_Farigiraf
 	dba Cry_Clodsire
 	dba Cry_Annihilape
+	dba Cry_Ampharos_Siren
+	dba Cry_Scizor_Siren
+	dba Cry_Tyranitar_Siren
+	dba Cry_Sylveon_Siren
+	dba Cry_Suicune_Siren
+	dba Cry_Typhlosion_Siren

@@ -61,3 +61,13 @@ INCLUDE "audio/siren-cries/dudunsparce.asm"
 INCLUDE "audio/siren-cries/farigiraf.asm"
 INCLUDE "audio/siren-cries/clodsire.asm"
 INCLUDE "audio/siren-cries/annihilape.asm"
+
+
+SECTION "Siren Cries 3", ROMX
+
+INCLUDE "audio/siren-cries/ampharos_siren.asm"
+INCLUDE "audio/siren-cries/scizor_siren.asm"
+INCLUDE "audio/siren-cries/tyranitar_siren.asm"
+INCLUDE "audio/siren-cries/sylveon_siren.asm"
+INCLUDE "audio/siren-cries/suicune_siren.asm"
+INCLUDE "audio/siren-cries/typhlosion_siren.asm"
