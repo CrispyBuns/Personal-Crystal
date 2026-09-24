@@ -91,19 +91,23 @@ endif
 # ==============================================================
 # Linker Flags
 # -flto is already in CFLAGS; pass it here too so the linker
-# can drive LTO. Stripping is done as a post-build step (see
-# STRIP / STRIP_BINS below) rather than with -s.
+# can drive LTO. Stripping is done by the linker itself via -s
+# (see STRIP_BINS below) rather than a separate strip pass.
 # ==============================================================
 LDFLAGS := -flto
 
 # ==============================================================
 # Stripping
-# All built programs are stripped after compiling.
-#   make STRIP_BINS=0          keep symbols (e.g. for debugging)
-#   make STRIP=aarch64-linux-gnu-strip   use a cross toolchain's strip
+# All built programs are stripped at link time via -s.
+#   make STRIP_BINS=0   keep symbols (e.g. for debugging)
+# Cross-compiling: as long as CC is the cross compiler, -s is
+# passed straight through to its linker, so no separate
+# cross-strip binary is needed.
 # ==============================================================
-STRIP ?= strip
 STRIP_BINS ?= 1
+ifeq ($(STRIP_BINS),1)
+  LDFLAGS += -s
+endif
 
 # ==============================================================
 # Tools
@@ -122,11 +126,6 @@ tools := \
 	vwf
 
 all: $(tools)
-ifeq ($(STRIP_BINS),1)
-	$(STRIP) $(tools)
-else
-	@:
-endif
 
 clean:
 	$(RM) $(tools) *.o *.h.gch *.pyc
