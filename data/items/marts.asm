@@ -1,5 +1,5 @@
 Marts:
-	table_width 2
+        table_width 2
 	dw CherrygroveMart
 	dw CherrygroveMartAfterDex
 	dw VioletMart
@@ -279,7 +279,7 @@ IndigoPlateauMart:
 	db LIFE_ORB
 	db FULL_HEAL
         db LEFTOVERS
-        db LUM_BERRY
+        db WISE_GLASSES
         db MAGNET
 	db -1
 
