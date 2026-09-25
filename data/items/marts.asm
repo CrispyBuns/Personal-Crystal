@@ -279,6 +279,7 @@ IndigoPlateauMart:
 	db LIFE_ORB
 	db FULL_HEAL
         db LEFTOVERS
+        db LUM_BERRY
 	db -1
 
 ViridianMart:
