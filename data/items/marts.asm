@@ -270,7 +270,7 @@ BlackthornMart:
 	db -1
 
 IndigoPlateauMart:
-	db 10 ; # items
+	db 8 ; # items
 	db MAX_REVIVE
 	db QUICK_CLAW
 	db MAX_ELIXIR
@@ -279,8 +279,6 @@ IndigoPlateauMart:
 	db LIFE_ORB
 	db FULL_HEAL
         db LEFTOVERS
-        db WISE_GLASSES
-        db MAGNET
 	db -1
 
 ViridianMart:
