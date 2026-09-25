@@ -5664,7 +5664,7 @@ endc
 	learnset 41, DOUBLE_EDGE ; Last Resort → tutor move
 	learnset 45, PLAY_ROUGH ; Psych Up → new move
         learnset 60, DRAINING_KISS
-        learnset 55, DOUBLE_TEAM
+        learnset 65, DOUBLE_TEAM
 	evos_attacks Perrserker
 	learnset 1, IRON_HEAD ; evolution move
 	learnset 1, COUNTER ; Metal Burst → similar move
