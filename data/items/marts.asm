@@ -270,15 +270,16 @@ BlackthornMart:
 	db -1
 
 IndigoPlateauMart:
-	db 8 ; # items
+	db 9 ; # items
+	db MAX_REVIVE
 	db CHOICE_BAND
-	db MAX_REPEL
 	db MAX_ELIXIR
 	db MAX_POTION
 	db FULL_RESTORE
 	db LIFE_ORB
 	db FULL_HEAL
-	db LEFTOVERS
+        db MAGNET
+        db LEFTOVERS
 	db -1
 
 ViridianMart:
