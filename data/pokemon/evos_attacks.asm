@@ -5663,7 +5663,7 @@ endc
 	learnset 35, MOONBLAST
 	learnset 41, DOUBLE_EDGE ; Last Resort → tutor move
 	learnset 45, PLAY_ROUGH ; Psych Up → new move
-        learnset 60, DRAINING_KISS
+        learnset 62, DRAINING_KISS
         learnset 58, DOUBLE_TEAM
 	evos_attacks Perrserker
 	learnset 1, IRON_HEAD ; evolution move
