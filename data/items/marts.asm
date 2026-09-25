@@ -272,13 +272,12 @@ BlackthornMart:
 IndigoPlateauMart:
 	db 9 ; # items
 	db MAX_REVIVE
-	db CHOICE_BAND
+	db QUICK_CLAW
 	db MAX_ELIXIR
 	db MAX_POTION
 	db FULL_RESTORE
 	db LIFE_ORB
 	db FULL_HEAL
-        db MAGNET
         db LEFTOVERS
 	db -1
 
