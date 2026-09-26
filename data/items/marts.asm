@@ -56,7 +56,7 @@ CherrygroveMart:
 
 CherrygroveMartAfterDex:
 	db 6 ; # items
-	db GREAT_BALL
+	db ULTRA_BALL
 	db LUXURY_BALL
 	db POTION
 	db SOOTHE_BELL
