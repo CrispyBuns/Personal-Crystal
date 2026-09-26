@@ -294,7 +294,7 @@ ViridianMart:
 	db FULL_HEAL
 	db MAX_REPEL
 	db REVIVE
-	db FLOWER_MAIL
+	db ABILITY_CAP
 	db -1
 
 PewterMart:
