@@ -349,7 +349,7 @@ LavenderMart:
 	db -1
 
 VermilionMart:
-	db 9 ; # items
+	db 10 ; # items
 	db ULTRA_BALL
 	db REPEAT_BALL
 	db SUPER_POTION
@@ -359,6 +359,7 @@ VermilionMart:
 	db AWAKENING
 	db BURN_HEAL
 	db LITEBLUEMAIL
+        db ABILITYPATCH
 	db -1
 
 Celadon2FMart1:
