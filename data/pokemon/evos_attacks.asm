@@ -2690,7 +2690,7 @@ endc
 	learnset 49, CLOSE_COMBAT ; Double Hit → SV TM move
 	learnset 50, AIR_SLASH
 	learnset 57, SWORDS_DANCE
-        learnset 65, X_SCISSOR
+        learnset 60, X_SCISSOR
  
 	evos_attacks Jynx
 	learnset 1, PETAL_DANCE ; event move
