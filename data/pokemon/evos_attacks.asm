@@ -5240,14 +5240,14 @@ endc
 	learnset 19, ENERGY_BALL ; Magical Leaf → TM move
 	learnset 28, ANCIENTPOWER
 	learnset 37, BATON_PASS
-	learnset 46, MOONBLAST ; Natural Gift → new move
+	learnset 35, MOONBLAST ; Natural Gift → new move
 	learnset 55, LIGHT_SCREEN ; Heal Block → TM move
 	learnset 64, FUTURE_SIGHT
 	learnset 73, HEAL_BELL ; Healing Wish → Heal Bell
-	learnset 82, NASTY_PLOT ; Leaf Storm → event move
+	learnset 50, NASTY_PLOT ; Leaf Storm → event move
 	learnset 91, PERISH_SONG
 	learnset 100, AURA_SPHERE ; Sw/Sh move
-
+        learnset 40, DRAINING_KISS
 	evos_attacks Azurill
 	evo_data EVOLVE_HAPPINESS, TR_ANYTIME, MARILL
 	learnset 1, SPLASH
