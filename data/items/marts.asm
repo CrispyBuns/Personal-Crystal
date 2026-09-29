@@ -80,7 +80,7 @@ VioletMart:
 
 AzaleaMart:
 	db 9 ; # items
-	db GREAT_BALL
+	db MASTER_BALL, 1
 	db POTION
 	db SUPER_POTION
 	db ESCAPE_ROPE
