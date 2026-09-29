@@ -2689,7 +2689,6 @@ endc
 	learnset 45, NIGHT_SLASH
 	learnset 65, CLOSE_COMBAT ; Double Hit → SV TM move
 	learnset 50, AIR_SLASH
-	learnset 50, SWORDS_DANCE
         learnset 60, X_SCISSOR
  
 	evos_attacks Jynx
