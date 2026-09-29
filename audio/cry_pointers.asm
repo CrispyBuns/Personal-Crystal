@@ -113,3 +113,4 @@ Cries:
 	dba Cry_Sylveon_Siren
 	dba Cry_Suicune_Siren
 	dba Cry_Typhlosion_Siren
+	dba Cry_Celebi

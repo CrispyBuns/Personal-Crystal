@@ -256,7 +256,7 @@ PokemonCries::
 	mon_cry CRY_TYRANITAR_SIREN, 0, 256 ; Tyranitar
 	mon_cry CRY_TYPHLOSION,  $000,  $100 ; Lugia
 	mon_cry CRY_TYROGUE,     $000,  $180 ; HoOh
-	mon_cry CRY_ENTEI,       $14a,  $111 ; Celebi
+	mon_cry CRY_CELEBI,         0,   256 ; Celebi
 	mon_cry CRY_AZURILL,        0,   256 ; Azurill
 	mon_cry CRY_WYNAUT,         0,   228 ; Wynaut
 	mon_cry CRY_AMBIPOM,        8,   256 ; Ambipom
