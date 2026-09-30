@@ -55,17 +55,24 @@ CherrygroveMart:
 	db -1
 
 CherrygroveMartAfterDex:
-	db 6 ; # items
+	db 13 ; # items
 	db ULTRA_BALL
 	db LUXURY_BALL
 	db POTION
 	db SOOTHE_BELL
 	db PARALYZEHEAL
 	db LEFTOVERS
+	db HP_UP
+	db PROTEIN
+	db IRON
+	db CARBOS
+	db CALCIUM
+	db ZINC
+	db EXP_SHARE
 	db -1
 
 VioletMart:
-	db 10 ; # items
+	db 17 ; # items
 	db GREAT_BALL
 	db REPEAT_BALL
 	db POTION
@@ -76,10 +83,17 @@ VioletMart:
 	db X_ATTACK
 	db LUCKY_EGG
 	db FULL_RESTORE
+	db HP_UP
+	db PROTEIN
+	db IRON
+	db CARBOS
+	db CALCIUM
+	db ZINC
+	db EXP_SHARE
 	db -1
 
 AzaleaMart:
-	db 9 ; # items
+	db 16 ; # items
 	db MASTER_BALL, 1
 	db POTION
 	db SUPER_POTION
@@ -89,6 +103,13 @@ AzaleaMart:
 	db PARALYZEHEAL
 	db SCOPE_LENS
         db MAX_REVIVE
+	db HP_UP
+	db PROTEIN
+	db IRON
+	db CARBOS
+	db CALCIUM
+	db ZINC
+	db EXP_SHARE
 	db -1
 
 Goldenrod2FMart1:
@@ -134,7 +155,6 @@ Goldenrod2FMart2Eevee:
 	db -1
 
 Goldenrod3FMart:
-Celadon5FMart2:
 	db 9 ; # items
 	db X_ATTACK
 	db X_DEFEND
@@ -148,7 +168,6 @@ Celadon5FMart2:
 	db -1
 
 Goldenrod4FMart:
-Celadon5FMart1:
 	db 7 ; # items
 	db PROTEIN
 	db IRON
@@ -157,6 +176,38 @@ Celadon5FMart1:
 	db ZINC
 	db HP_UP
 	db LUCKY_EGG
+	db -1
+
+Celadon5FMart1:
+	db 8 ; # items
+	db PROTEIN
+	db IRON
+	db CARBOS
+	db CALCIUM
+	db ZINC
+	db HP_UP
+	db LUCKY_EGG
+	db EXP_SHARE
+	db -1
+
+Celadon5FMart2:
+	db 16 ; # items
+	db X_ATTACK
+	db X_DEFEND
+	db X_SPEED
+	db X_SP_ATK
+	db X_SP_DEF
+	db X_ACCURACY
+	db DIRE_HIT
+	db GUARD_SPEC
+	db LUCKY_EGG
+	db HP_UP
+	db PROTEIN
+	db IRON
+	db CARBOS
+	db CALCIUM
+	db ZINC
+	db EXP_SHARE
 	db -1
 
 Goldenrod5FTMMart:
@@ -189,7 +240,7 @@ UndergroundMart:
 	db -1
 
 EcruteakMart:
-	db 11 ; # items
+	db 18 ; # items
 	db POKE_BALL
 	db LEFTOVERS
 	db POTION
@@ -201,10 +252,17 @@ EcruteakMart:
 	db ICE_HEAL
 	db REVIVE
 	db LIFE_ORB
+	db HP_UP
+	db PROTEIN
+	db IRON
+	db CARBOS
+	db CALCIUM
+	db ZINC
+	db EXP_SHARE
 	db -1
 
 OlivineMart:
-	db 10 ; # items
+	db 17 ; # items
 	db SCOPE_LENS
 	db MAX_REVIVE
 	db ULTRA_BALL
@@ -215,6 +273,13 @@ OlivineMart:
 	db ICE_HEAL
 	db SUPER_REPEL
 	db METAL_COAT
+	db HP_UP
+	db PROTEIN
+	db IRON
+	db CARBOS
+	db CALCIUM
+	db ZINC
+	db EXP_SHARE
 	db -1
 
 CianwoodMart:
@@ -235,15 +300,22 @@ YellowForestMart:
 	db -1
 
 MahoganyMart1:
-	db 4 ; # items
+	db 11 ; # items
 	db TINYMUSHROOM
 	db SLOWPOKETAIL
 	db GREAT_BALL
 	db SUPER_POTION
+	db HP_UP
+	db PROTEIN
+	db IRON
+	db CARBOS
+	db CALCIUM
+	db ZINC
+	db EXP_SHARE
 	db -1
 
 MahoganyMart2:
-	db 10 ; # items
+	db 17 ; # items
 	db RAGECANDYBAR
 	db AIR_BALLOON
 	db QUICK_CLAW
@@ -254,10 +326,17 @@ MahoganyMart2:
 	db SUPER_REPEL
 	db REVIVE
 	db FLOWER_MAIL
+	db HP_UP
+	db PROTEIN
+	db IRON
+	db CARBOS
+	db CALCIUM
+	db ZINC
+	db EXP_SHARE
 	db -1
 
 BlackthornMart:
-	db 11 ; # items
+	db 18 ; # items
 	db GREAT_BALL
 	db ULTRA_BALL
 	db DUSK_BALL
@@ -269,10 +348,17 @@ BlackthornMart:
 	db X_DEFEND
 	db X_ATTACK
 	db MUSIC_MAIL
+	db HP_UP
+	db PROTEIN
+	db IRON
+	db CARBOS
+	db CALCIUM
+	db ZINC
+	db EXP_SHARE
 	db -1
 
 IndigoPlateauMart:
-	db 9 ; # items
+	db 16 ; # items
 	db MAX_REVIVE
 	db QUICK_CLAW
 	db MAX_ELIXIR
@@ -282,10 +368,17 @@ IndigoPlateauMart:
 	db FULL_HEAL
         db LEFTOVERS
         db WISE_GLASSES
+	db HP_UP
+	db PROTEIN
+	db IRON
+	db CARBOS
+	db CALCIUM
+	db ZINC
+	db EXP_SHARE
 	db -1
 
 ViridianMart:
-	db 12 ; # items
+	db 19 ; # items
 	db ULTRA_BALL
 	db NET_BALL
 	db MAX_POTION
@@ -298,10 +391,17 @@ ViridianMart:
 	db MAX_REVIVE
 	db ABILITY_CAP
 	db LUCKY_EGG
+	db HP_UP
+	db PROTEIN
+	db IRON
+	db CARBOS
+	db CALCIUM
+	db ZINC
+	db EXP_SHARE
 	db -1
 
 PewterMart:
-	db 9 ; # items
+	db 16 ; # items
 	db GREAT_BALL
 	db DUSK_BALL
 	db SUPER_POTION
@@ -311,10 +411,17 @@ PewterMart:
 	db AWAKENING
 	db BURN_HEAL
 	db LUCKY_EGG
+	db HP_UP
+	db PROTEIN
+	db IRON
+	db CARBOS
+	db CALCIUM
+	db ZINC
+	db EXP_SHARE
 	db -1
 
 MtMoonMart:
-	db 9 ; # items
+	db 16 ; # items
 	db POKE_DOLL
 	db FRESH_WATER
 	db SODA_POP
@@ -324,10 +431,17 @@ MtMoonMart:
 	db MIRAGE_MAIL
 	db PORTRAITMAIL
 	db LUCKY_EGG
+	db HP_UP
+	db PROTEIN
+	db IRON
+	db CARBOS
+	db CALCIUM
+	db ZINC
+	db EXP_SHARE
 	db -1
 
 CeruleanMart:
-	db 11 ; # items
+	db 18 ; # items
 	db GREAT_BALL
 	db ULTRA_BALL
 	db DIVE_BALL
@@ -339,10 +453,17 @@ CeruleanMart:
 	db DIRE_HIT
 	db SURF_MAIL
 	db LUCKY_EGG
+	db HP_UP
+	db PROTEIN
+	db IRON
+	db CARBOS
+	db CALCIUM
+	db ZINC
+	db EXP_SHARE
 	db -1
 
 LavenderMart:
-	db 10 ; # items
+	db 17 ; # items
 	db GREAT_BALL
 	db HEAL_BALL
 	db POTION
@@ -353,10 +474,17 @@ LavenderMart:
 	db AWAKENING
 	db BURN_HEAL
 	db LUCKY_EGG
+	db HP_UP
+	db PROTEIN
+	db IRON
+	db CARBOS
+	db CALCIUM
+	db ZINC
+	db EXP_SHARE
 	db -1
 
 VermilionMart:
-	db 11 ; # items
+	db 18 ; # items
 	db ULTRA_BALL
 	db REPEAT_BALL
 	db SUPER_POTION
@@ -368,10 +496,17 @@ VermilionMart:
 	db LITEBLUEMAIL
         db ABILITYPATCH
 	db LUCKY_EGG
+	db HP_UP
+	db PROTEIN
+	db IRON
+	db CARBOS
+	db CALCIUM
+	db ZINC
+	db EXP_SHARE
 	db -1
 
 Celadon2FMart1:
-	db 13 ; # items
+	db 20 ; # items
 	db POTION
 	db SUPER_POTION
 	db MAX_POTION
@@ -385,10 +520,17 @@ Celadon2FMart1:
 	db REVIVE
 	db MAX_REVIVE
 	db LUCKY_EGG
+	db HP_UP
+	db PROTEIN
+	db IRON
+	db CARBOS
+	db CALCIUM
+	db ZINC
+	db EXP_SHARE
 	db -1
 
 Celadon2FMart2:
-	db 10 ; # items
+	db 17 ; # items
 	db POKE_BALL
 	db GREAT_BALL
 	db ULTRA_BALL
@@ -399,6 +541,13 @@ Celadon2FMart2:
 	db SUPER_REPEL
 	db MAX_REPEL
 	db LUCKY_EGG
+	db HP_UP
+	db PROTEIN
+	db IRON
+	db CARBOS
+	db CALCIUM
+	db ZINC
+	db EXP_SHARE
 	db -1
 
 Celadon3FTMMart:
@@ -415,7 +564,7 @@ Celadon3FTMMart:
 	db -1
 
 Celadon4FMart:
-	db 11 ; # items
+	db 17 ; # items
 	db POKE_DOLL
 	db FIRE_STONE
 	db WATER_STONE
@@ -427,10 +576,16 @@ Celadon4FMart:
 	db LOVELY_MAIL
 	db SURF_MAIL
 	db LUCKY_EGG
+	db HP_UP
+	db PROTEIN
+	db IRON
+	db CARBOS
+	db CALCIUM
+	db ZINC
 	db -1
 
 SaffronMart:
-	db 10 ; # items
+	db 17 ; # items
 	db GREAT_BALL
 	db ULTRA_BALL
 	db LUXURY_BALL
@@ -441,20 +596,34 @@ SaffronMart:
 	db X_DEFEND
 	db FLOWER_MAIL
 	db LUCKY_EGG
+	db HP_UP
+	db PROTEIN
+	db IRON
+	db CARBOS
+	db CALCIUM
+	db ZINC
+	db EXP_SHARE
 	db -1
 
 SilphCoMart:
-	db 6 ; # items
+	db 13 ; # items
 	db MAX_POTION
 	db MAX_REPEL
 	db DREAM_BALL
 	db UPGRADE
 	db DUBIOUS_DISC
 	db LUCKY_EGG
+	db HP_UP
+	db PROTEIN
+	db IRON
+	db CARBOS
+	db CALCIUM
+	db ZINC
+	db EXP_SHARE
 	db -1
 
 FuchsiaMart:
-	db 9 ; # items
+	db 16 ; # items
 	db GREAT_BALL
 	db ULTRA_BALL
 	db NEST_BALL
@@ -464,6 +633,13 @@ FuchsiaMart:
 	db MAX_REPEL
 	db FLOWER_MAIL
 	db LUCKY_EGG
+	db HP_UP
+	db PROTEIN
+	db IRON
+	db CARBOS
+	db CALCIUM
+	db ZINC
+	db EXP_SHARE
 	db -1
 
 ShamoutiMart1:
