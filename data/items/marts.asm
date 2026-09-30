@@ -660,13 +660,14 @@ ShamoutiMart1Souvenir:
 	db -1
 
 ShamoutiMart2:
-	db 6 ; # items
-	db DAMP_ROCK
-	db HEAT_ROCK
-	db SMOOTH_ROCK
-	db ICY_ROCK
-	db LIGHT_CLAY
-	db EVIOLITE
+	db 7 ; # items
+	db HP_UP
+	db PROTEIN
+	db IRON
+	db CARBOS
+	db CALCIUM
+	db ZINC
+	db EXP_SHARE
 	db -1
 
 BattleTowerMart1:
