@@ -1,4 +1,4 @@
-WDEF EVOS_ATTACKS_STATE EQU -1
+DEF EVOS_ATTACKS_STATE EQU -1
 DEF EVOS_ATTACKS_LAST_LEVEL EQU -1
 DEF EVOS_ATTACKS_CURRENT_MON EQUS ""
 DEF EVOS_ATTACKS_FIRST EQU 1
@@ -5244,9 +5244,10 @@ endc
 	learnset 55, LIGHT_SCREEN ; Heal Block → TM move
 	learnset 64, FUTURE_SIGHT
 	learnset 73, HEAL_BELL ; Healing Wish → Heal Bell
-	learnset 53, GIGA_DRAIN ; Leaf Storm → event move
+	learnset 50, GIGA_DRAIN ; Leaf Storm → event move
 	learnset 91, PERISH_SONG
 	learnset 100, AURA_SPHERE ; Sw/Sh move
+        learnset 40, DRAINING_KISS
 	evos_attacks Azurill
 	evo_data EVOLVE_HAPPINESS, TR_ANYTIME, MARILL
 	learnset 1, SPLASH
