@@ -1,4 +1,4 @@
-DEF EVOS_ATTACKS_STATE EQU -1
+WDEF EVOS_ATTACKS_STATE EQU -1
 DEF EVOS_ATTACKS_LAST_LEVEL EQU -1
 DEF EVOS_ATTACKS_CURRENT_MON EQUS ""
 DEF EVOS_ATTACKS_FIRST EQU 1
@@ -5247,7 +5247,6 @@ endc
 	learnset 50, GIGA_DRAIN ; Leaf Storm → event move
 	learnset 91, PERISH_SONG
 	learnset 100, AURA_SPHERE ; Sw/Sh move
-        learnset 40, DRAINING_KISS
         learnnset  45, DOUBLE_TEAM
 	evos_attacks Azurill
 	evo_data EVOLVE_HAPPINESS, TR_ANYTIME, MARILL
