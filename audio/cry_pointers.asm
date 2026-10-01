@@ -114,5 +114,3 @@ Cries:
 	dba Cry_Suicune_Siren
 	dba Cry_Typhlosion_Siren
 	dba Cry_Celebi
-	dba Cry_Wartortle_Siren
-	dba Cry_Blastoise_Siren
