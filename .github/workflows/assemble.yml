@@ -1,0 +1,82 @@
+name: Build Personal Crystal
+
+on:
+  push:
+    branches: [master]
+    paths-ignore:
+      - '**.md'
+      - '.gitignore'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# Cancel an in-progress build when a newer push arrives
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  ROM_FILE: Pokemon-Personal-Crystal.gbc
+  DEBIAN_FRONTEND: noninteractive
+
+jobs:
+  build:
+    # Ubuntu 26.04 is the first release whose repo has rgbds 1.0.x
+    runs-on: ubuntu-26.04
+    timeout-minutes: 15
+    steps:
+      # Plain git instead of actions/checkout (which is a Node.js action)
+      - name: Get source
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git init -q .
+          git remote add origin "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git fetch -q --depth 1 origin "${GITHUB_SHA}"
+          git checkout -q FETCH_HEAD
+
+      # One apt transaction. The pin keeps rgbds inside 1.0.x: if the repo has
+      # no 1.0.x candidate, the install fails by itself (all other versions are
+      # pinned to -1). build-essential and python3 ship with the runner image.
+      - name: Install dependencies (RGBDS 1.0.x)
+        run: |
+          sudo tee /etc/apt/preferences.d/rgbds >/dev/null <<'EOF'
+          Package: rgbds
+          Pin: version 1.0.*
+          Pin-Priority: 1001
+
+          Package: rgbds
+          Pin: version *
+          Pin-Priority: -1
+          EOF
+
+          sudo apt-get update -q
+          sudo apt-get install -y -q --no-install-recommends rgbds libpng-dev pkg-config
+
+          bin_ver=$(rgbasm --version)
+          echo "Binary reports: ${bin_ver}"
+          if [[ ! "${bin_ver}" =~ 1\.0\.[0-9]+ ]]; then
+            echo "::error::Expected rgbds 1.0.x but found ${bin_ver}"
+            exit 1
+          fi
+
+          # Make the exact version available to later steps (release notes)
+          echo "RGBDS_VERSION=$(grep -oE '[0-9]+\.[0-9]+\.[0-9]+' <<<"${bin_ver}" | head -n1)" >> "${GITHUB_ENV}"
+
+      - name: Build tools and ROM
+        run: |
+          make -C tools -j"$(nproc)"
+          make -j"$(nproc)"
+
+      # gh CLI is preinstalled on GitHub-hosted Ubuntu runners
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          test -f "${ROM_FILE}"
+          gh release create "build-${GITHUB_RUN_NUMBER}" "${ROM_FILE}" \
+            --target "${GITHUB_SHA}" \
+            --title "Personal Crystal build ${GITHUB_RUN_NUMBER}" \
+            --notes "Built from ${GITHUB_SHA} with RGBDS ${RGBDS_VERSION}"
