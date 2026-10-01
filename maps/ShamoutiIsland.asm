@@ -28,7 +28,7 @@ ShamoutiIsland_MapScriptHeader:
 	object_event 20,  2, SPRITE_FAT_GUY, SPRITEMOVEDATA_SPINCLOCKWISE, 0, 0, (1 << DAY), PAL_NPC_BROWN, OBJECTTYPE_COMMAND, jumptextfaceplayer, ShamoutiIslandFisherText, -1
 	object_event 23,  2, SPRITE_FAT_GUY, SPRITEMOVEDATA_SPINCOUNTERCLOCKWISE, 0, 0, (1 << DAY), PAL_NPC_BROWN, OBJECTTYPE_COMMAND, jumptextfaceplayer, ShamoutiIslandFisherText, -1
 	object_event 12, 15, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, 0, OBJECTTYPE_SCRIPT, 0, ShamoutiIslandGrampsScript, -1
-	object_event  9, 16, SPRITE_COOL_DUDE, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, ShamoutiIslandTravellingDoctorScript, -1
+	object_event  9, 16, SPRITE_COOL_DUDE, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, PAL_NPC_GREEN, OBJECTTYPE_COMMAND, pokemart, MARTTYPE_BAZAAR, MART_SHAMOUTI_2, -1
 
 	object_const_def
 	const SHAMOUTIISLAND_ALOLAN_EXEGGUTOR
@@ -85,23 +85,6 @@ ShamoutiIslandGrampsScript:
 
 .souvenir
 	pokemart MARTTYPE_BAZAAR, MART_SHAMOUTI_1_SOUVENIR
-
-ShamoutiIslandTravellingDoctorScript:
-	faceplayer
-	showtext ShamoutiIslandTravellingDoctorText
-	pokemart MARTTYPE_BAZAAR, MART_SHAMOUTI_2
-
-ShamoutiIslandTravellingDoctorText:
-	text "I'm a travelling"
-	line "doctor."
-
-	para "I help #mon"
-	line "grow healthy and"
-	cont "strong with my"
-	cont "vitamins."
-
-	para "Take a look!"
-	done
 
 ShamoutiIslandYoungsterScript:
 	checkevent EVENT_GOT_ODD_SOUVENIR_FROM_PIKABLU_GUY
