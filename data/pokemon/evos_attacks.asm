@@ -5242,12 +5242,12 @@ endc
 	learnset 37, BATON_PASS
 	learnset 35, MOONBLAST ; Natural Gift → new move
 	learnset 55, LIGHT_SCREEN ; Heal Block → TM move
-	learnset 64, FUTURE_SIGHT
+	learnset 62, FUTURE_SIGHT
 	learnset 73, HEAL_BELL ; Healing Wish → Heal Bell
 	learnset 50, GIGA_DRAIN ; Leaf Storm → event move
 	learnset 91, PERISH_SONG
 	learnset 100, AURA_SPHERE ; Sw/Sh move
-        learnset 40, DRAINING_KISS
+        learnset 60, DOUBLE_TEAM
 	evos_attacks Azurill
 	evo_data EVOLVE_HAPPINESS, TR_ANYTIME, MARILL
 	learnset 1, SPLASH

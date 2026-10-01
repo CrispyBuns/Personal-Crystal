@@ -263,7 +263,7 @@ endc
 	move POWER_WHIP,      EFFECT_NORMAL_HIT,        120, GRASS,      85, 10,   0, PHYSICAL
 	move OUTRAGE,         EFFECT_RAMPAGE,           120, DRAGON,    100, 10,   0, PHYSICAL
 	move SANDSTORM,       EFFECT_SANDSTORM,           0, ROCK,       -1, 10,   0, STATUS
-	move GIGA_DRAIN,      EFFECT_LEECH_HIT,          75, GRASS,     100, 10,   0, SPECIAL
+	move GIGA_DRAIN,      EFFECT_LEECH_HIT,          80, GRASS,     95, 15,   0, SPECIAL
 	move ENDURE,          EFFECT_ENDURE,              0, NORMAL,     -1, 10,   0, STATUS
 	move CHARM,           EFFECT_ATTACK_DOWN_2,       0, FAIRY,     100, 20,   0, STATUS
 	move ROLLOUT,         EFFECT_ROLLOUT,            30, ROCK,       90, 20,   0, PHYSICAL
