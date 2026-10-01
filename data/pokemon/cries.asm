@@ -13,8 +13,8 @@ PokemonCries::
 	mon_cry CRY_CHARMANDER,  $020,  $0c0 ; Charmeleon
 	mon_cry CRY_CHARMANDER,  $000,  $100 ; Charizard
 	mon_cry CRY_SQUIRTLE,    $060,  $0c0 ; Squirtle
-	mon_cry CRY_SQUIRTLE,    $020,  $0c0 ; Wartortle
-	mon_cry CRY_BLASTOISE,   $000,  $100 ; Blastoise
+	mon_cry CRY_WARTORTLE_SIREN, 0, 256 ; Wartortle
+	mon_cry CRY_BLASTOISE_SIREN, 0, 256 ; Blastoise
 	mon_cry CRY_CATERPIE,    $080,  $0a0 ; Caterpie
 	mon_cry CRY_METAPOD,     $0cc,  $081 ; Metapod
 	mon_cry CRY_CATERPIE,    $077,  $0c0 ; Butterfree
