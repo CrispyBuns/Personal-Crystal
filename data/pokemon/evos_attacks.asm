@@ -5236,13 +5236,11 @@ endc
 	learnset 1, CONFUSION
 	learnset 1, RECOVER
 	learnset 1, METRONOME ; Heal Bell → new move
-	learnset 57, DOUBLE_TEAM
+	learnset 48, DOUBLE_TEAM
 	learnset 19, ENERGY_BALL ; Magical Leaf → TM move
 	learnset 28, ANCIENTPOWER
 	learnset 37, BATON_PASS
-	learnset 35, MOONBLAST ; Natural Gift → new move
 	learnset 55, LIGHT_SCREEN ; Heal Block → TM move
-	learnset 48, FUTURE_SIGHT
 	learnset 73, HEAL_BELL ; Healing Wish → Heal Bell
 	learnset 50, GIGA_DRAIN ; Leaf Storm → event move
 	learnset 91, PERISH_SONG
