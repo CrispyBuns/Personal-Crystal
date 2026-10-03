@@ -332,7 +332,7 @@ CeruleanMart:
 	db X_DEFEND
 	db X_ATTACK
 	db DIRE_HIT
-	db ABILITY_PATCH
+	db ABILITYPATCH
 	db -1
 
 LavenderMart:
