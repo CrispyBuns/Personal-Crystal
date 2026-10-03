@@ -5241,8 +5241,8 @@ endc
 	learnset 28, ANCIENTPOWER
 	learnset 37, BATON_PASS ; Heal Block → TM move
 	learnset 73, HEAL_BELL ; Healing Wish → Heal Bell
-	learnset 49, GIGA_DRAIN ; Leaf Storm → event move
-	learnset 91, PERISH_SONG
+	learnset 47, GIGA_DRAIN ; Leaf Storm → event move
+	learnset 90, PERISH_SONG
 	learnset 100, AURA_SPHERE 
 	evos_attacks Azurill
 	evo_data EVOLVE_HAPPINESS, TR_ANYTIME, MARILL
