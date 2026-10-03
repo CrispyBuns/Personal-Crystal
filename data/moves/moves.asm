@@ -23,7 +23,7 @@ Moves::
 	move ICE_PUNCH,       EFFECT_FREEZE_HIT,         75, ICE,       100, 15,  10, PHYSICAL
 	move THUNDERPUNCH,    EFFECT_PARALYZE_HIT,       75, ELECTRIC,  100, 15,  10, PHYSICAL
 	move SCRATCH,         EFFECT_NORMAL_HIT,         40, NORMAL,    100, 35,   0, PHYSICAL
-	move X_SCISSOR,       EFFECT_ALWAYS_HIT,         95, BUG,       75, 20,   0, PHYSICAL
+	move X_SCISSOR,       EFFECT_ALWAYS_HIT,         95, BUG,       -1, 20,   0, PHYSICAL
 	move NIGHT_SLASH,     EFFECT_NORMAL_HIT,         70, DARK,      100, 15,   0, PHYSICAL
 	move AIR_SLASH,       EFFECT_FLINCH_HIT,         75, FLYING,     95, 15,  30, SPECIAL
 	move SWORDS_DANCE,    EFFECT_ATTACK_UP_2,         0, NORMAL,     -1, 20,   0, STATUS
@@ -263,7 +263,7 @@ endc
 	move POWER_WHIP,      EFFECT_NORMAL_HIT,        110, GRASS,      85, 15,   0, PHYSICAL
 	move OUTRAGE,         EFFECT_RAMPAGE,           120, DRAGON,    100, 10,   0, PHYSICAL
 	move SANDSTORM,       EFFECT_SANDSTORM,           0, ROCK,       -1, 10,   0, STATUS
-	move GIGA_DRAIN,      EFFECT_LEECH_HIT,          80, GRASS,     95, 15,   0, SPECIAL
+	move GIGA_DRAIN,      EFFECT_LEECH_HIT,          90, GRASS,     75, 15,   0, SPECIAL
 	move ENDURE,          EFFECT_ENDURE,              0, NORMAL,     -1, 10,   0, STATUS
 	move CHARM,           EFFECT_ATTACK_DOWN_2,       0, FAIRY,     100, 20,   0, STATUS
 	move ROLLOUT,         EFFECT_ROLLOUT,            30, ROCK,       90, 20,   0, PHYSICAL
