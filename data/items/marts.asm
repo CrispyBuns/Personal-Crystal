@@ -47,15 +47,18 @@ Marts:
 	assert_table_length NUM_MARTS
 
 CherrygroveMart:
-	db 4 ; # items
+	db 7 ; # items
 	db POTION
 	db ANTIDOTE
 	db PARALYZEHEAL
 	db AWAKENING
+	db MAX_REVIVE
+	db MAX_POTION
+	db FULL_RESTORE
 	db -1
 
 CherrygroveMartAfterDex:
-	db 6 ; # items
+	db 9 ; # items
 	db ULTRA_BALL
 	db LUXURY_BALL
 	db POTION
