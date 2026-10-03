@@ -235,7 +235,7 @@ endc
 	move GYRO_BALL,       EFFECT_GYRO_BALL,           1, STEEL,     100,  5,   0, PHYSICAL
 	move ENERGY_BALL,     EFFECT_SP_DEF_DOWN_HIT,    90, GRASS,     100, 10,  10, SPECIAL
 	move AEROBLAST,       EFFECT_NORMAL_HIT,        100, FLYING,     95,  5,   0, SPECIAL
-	move SEED_BOMB,       EFFECT_NORMAL_HIT,         80, GRASS,     100, 15,   0, PHYSICAL
+	move SEED_BOMB,       EFFECT_NORMAL_HIT,         100, GRASS,     85, 15,   0, PHYSICAL
 	move REVERSAL,        EFFECT_REVERSAL,            1, FIGHTING,  100, 15,   0, PHYSICAL
 	move ASTONISH,        EFFECT_FLINCH_HIT,         30, GHOST,     100, 15,  30, PHYSICAL
 	move ICE_SHARD,       EFFECT_PRIORITY_HIT,       40, ICE,       100, 30,   0, PHYSICAL

@@ -5244,6 +5244,7 @@ endc
 	learnset 47, GIGA_DRAIN ; Leaf Storm → event move
 	learnset 90, PERISH_SONG
         learnset 48, PETAL_DANCE
+        learnset 50, SEED_BOMB
 	learnset 100, AURA_SPHERE 
 	evos_attacks Azurill
 	evo_data EVOLVE_HAPPINESS, TR_ANYTIME, MARILL
