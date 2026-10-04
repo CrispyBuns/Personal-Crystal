@@ -47,7 +47,7 @@ Marts:
 	assert_table_length NUM_MARTS
 
 CherrygroveMart:
-	db 7 ; # items
+	db 8 ; # items
 	db POTION
 	db ANTIDOTE
 	db PARALYZEHEAL
@@ -55,20 +55,23 @@ CherrygroveMart:
 	db MAX_REVIVE
 	db MAX_POTION
 	db FULL_RESTORE
+	db HYPER_POTION
 	db -1
 
 CherrygroveMartAfterDex:
-	db 9 ; # items
+	db 11 ; # items
 	db ULTRA_BALL
 	db LUXURY_BALL
 	db POTION
 	db SOOTHE_BELL
 	db PARALYZEHEAL
 	db LEFTOVERS
+	db MAX_REVIVE
+	db HYPER_POTION
 	db -1
 
 VioletMart:
-	db 10 ; # items
+	db 12 ; # items
 	db GREAT_BALL
 	db REPEAT_BALL
 	db POTION
@@ -79,10 +82,12 @@ VioletMart:
 	db X_ATTACK
 	db LUCKY_EGG
 	db FULL_RESTORE
+	db MAX_REVIVE
+	db HYPER_POTION
 	db -1
 
 AzaleaMart:
-	db 9 ; # items
+	db 10 ; # items
 	db MASTER_BALL, 1
 	db POTION
 	db SUPER_POTION
@@ -92,10 +97,11 @@ AzaleaMart:
 	db PARALYZEHEAL
 	db SCOPE_LENS
         db MAX_REVIVE
+	db HYPER_POTION
 	db -1
 
 Goldenrod2FMart1:
-	db 9 ; # items
+	db 10 ; # items
 	db POTION
 	db SUPER_POTION
 	db QUICK_CLAW
@@ -105,10 +111,11 @@ Goldenrod2FMart1:
 	db ICE_HEAL
 	db FULL_HEAL
 	db MAX_REVIVE
+	db HYPER_POTION
 	db -1
 
 Goldenrod2FMart2:
-	db 10 ; # items
+	db 12 ; # items
 	db POKE_BALL
 	db GREAT_BALL
 	db LUXURY_BALL
@@ -119,10 +126,12 @@ Goldenrod2FMart2:
 	db POKE_DOLL
 	db BLUESKY_MAIL
 	db MORPH_MAIL
+	db MAX_REVIVE
+	db HYPER_POTION
 	db -1
 
 Goldenrod2FMart2Eevee:
-	db 11 ; # items
+	db 13 ; # items
 	db POKE_BALL
 	db GREAT_BALL
 	db LUXURY_BALL
@@ -134,11 +143,13 @@ Goldenrod2FMart2Eevee:
 	db BLUESKY_MAIL
 	db MORPH_MAIL
 	db EON_MAIL
+	db MAX_REVIVE
+	db HYPER_POTION
 	db -1
 
 Goldenrod3FMart:
 Celadon5FMart2:
-	db 8 ; # items
+	db 10 ; # items
 	db X_ATTACK
 	db X_DEFEND
 	db X_SPEED
@@ -147,21 +158,25 @@ Celadon5FMart2:
 	db X_ACCURACY
 	db DIRE_HIT
 	db GUARD_SPEC
+	db MAX_REVIVE
+	db HYPER_POTION
 	db -1
 
 Goldenrod4FMart:
 Celadon5FMart1:
-	db 6 ; # items
+	db 8 ; # items
 	db PROTEIN
 	db IRON
 	db CARBOS
 	db CALCIUM
 	db ZINC
 	db HP_UP
+	db MAX_REVIVE
+	db HYPER_POTION
 	db -1
 
 Goldenrod5FTMMart:
-	db 8 ; # items
+	db 10 ; # items
 	dbw TM_PROTECT,       10000
 	dbw TM_REFLECT,       10000
 	dbw TM_LIGHT_SCREEN,  1000
@@ -170,27 +185,33 @@ Goldenrod5FTMMart:
 	dbw TM_FIRE_BLAST,    30000
 	dbw TM_BLIZZARD,      30000
 	dbw TM_HYPER_BEAM,    50000
+	db MAX_REVIVE
+	db HYPER_POTION
 	db -1
 
 GoldenrodHarborMart:
-	db 5 ; # items
+	db 7 ; # items
 	db ETHER
 	db ELIXIR
 	db MIRROR_HERB
 	db DESTINY_KNOT
 	db SURF_MAIL
+	db MAX_REVIVE
+	db HYPER_POTION
 	db -1
 
 UndergroundMart:
-	db 4 ; # items
+	db 6 ; # items
 	db ENERGYPOWDER
 	db ENERGY_ROOT
 	db HEAL_POWDER
 	db REVIVAL_HERB
+	db MAX_REVIVE
+	db HYPER_POTION
 	db -1
 
 EcruteakMart:
-	db 11 ; # items
+	db 12 ; # items
 	db POKE_BALL
 	db LEFTOVERS
 	db POTION
@@ -202,6 +223,7 @@ EcruteakMart:
 	db ICE_HEAL
 	db REVIVE
 	db LIFE_ORB
+	db HYPER_POTION
 	db -1
 
 OlivineMart:
@@ -219,32 +241,37 @@ OlivineMart:
 	db -1
 
 CianwoodMart:
-	db 5 ; # items
+	db 6 ; # items
 	db POTION
 	db SUPER_POTION
 	db HYPER_POTION
 	db FULL_HEAL
 	db REVIVE
+	db MAX_REVIVE
 	db -1
 
 YellowForestMart:
-	db 4 ; # items
+	db 6 ; # items
 	db POKE_BALL
 	db REPEL
 	db FRESH_WATER
 	db FULL_HEAL
+	db MAX_REVIVE
+	db HYPER_POTION
 	db -1
 
 MahoganyMart1:
-	db 4 ; # items
+	db 6 ; # items
 	db TINYMUSHROOM
 	db SLOWPOKETAIL
 	db GREAT_BALL
 	db SUPER_POTION
+	db MAX_REVIVE
+	db HYPER_POTION
 	db -1
 
 MahoganyMart2:
-	db 10 ; # items
+	db 11 ; # items
 	db RAGECANDYBAR
 	db AIR_BALLOON
 	db QUICK_CLAW
@@ -255,10 +282,11 @@ MahoganyMart2:
 	db SUPER_REPEL
 	db REVIVE
 	db FLOWER_MAIL
+	db MAX_REVIVE
 	db -1
 
 BlackthornMart:
-	db 11 ; # items
+	db 12 ; # items
 	db GREAT_BALL
 	db ULTRA_BALL
 	db DUSK_BALL
@@ -270,10 +298,11 @@ BlackthornMart:
 	db X_DEFEND
 	db X_ATTACK
 	db MUSIC_MAIL
+	db MAX_REVIVE
 	db -1
 
 IndigoPlateauMart:
-	db 9 ; # items
+	db 10 ; # items
 	db MAX_REVIVE
 	db QUICK_CLAW
 	db MAX_ELIXIR
@@ -283,10 +312,11 @@ IndigoPlateauMart:
 	db FULL_HEAL
         db LEFTOVERS
         db WISE_GLASSES
+	db HYPER_POTION
 	db -1
 
 ViridianMart:
-	db 11 ; # items
+	db 12 ; # items
 	db ULTRA_BALL
 	db NET_BALL
 	db MAX_POTION
@@ -298,10 +328,11 @@ ViridianMart:
 	db MAX_REPEL
 	db MAX_REVIVE
 	db ABILITY_CAP
+	db HYPER_POTION
 	db -1
 
 PewterMart:
-	db 8 ; # items
+	db 10 ; # items
 	db GREAT_BALL
 	db DUSK_BALL
 	db SUPER_POTION
@@ -310,10 +341,12 @@ PewterMart:
 	db PARALYZEHEAL
 	db AWAKENING
 	db BURN_HEAL
+	db MAX_REVIVE
+	db HYPER_POTION
 	db -1
 
 MtMoonMart:
-	db 8 ; # items
+	db 10 ; # items
 	db POKE_DOLL
 	db FRESH_WATER
 	db SODA_POP
@@ -322,10 +355,12 @@ MtMoonMart:
 	db SUPER_REPEL
 	db MIRAGE_MAIL
 	db PORTRAITMAIL
+	db MAX_REVIVE
+	db HYPER_POTION
 	db -1
 
 CeruleanMart:
-	db 10 ; # items
+	db 12 ; # items
 	db GREAT_BALL
 	db ULTRA_BALL
 	db DIVE_BALL
@@ -336,23 +371,27 @@ CeruleanMart:
 	db X_ATTACK
 	db DIRE_HIT
 	db ABILITYPATCH
+	db MAX_REVIVE
+	db HYPER_POTION
 	db -1
 
 LavenderMart:
-	db 9 ; # items
+	db 11 ; # items
 	db GREAT_BALL
 	db HEAL_BALL
 	db POTION
-	db SUPER_POTION
+	db HYPER_POTION
 	db MAX_REPEL
 	db ANTIDOTE
 	db PARALYZEHEAL
 	db AWAKENING
 	db BURN_HEAL
+	db MAX_REVIVE
+	db CLEAR_AMULET
 	db -1
 
 VermilionMart:
-	db 10 ; # items
+	db 12 ; # items
 	db ULTRA_BALL
 	db REPEAT_BALL
 	db SUPER_POTION
@@ -363,10 +402,12 @@ VermilionMart:
 	db BURN_HEAL
 	db LITEBLUEMAIL
         db ABILITYPATCH
+	db MAX_REVIVE
+	db HYPER_POTION
 	db -1
 
 Celadon2FMart1:
-	db 12 ; # items
+	db 13 ; # items
 	db POTION
 	db SUPER_POTION
 	db MAX_POTION
@@ -379,10 +420,11 @@ Celadon2FMart1:
 	db FULL_HEAL
 	db REVIVE
 	db MAX_REVIVE
+	db HYPER_POTION
 	db -1
 
 Celadon2FMart2:
-	db 9 ; # items
+	db 11 ; # items
 	db POKE_BALL
 	db GREAT_BALL
 	db ULTRA_BALL
@@ -392,10 +434,12 @@ Celadon2FMart2:
 	db REPEL
 	db SUPER_REPEL
 	db MAX_REPEL
+	db MAX_REVIVE
+	db HYPER_POTION
 	db -1
 
 Celadon3FTMMart:
-	db 8 ; # items
+	db 10 ; # items
 	dbw TM_SAFEGUARD,     10000
 	dbw TM_BULK_UP,       20000
 	dbw TM_CALM_MIND,     20000
@@ -404,10 +448,12 @@ Celadon3FTMMart:
 	dbw TM_RAIN_DANCE,    40000
 	dbw TM_SANDSTORM,     40000
 	dbw TM_HAIL,          40000
+	db MAX_REVIVE
+	db HYPER_POTION
 	db -1
 
 Celadon4FMart:
-	db 10 ; # items
+	db 12 ; # items
 	db POKE_DOLL
 	db FIRE_STONE
 	db WATER_STONE
@@ -418,10 +464,12 @@ Celadon4FMart:
 	db EXP_SHARE
 	db LOVELY_MAIL
 	db SURF_MAIL
+	db MAX_REVIVE
+	db HYPER_POTION
 	db -1
 
 SaffronMart:
-	db 9 ; # items
+	db 11 ; # items
 	db GREAT_BALL
 	db ULTRA_BALL
 	db LUXURY_BALL
@@ -431,19 +479,23 @@ SaffronMart:
 	db X_ATTACK
 	db X_DEFEND
 	db FLOWER_MAIL
+	db MAX_REVIVE
+	db HYPER_POTION
 	db -1
 
 SilphCoMart:
-	db 5 ; # items
+	db 7 ; # items
 	db MAX_POTION
 	db MAX_REPEL
 	db DREAM_BALL
 	db UPGRADE
 	db DUBIOUS_DISC
+	db MAX_REVIVE
+	db HYPER_POTION
 	db -1
 
 FuchsiaMart:
-	db 8 ; # items
+	db 10 ; # items
 	db GREAT_BALL
 	db ULTRA_BALL
 	db NEST_BALL
@@ -452,37 +504,45 @@ FuchsiaMart:
 	db FULL_HEAL
 	db MAX_REPEL
 	db FLOWER_MAIL
+	db MAX_REVIVE
+	db HYPER_POTION
 	db -1
 
 ShamoutiMart1:
-	db 4 ; # items
+	db 6 ; # items
 	db MENTAL_HERB
 	db POWER_HERB
 	db WHITE_HERB
 	db BIG_ROOT
+	db MAX_REVIVE
+	db HYPER_POTION
 	db -1
 
 ShamoutiMart1Souvenir:
-	db 5 ; # items
+	db 7 ; # items
 	db ODD_SOUVENIR
 	db MENTAL_HERB
 	db POWER_HERB
 	db WHITE_HERB
 	db BIG_ROOT
+	db MAX_REVIVE
+	db HYPER_POTION
 	db -1
 
 ShamoutiMart2:
-	db 6 ; # items
+	db 8 ; # items
 	db DAMP_ROCK
 	db HEAT_ROCK
 	db SMOOTH_ROCK
 	db ICY_ROCK
 	db LIGHT_CLAY
 	db EVIOLITE
+	db MAX_REVIVE
+	db HYPER_POTION
 	db -1
 
 BattleTowerMart1:
-	db 7 ; # items
+	db 9 ; # items
 	db CHOICE_BAND,  48
 	db CHOICE_SCARF, 48
 	db CHOICE_SPECS, 48
@@ -490,10 +550,12 @@ BattleTowerMart1:
 	db MUSCLE_BAND,  32
 	db WISE_GLASSES, 32
 	db METRONOME_I,  32
+	db MAX_REVIVE
+	db HYPER_POTION
 	db -1
 
 BattleTowerMart2:
-	db 9 ; # items
+	db 11 ; # items
 	db RARE_CANDY,   16
 	db PP_MAX,       64
 	db ABILITY_CAP,  32
@@ -503,10 +565,12 @@ BattleTowerMart2:
 	db WIDE_LENS,    16
 	db ZOOM_LENS,    16
 	db BRIGHTPOWDER, 24
+	db MAX_REVIVE
+	db HYPER_POTION
 	db -1
 
 BattleTowerMart3:
-	db 7 ; # items
+	db 9 ; # items
 	db MACHO_BRACE,  16
 	db POWER_WEIGHT, 24
 	db POWER_BRACER, 24
@@ -514,10 +578,12 @@ BattleTowerMart3:
 	db POWER_LENS,   24
 	db POWER_BAND,   24
 	db POWER_ANKLET, 24
+	db MAX_REVIVE
+	db HYPER_POTION
 	db -1
 
 BattleFactoryMart1:
-	db 9 ; # items
+	db 11 ; # items
 	db FOCUS_BAND,   16
 	db FOCUS_SASH,   48
 	db ASSAULT_VEST, 48
@@ -527,10 +593,12 @@ BattleFactoryMart1:
 	db HEAVY_BOOTS,  48
 	db PUNCHINGLOVE, 16
 	db COVERT_CLOAK, 16
+	db MAX_REVIVE
+	db HYPER_POTION
 	db -1
 
 BattleFactoryMart2:
-	db 8 ; # items
+	db 10 ; # items
 	db EJECT_BUTTON, 32
 	db EJECT_PACK,   32
 	db RED_CARD,     24
@@ -539,10 +607,12 @@ BattleFactoryMart2:
 	db FLAME_ORB,    32
 	db TOXIC_ORB,    32
 	db BLACK_SLUDGE, 32
+	db MAX_REVIVE
+	db HYPER_POTION
 	db -1
 
 BattleFactoryMart3:
-	db 8 ; # items
+	db 10 ; # items
 	db CLEAR_AMULET, 16
 	db BINDING_BAND, 32
 	db GRIP_CLAW,    32
@@ -551,4 +621,6 @@ BattleFactoryMart3:
 	db ROOM_SERVICE, 24
 	db LIFE_ORB,     48
 	db MINT_LEAF,    32
+	db MAX_REVIVE
+	db HYPER_POTION
 	db -1
