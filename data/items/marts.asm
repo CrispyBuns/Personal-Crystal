@@ -179,14 +179,14 @@ Celadon5FMart1:
 
 Goldenrod5FTMMart:
 	db 11 ; # items
-	dbbw TM_PROTECT,       10000
-	dbbw TM_REFLECT,       10000
-	dbbw TM_LIGHT_SCREEN,  1000
-	dbbw TM_SOLAR_BEAM,    25000
-	dbbw TM_THUNDER,       30000
-	dbbw TM_FIRE_BLAST,    30000
-	dbbw TM_BLIZZARD,      30000
-	dbbw TM_HYPER_BEAM,    50000
+	dbw TM_PROTECT,       10000
+	dbw TM_REFLECT,       10000
+	dbw TM_LIGHT_SCREEN,  1000
+	dbw TM_SOLAR_BEAM,    25000
+	dbw TM_THUNDER,       30000
+	dbw TM_FIRE_BLAST,    30000
+	dbw TM_BLIZZARD,      30000
+	dbw TM_HYPER_BEAM,    50000
 	db MAX_REVIVE
 	db HYPER_POTION
 	db SILVER_LEAF
@@ -449,14 +449,14 @@ Celadon2FMart2:
 
 Celadon3FTMMart:
 	db 11 ; # items
-	dbbw TM_SAFEGUARD,     10000
-	dbbw TM_BULK_UP,       20000
-	dbbw TM_CALM_MIND,     20000
-	dbbw TM_SWORDS_DANCE,  20000
-	dbbw TM_SUNNY_DAY,     40000
-	dbbw TM_RAIN_DANCE,    40000
-	dbbw TM_SANDSTORM,     40000
-	dbbw TM_HAIL,          40000
+	dbw TM_SAFEGUARD,     10000
+	dbw TM_BULK_UP,       20000
+	dbw TM_CALM_MIND,     20000
+	dbw TM_SWORDS_DANCE,  20000
+	dbw TM_SUNNY_DAY,     40000
+	dbw TM_RAIN_DANCE,    40000
+	dbw TM_SANDSTORM,     40000
+	dbw TM_HAIL,          40000
 	db MAX_REVIVE
 	db HYPER_POTION
 	db SILVER_LEAF
