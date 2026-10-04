@@ -5246,6 +5246,7 @@ endc
         learnset 48, PETAL_DANCE
         learnset 50, SEED_BOMB
         learnset 55, GIGA_DRAIN
+        learnset 60, CALM_MIND
 	learnset 100, AURA_SPHERE 
 	evos_attacks Azurill
 	evo_data EVOLVE_HAPPINESS, TR_ANYTIME, MARILL
