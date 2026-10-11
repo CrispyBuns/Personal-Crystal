@@ -5195,6 +5195,7 @@ endc
 	learnset 63, STONE_EDGE
 	learnset 57, MAGNITUDE ; Hyper Beam → HGSS tutor move
 	learnset 82, HYPER_BEAM
+	learnset 60, MAGNITUDE
 	learnset 92, CLOSE_COMBAT ; new move
 
 	evos_attacks Lugia
