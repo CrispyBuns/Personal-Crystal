@@ -1,0 +1,79 @@
+name: Build Personal Crystal
+
+on:
+  push:
+    branches: [master]
+    paths-ignore:
+      - '**.md'
+      - '.gitignore'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  ROM_FILE: Pokemon-Personal-Crystal.gbc
+  DEBIAN_FRONTEND: noninteractive
+
+jobs:
+  build:
+    runs-on: ubuntu-26.04
+    timeout-minutes: 15
+    steps:
+      - name: Get source (plain Git, no checkout action)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git init -q .
+          git remote add origin "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git fetch -q --depth 1 origin "${GITHUB_SHA}"
+          git checkout -q FETCH_HEAD
+
+      - name: Install RGBDS 1.0.x and dependencies
+        run: |
+          sudo tee /etc/apt/preferences.d/rgbds >/dev/null <<'EOF'
+          Package: rgbds
+          Pin: version 1.0.*
+          Pin-Priority: 1001
+
+          Package: rgbds
+          Pin: version *
+          Pin-Priority: -1
+          EOF
+          sudo apt-get update -q
+          sudo apt-get install -y -q --no-install-recommends rgbds libpng-dev pkg-config
+          bin_ver=$(rgbasm --version)
+          echo "RGBDS reports: ${bin_ver}"
+          if [[ ! "${bin_ver}" =~ 1\.0\.[0-9]+ ]]; then
+            echo "::error::Expected RGBDS 1.0.x, found ${bin_ver}"
+            exit 1
+          fi
+          echo "RGBDS_VERSION=$(grep -oE '[0-9]+\.[0-9]+\.[0-9]+' <<<"${bin_ver}" | head -n1)" >> "${GITHUB_ENV}"
+
+      - name: Build tools and ROM
+        run: |
+          make -C tools -j"$(nproc)"
+          make -j"$(nproc)"
+
+      - name: Verify ROM
+        run: |
+          if [[ ! -s "${ROM_FILE}" ]]; then
+            echo "::error::ROM missing or empty: ${ROM_FILE}"
+            exit 1
+          fi
+          ls -lh "${ROM_FILE}"
+
+      - name: Publish release with GitHub CLI
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          TAG="build-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          gh release create "${TAG}" "${ROM_FILE}" \
+            --target "${GITHUB_SHA}" \
+            --title "Personal Crystal build ${GITHUB_RUN_NUMBER}" \
+            --notes "Built from ${GITHUB_SHA} with RGBDS ${RGBDS_VERSION}. Run ${GITHUB_RUN_ID}, attempt ${GITHUB_RUN_ATTEMPT}."
