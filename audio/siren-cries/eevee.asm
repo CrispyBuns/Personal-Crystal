@@ -99,3 +99,6 @@ Cry_Eevee_Ch7:
 	square_note 0, 2, 1, 2003
 	square_note 2, 2, 1, 2012
 	square_note 0, 3, 1, 2002
+
+Cry_Eevee_Ch8:
+	noise_note 3, 0, 8, 0
