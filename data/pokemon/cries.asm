@@ -138,7 +138,7 @@ PokemonCries::
 	mon_cry CRY_EKANS,       $000,  $100 ; Gyarados
 	mon_cry CRY_LAPRAS,      $000,  $100 ; Lapras
 	mon_cry CRY_PIDGEY,      $0ff,  $17f ; Ditto
-	mon_cry CRY_VENONAT,     $088,  $0e0 ; Eevee
+	mon_cry CRY_EEVEE_SIREN, 0, 256 ; Eevee
 	mon_cry CRY_VENONAT,     $0aa,  $17f ; Vaporeon
 	mon_cry CRY_VENONAT,     $03d,  $100 ; Jolteon
 	mon_cry CRY_VENONAT,     $010,  $0a0 ; Flareon

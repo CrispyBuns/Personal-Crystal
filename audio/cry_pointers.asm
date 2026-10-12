@@ -116,3 +116,4 @@ Cries:
 	dba Cry_Celebi
 	dba Cry_Wartortle_Siren
 	dba Cry_Blastoise_Siren
+	dba Cry_Eevee
