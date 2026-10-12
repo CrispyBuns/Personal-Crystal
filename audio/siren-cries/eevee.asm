@@ -102,3 +102,28 @@ Cry_Eevee_Ch7:
 
 Cry_Eevee_Ch8:
 	noise_note 3, 0, 8, 0
+	noise_note 0, 2, 8, 100
+	noise_note 0, 9, 8, 100
+	noise_note 0, 5, 8, 100
+	noise_note 1, 3, 8, 100
+	noise_note 4, 2, 8, 100
+	noise_note 0, 3, 8, 100
+	noise_note 2, 1, 8, 100
+	noise_note 1, 0, 8, 0
+	noise_note 0, 1, 8, 100
+	noise_note 0, 2, 8, 100
+	noise_note 2, 1, 8, 100
+	noise_note 0, 2, 8, 100
+	noise_note 2, 1, 8, 100
+	noise_note 1, 2, 8, 100
+	noise_note 0, 4, 8, 100
+	noise_note 2, 6, 8, 100
+	noise_note 0, 8, 8, 100
+	noise_note 0, 7, 8, 100
+	noise_note 0, 5, 8, 100
+	noise_note 0, 4, 8, 100
+	noise_note 0, 3, 8, 100
+	noise_note 1, 2, 8, 100
+	noise_note 0, 1, 8, 100
+	noise_note 10, 0, 8, 0
+	sound_ret
