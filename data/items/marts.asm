@@ -114,7 +114,7 @@ Goldenrod2FMart1:
 
 Goldenrod2FMart2:
 	db 13 ; # items
-	db POKE_BALL
+	db SUN_STONE
 	db GREAT_BALL
 	db LUXURY_BALL
 	db TIMER_BALL
