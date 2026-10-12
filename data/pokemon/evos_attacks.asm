@@ -5244,7 +5244,7 @@ endc
 	learnset 73, HEAL_BELL ; Healing Wish → Heal Bell
 	learnset 47, GIGA_DRAIN ; Leaf Storm → event move
 	learnset 90, PERISH_SONG
-        learnset 48, PETAL_DANCE
+        learnset 65, PETAL_DANCE
         learnset 50, SEED_BOMB
         learnset 55, GIGA_DRAIN
         learnset 60, GROWTH
