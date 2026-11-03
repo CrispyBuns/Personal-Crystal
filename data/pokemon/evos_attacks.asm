@@ -5171,7 +5171,7 @@ endc
 	learnset 35, CRUNCH
 	learnset 54, EARTHQUAKE
 	learnset 60, STONE_EDGE
-	learnset 80, MAGNITUDE ; Hyper Beam → HGSS tutor move
+	learnset 70, MAGNITUDE ; Hyper Beam → HGSS tutor move
 	learnset 75, HYPER_BEAM
 	learnset 85, CLOSE_COMBAT ; new move
 
