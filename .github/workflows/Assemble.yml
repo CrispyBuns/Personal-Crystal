@@ -13,12 +13,13 @@ concurrency:
 env:
   ROM_FILE: Pokemon-Personal-Crystal.gbc
   DEBIAN_FRONTEND: noninteractive
+  RGBDS_VERSION: 1.0.4
 
 jobs:
   build:
     name: Build Game Boy Color ROM
     runs-on: ubuntu-26.04
-    timeout-minutes: 15
+    timeout-minutes: 20
 
     steps:
       - name: Get source
@@ -34,25 +35,28 @@ jobs:
           git fetch -q --no-tags --depth 1 origin "${GITHUB_SHA}"
           git checkout -q FETCH_HEAD
 
-      - name: Install RGBDS v1.0.4
+      - name: Build and install RGBDS v1.0.4
         run: |
           set -euo pipefail
 
-          sudo tee /etc/apt/preferences.d/rgbds >/dev/null <<'EOF'
-          Package: rgbds
-          Pin: version 1.0.4*
-          Pin-Priority: 1001
-
-          Package: rgbds
-          Pin: version *
-          Pin-Priority: -1
-          EOF
-
           sudo apt-get update -qq
+          sudo apt-get install -y -qq --no-install-recommends \
+            build-essential \
+            bison \
+            flex \
+            cmake \
+            libpng-dev \
+            pkg-config
 
-          sudo apt-get install -y -qq \
-            --no-install-recommends \
-            rgbds libpng-dev pkg-config
+          git clone --quiet --depth 1 --branch "v${RGBDS_VERSION}" \
+            https://github.com/gbdev/rgbds.git /tmp/rgbds
+
+          cmake -S /tmp/rgbds -B /tmp/rgbds/build \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DCMAKE_INSTALL_PREFIX=/usr/local
+
+          cmake --build /tmp/rgbds/build --parallel "$(nproc)"
+          sudo cmake --install /tmp/rgbds/build
 
           VERSION="$(rgbasm --version)"
           echo "RGBDS: ${VERSION}"
@@ -61,8 +65,6 @@ jobs:
             echo "::error::RGBDS v1.0.4 required. Found: ${VERSION}"
             exit 1
           fi
-
-          echo "RGBDS_VERSION=1.0.4" >> "${GITHUB_ENV}"
 
       - name: Build tools
         run: |
@@ -100,7 +102,7 @@ jobs:
           if checksum != rom[0x14D]:
               raise SystemExit("ERROR: Invalid ROM header checksum")
 
-          title = rom[0x134:0x144].split(b"\0")[0]
+          title = rom[0x134:0x144].split(b"\\0")[0]
 
           print(f"ROM: {rom_path}")
           print(f"Size: {len(rom):,} bytes")
@@ -117,4 +119,3 @@ jobs:
           path: Pokemon-Personal-Crystal.gbc
           if-no-files-found: error
           retention-days: 30
-          
